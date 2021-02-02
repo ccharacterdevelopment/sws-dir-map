@@ -1,0 +1,525 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* USA STYLES */
+
+	/* Region Titles */
+	#USsouthern-union-titles,
+	#USsouthwestern-union-titles,
+	#USpacific-union-titles,
+	#USnorth-pacific-union-titles,
+	#USmid-america-union-titles,
+	#USlake-union-titles,
+	#UScolumbia-union-titles,
+	#USatlantic-union-titles {
+		opacity: 0;
+	}
+	
+	/* Union Titles */
+	/*#southern-union-title,
+	#southwestern-union-title,
+	#pacific-union-title,
+	#north-pacific-union-title,
+	#mid-america-union-title,
+	#lake-union-title,
+	#columbia-union-title,
+	#atlantic-union-title,
+	#canadian-union-title {
+		fill: #000;
+		z-index: 999;
+		display: block;
+		text-transform: uppercase;
+		font-weight: 700;
+		text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+	}*/
+	
+	#USsouthern-union:hover, #USsouthwestern-union:hover, #USpacific-union:hover,
+	#USmid-america-union:hover, #USlake-union:hover, #UScolumbia-union:hover,
+	#USatlantic-union:hover, #USnorth-pacific-union:hover { 		cursor:pointer; }
+	
+	#USsouthern-union:hover #USsouthern-union-titles,
+	#USsouthwestern-union:hover #USsouthwestern-union-titles,
+	#USpacific-union:hover #USpacific-union-titles,
+	#USnorth-pacific-union:hover #USnorth-pacific-union-titles,
+	#USmid-america-union:hover #USmid-america-union-titles,
+	#USlake-union:hover #USlake-union-titles,
+	#UScolumbia-union:hover #UScolumbia-union-titles,
+	#USatlantic-union:hover #USatlantic-union-titles,
+	#canadian-union:hover #canadian-union-titles  {
+		opacity: 1;
+		-webkit-font-smoothing: antialiased;
+		font-smoothing: antialiased;
+		-webkit-transform: translate3d( 0, 0, 0);
+		transform: translate3d( 0, 0, 0);
+	}
+	
+	/* Atlantic Union */
+	#new-york-area,
+	#greater-new-york-area,
+	#northern-new-england-area,
+	#maine,
+	#new-hampshire,
+	#vermont,
+	#southern-new-england-area,
+	#massachusetts,
+	#rhode-island,
+	#connecticut {
+		fill: #ed2052;
+	}
+	
+	#USatlantic-union:hover #new-york-area,
+	#USatlantic-union:active #new-york-area {
+		fill: #f68fa8;
+	}
+	
+	#USatlantic-union:hover #greater-new-york-area,
+	#USatlantic-union:active #greater-new-york-area {
+		fill: #ed2052;
+	}
+	
+	#USatlantic-union:hover #maine,
+	#USatlantic-union:active #maine,
+	#USatlantic-union:hover #new-hampshire,
+	#USatlantic-union:active #new-hampshire,
+	#USatlantic-union:hover #vermont,
+	#USatlantic-union:active #vermont {
+		fill: #f17191;
+	}
+	
+	#USatlantic-union:hover #massachusetts,
+	#USatlantic-union:active #massachusetts,
+	#USatlantic-union:hover #rhode-island,
+	#USatlantic-union:active #rhode-island,
+	#USatlantic-union:hover #connecticut,
+	#USatlantic-union:active #connecticut {
+		fill: #fabdcb;
+	}
+	
+	/* Southwestern Union */
+	#texas-area,
+	#oklahoma-area,
+	#arkansas,
+	#louisiana,
+	#new-mexico,
+	#western-texas {
+		fill: #ef8423;
+	}
+	
+	#USsouthwestern-union:hover #texas-area {
+		fill: #ef8423;
+	}
+	
+	#USsouthwestern-union:hover #new-mexico,
+	#USsouthwestern-union:hover #western-texas {
+		fill: #f29d4f;
+	}
+	
+	#USsouthwestern-union:hover #oklahoma-area {
+		fill: #f5b57b;
+	}
+	
+	#USsouthwestern-union:hover #arkansas,
+	#USsouthwestern-union:hover #louisiana {
+		fill: #f9cea7;
+	}
+	
+	/* Columbia Union */
+	#mountain-view-area,
+	#chesapeake-area,
+	#pennsylvania-area,
+	#new-jersey-area,
+	#potomac-area,
+	#ohio-area {
+		fill: #b975b7;
+	}
+	
+	#UScolumbia-union:hover #mountain-view-area {
+		fill: #b975b7;
+	}
+	
+	#UScolumbia-union:hover #chesapeake-area {
+		fill: #e3c8e2;
+	}
+	
+	#UScolumbia-union:hover #pennsylvania-area {
+		fill: #d3a8d2;
+	}
+	
+	#UScolumbia-union:hover #new-jersey-area {
+		fill: #d6a6d5;
+	}
+	
+	#UScolumbia-union:hover #potomac-area {
+		fill: #c791c5;
+	}
+	
+	#UScolumbia-union:hover #ohio-area {
+		fill: #b975b7;
+	}
+	
+	/* Lake Union */
+	#indiana-area,
+	#michigan-area,
+	#wisconsin-area,
+	#illinois-area {
+		fill: #1682b0;
+	}
+	
+	#USlake-union:hover #indiana-area {
+		fill: #1682b0;
+	}
+	
+	#USlake-union:hover #michigan-area {
+		fill: #a2cddf;
+	}
+	
+	#USlake-union:hover #wisconsin-area {
+		fill: #73b4d0;
+	}
+	
+	#USlake-union:hover #illinois-area {
+		fill: #459bc0;
+	}
+	
+	/* Southern Union */
+	#georgia,
+	#eastern-tennessee,
+	#north-carolina,
+	#south-carolina,
+	#florida-area,
+	#kentucky,
+	#tennessee,
+	#mississippi,
+	#alabama {
+		fill: #5abb47;
+	}
+	
+	#USsouthern-union:hover #georgia,
+	#USsouthern-union:hover #eastern-tennessee {
+		fill: #bde4b5;
+	}
+	
+	#USsouthern-union:hover #north-carolina,
+	#USsouthern-union:hover #south-carolina {
+		fill: #acdda3;
+	}
+	
+	#USsouthern-union:hover #florida-area {
+		fill: #7bc96c;
+	}
+	
+	#USsouthern-union:hover #kentucky,
+	#USsouthern-union:hover #western-tennessee {
+		fill: #5abb47;
+	}
+	
+	#USsouthern-union:hover #mississippi,
+	#USsouthern-union:hover #alabama {
+		fill: #9cd691;
+	}
+	
+	/* North Pacific Union */
+	#wa-island,
+	#wa
+	#eastern-wa,
+	#upper-idaho,
+	#s-idaho-area,
+	#montana-area,
+	#alaska-area,
+	#w-oregon, #e-oregon,
+	#south-washington {
+		fill: #ff00cc;
+	}
+	
+	#USnorth-pacific-union:hover #wa-island,
+	#USnorth-pacific-union:hover #wa {
+		fill: #ffccf5;
+	}
+	
+	#USnorth-pacific-union:hover #eastern-wa,
+	#USnorth-pacific-union:hover #upper-idaho {
+		fill: #ff66e0;
+	}
+	
+	#USnorth-pacific-union:hover #s-idaho-area,
+	#USnorth-pacific-union:hover #e-oregon-area {
+		fill: #ff33d6;
+	}
+	
+	#USnorth-pacific-union:hover #montana-area {
+		fill: #ff00cc;
+	}
+	
+	#USnorth-pacific-union:hover #alaska-area {
+		fill: #ff7fe5;
+	}
+	
+	#USnorth-pacific-union:hover #w-oregon-area,
+	#USnorth-pacific-union:hover #south-washington {
+		fill: #ff99eb;
+	}
+	
+	/* Mid-America Union */
+	#colorado,
+	#wyoming,
+	#new-mexico2,
+	#kansas,
+	#nebraska
+	#iowa,
+	#missouri
+	#minnesota-area,
+	#north-dakota,
+	#south-dakota {
+		fill: #fed20d;
+	}
+	
+	
+	#USmid-america-union:hover #colorado,
+	#USmid-america-union:hover #wyoming,
+	#USmid-america-union:hover #new-mexico2 {
+		fill: #fff6cf;	
+	}
+	
+	#USmid-america-union:hover #kansas,
+	#USmid-america-union:hover #nebraska {
+		fill: #fed20d;
+	}
+	
+	#USmid-america-union:hover #iowa,
+	#USmid-america-union:hover #missouri {
+		fill: #ffed9e;
+	}
+	
+	#USmid-america-union:hover #minnesota-area {
+		fill: #fedb3d;
+	}
+	
+	#USmid-america-union:hover #north-dakota,
+	#USmid-america-union:hover #south-dakota {
+		fill: #fee46e;
+	}
+	
+	/* Pacific Union */
+	#hawaii-area,
+	#arizona-area,
+	#nevada,
+	#utah,
+	#southern-california-area,
+	#south-eastern-california-area,
+	#northern-california-area,
+	#central-california-area {
+		fill: #12a89d;
+	}
+	
+	#USpacific-union:hover #hawaii-area {
+		fill: #b7e5e1;
+	}
+	
+	#USpacific-union:hover #arizona-area {
+		fill: #41b9b1;
+	}
+	
+	#USpacific-union:hover #nevada,
+	#USpacific-union:hover #utah {
+		fill: #12a89d;
+	}
+	
+	#USpacific-union:hover #southern-california-area {
+		fill: #88d3ce;
+	}
+	
+	#USpacific-union:hover #south-eastern-california-area {
+		fill: #5ac2bb;
+	}
+	
+	#USpacific-union:hover #northern-california-area {
+		fill: #a0dcd8;
+	}
+	
+	#USpacific-union:hover #central-california-area {
+		fill: #71cbc4;
+	}
+
+
+
+/* CANADA STYLES */
+
+	/* Union Titles */
+	#british-columbia-title,
+	#alberta-title,
+	#manitoba-saskatchewan-title,
+	#ontario-title,
+	#quebec-title,
+	#maritime-title,
+	#newfoundland-labrador-title,
+	#newfoundland-labrador-line, #maritime-line {
+		/*text-shadow: 1px 1px 1px white;*/
+		opacity: 0;
+		fill: #000;
+		z-index: 999;
+		display: block;
+		font-weight: 400;
+		font-size:26px;
+	}
+	
+	/* British Columbia Union */
+	#yukon,
+	#queen-charlottes,
+	#british-columbia-cordillera,
+	#vancouver-island {
+		fill: #12a89d;
+	}
+	
+	#british-columbia-link:hover #yukon,
+	#british-columbia-link:hover #queen-charlottes,
+	#british-columbia-link:hover #british-columbia-cordillera,
+	#british-columbia-link:hover #vancouver-island {
+		fill: #16d0c3;
+	}
+	/* Alberta Union */
+	#north-west-melville,
+	#eglinton,
+	#prince-patrick,
+	#mackenzie-king,
+	#north-west-borden,
+	#north-west-victoria,
+	#banks,
+	#mackenzie,
+	#alberta,
+	#king-william,
+	#prince-of-wales,
+	#cornwallis,
+	#bylot,
+	#somerset,
+	#devon,
+	#meighen,
+	#axel-heiberg,
+	#ellesmere,
+	#bathurst,
+	#cornwall,
+	#amund-ringnes,
+	#ellef-ringnes,
+	#nunavut-borden,
+	#lougheed,
+	#byam-martin,
+	#nunavut-melville,
+	#nunavut-victoria,
+	#rowley,
+	#prince-charles,
+	#air-force,
+	#baffin,
+	#salisbury,
+	#nottingham,
+	#mansel,
+	#coats,
+	#southampton,
+	#keewatin {
+		fill: #ef8423;
+	}
+	
+	#alberta-link:hover #alberta,
+	#alberta-link:hover #northwest-territories {
+		fill: #f19641;	
+	}
+	
+	/* Manitoba Saskatchewan Union */
+	#saskatchewan,
+	#manitoba {
+		fill: #fed20d;
+	}
+	#manitoba-saskatchewan-link:hover #saskatchewan,
+	#manitoba-saskatchewan-link:hover #manitoba {
+		fill: #fee267;
+	}
+	
+	/* Ontario Union */
+	#ontario-area {
+		fill: #1682b0;
+	}
+	#ontario-link:hover #ontario-area {
+		fill: #33b0e6;	
+	}
+	
+	/* Quebec Union */
+	#qc-quebec,
+	#qc-anticosti {
+		fill: #b975b7;
+	}
+	
+	#quebec-link:hover #qc-quebec,
+	#quebec-link:hover #qc-anticosti {
+		fill: #cc99ca;
+	}
+	
+	/* Maritime Union */
+	#acadian-peninsula,
+	#cape-breton,
+	#prince-edward-island,
+	#new-brunswick {
+		fill: #5abb47;
+	}
+	
+	#maritime-link:hover #cape-breton,
+	#maritime-link:hover #acadian-peninsula,
+	#maritime-link:hover #cape-breton,
+	#maritime-link:hover #prince-edward-island,
+	#maritime-link:hover #new-brunswick {
+	fill: #8acf7d;
+	}
+	
+	/* Newfoundland Labrador Union */
+	#newfoundland,
+	#labrador {
+		fill: #ed2052;
+	}
+	
+	#newfoundland-labrador-area:hover,
+	#maritime-area:hover,
+	#quebec-area:hover,
+	#ontario-area:hover,
+	#manitoba-saskatchewan-area:hover,
+	#alberta-area:hover,
+	#british-columbia-area:hover {
+		stroke: #231F20;
+		stroke-width: 2px;
+	}
+	
+	#newfoundland-labrador-link:hover #newfoundland,
+	#newfoundland-labrador-link:hover #labrador 	 {
+		fill: #f25a80;	
+	}
+	
+	#newfoundland-labrador-link:hover #newfoundland-labrador-title, #newfoundland-labrador-link:hover #newfoundland-labrador-line {
+		opacity: 1;
+		fill: #000;		
+	}
+	
+	#quebec-link:hover #quebec-title {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#maritime-link:hover #maritime-title, #maritime-link:hover #maritime-line {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#ontario-link:hover #ontario-title {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#alberta-link:hover #alberta-title {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#british-columbia-link:hover #british-columbia-title {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#manitoba-saskatchewan-link:hover #manitoba-saskatchewan-title {			
+		opacity: 1;
+		fill: #000;
+	}
