@@ -1,7 +1,8 @@
 <?php
 
-include "../custom/functions/Db.php";
-include "../custom/functions/functions_sew.php";
+include "assets/Db.php";
+include "assets/functions_sws.php";
+
 
 if (isset($_GET['m'])) {$min=$_GET['m']; $_SESSION['sew']['min']=$_GET['m'];} else {$min='fam'; $_SESSION['sew']['min']="fam";}
 
