@@ -8,7 +8,7 @@ if (isset($_GET['m'])) {$min=$_GET['m']; $_SESSION['sew']['min']=$_GET['m'];} el
 
 $_SESSION['sew']['which']="fam";
 
-sws_style_links();
+echo $swsStyleHead;
 
 ?>
 <div style='width:100%'>

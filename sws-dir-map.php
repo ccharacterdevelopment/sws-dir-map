@@ -42,11 +42,9 @@ add_shortcode('sws_dir_listing', 'sws_dir_show');
 
 
 
-function sws_style_links(){
-
 $themedir=get_template_directory();
 	
-$mvar= <<<EOT
+global $swsStyleHead= <<<EOT
 <html lang="en-US">
   <head>
   <link rel='stylesheet' id='slick-css'  href='//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css?ver=5.4' type='text/css' media='all' />
@@ -59,10 +57,6 @@ $mvar= <<<EOT
 </head>
 <body>
 EOT;
-	return $myvar;
-		
-}
-
 
 
 ?>
