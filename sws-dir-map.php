@@ -32,9 +32,9 @@ function sws_dir_show($atts) {
 	  'test' => 'foobar'
 	), $atts);
 	$list_shortname=$a['group']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
-	//ob_start();
-		echo "This is a test. GROUP: $list_shortname";
-	//ob_end_clean();
+	ob_start(); ?>
+		This is a test. GROUP: <?php echo $list_shortname; ?>
+	<?php ob_end_clean();
 }
 
 // register shortcode
