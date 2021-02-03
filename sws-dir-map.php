@@ -34,7 +34,7 @@ function sws_dir_show($atts) {
 	$list_shortname=$a['group']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
 	ob_start(); ?>
 		This is a test. GROUP: <?php echo $list_shortname; ?>
-	<?php ob_end_clean();
+	<?php return ob_get_clean();
 }
 
 // register shortcode
