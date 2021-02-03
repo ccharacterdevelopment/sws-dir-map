@@ -1,7 +1,7 @@
 <?php
-/**
+/**s
  * Plugin Name:       SWS Directory/Interactive Map
- * Plugin URI:        https://ccharacter.com/custom-plugins/sws-wp-tweaks/
+ * Plugin URI:        https://ccharacter.com/custom-plugins/sws-dir-map/
  * Description:       Builds on the DBI to display interactive map/directory
  * Version:           1.0
  * Requires at least: 5.2
@@ -10,16 +10,16 @@
  * Author URI:        https://ccharacter.com/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       sws-dir-maps
+ * Text Domain:       sws-dir-map
  */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 require_once plugin_dir_path(__FILE__).'inc/plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://raw.githubusercontent.com/ccharacter/sws-dir-maps/main/plugin.json',
+	'https://raw.githubusercontent.com/ccharacter/sws-dir-map/main/plugin.json',
 	__FILE__,
-	'sws_dir_maps'
+	'sws_dir_map'
 );
 
 
