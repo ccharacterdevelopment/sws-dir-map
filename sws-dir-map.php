@@ -25,50 +25,20 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 
 
 
-// SHORTCODE FOR COLLAPSING DIVS  
-/*function sws_accordion_func($atts) {
+// SHORTCODE FOR directories  
+function sws_dir_show($atts) {
 	$a=shortcode_atts(array(
-	  'item_id' => 'content',
+	  'group' => 'conf_asam',
 	  'test' => 'foobar'
 	), $atts);
-	$itemID=$a['item_id']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
+	$list_shortname=$a['group']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
 	ob_start();
-	
-?>
-<script>
-if ('#<?php echo $itemID; ?>').length()) {
-	jQuery('#<?php echo $itemID; ?>').prepend("<div class='sws-magic-div'>");
-	jQuery('#<?php echo $itemID; ?>').append("</div>");
-				
-	jQuery(".sws-magic-div > ul").each(function (index, element) {
-		if ( jQuery( element ).children().length > 0) {
-			jQuery(element).wrap("<div class='sws-accordion'></div>");
-			jQuery(element).before( "<input type='checkbox' id='toggle" + index + "' class='sws-acc-ck' /><label for='toggle" + index + "'>&nbsp;&nbsp;&nbsp;</label>" );	
-			jQuery(element).wrap("<div class='sws-acc-content'></div>");
-			console.log('index' + index);
-		}
-		});
-}		
-</script> <?php
+		echo "This is a test. GROUP: $list_shortname";
 	ob_end_clean();
 }
 
 // register shortcode
-add_shortcode('sws_accordion', 'sws_accordion_func'); 
+add_shortcode('sws_dir_listing', 'sws_dir_show'); 
 
-// FIX SVG CROPPING ERROR
-add_action( 'after_setup_theme', 'sws_bodhi_svg_theme_support', 11 );
-function sws_bodhi_svg_theme_support() {
-
-	remove_theme_support( 'custom-logo' );
-
-	add_theme_support( 'custom-logo', array(
-		'flex-width'  => true,
-		'flex-height' => true,
-	) );
-
-}
-
-*/
 
 ?>
