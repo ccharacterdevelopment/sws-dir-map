@@ -13,7 +13,7 @@ $swsStyleHead= <<<EOT
 <link href="$themedir/style.css" rel="stylesheet" type="text/css">
 <link href="$themedir2/style.css" rel="stylesheet" type="text/css">
 <link href="assets/dir_styles.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="assets/javascript/sew_spamspan.js"></script>
+<script type="text/javascript" src="assets/sew_spamspan.js"></script>
 </head>
 <body>
 EOT;
