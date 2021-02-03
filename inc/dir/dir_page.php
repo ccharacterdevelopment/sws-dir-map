@@ -1,7 +1,7 @@
 <?php
 
-include "../custom/functions/Db.php";
-include "../custom/functions/functions_sew.php";
+include "assets/Db.php";
+include "assets/functions_sws.php";
 include "assets/dir_functions.php";
 
 if (isset($_GET['u'])) {$union=urldecode($_GET['u']);} else {$union="ANB";}
