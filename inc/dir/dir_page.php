@@ -12,7 +12,8 @@ if (isset($_GET['m'])) {$min=$_GET['m'];} else {$min='fam';}
 $_SESSION['sew']['which']="fam";
 $_SESSION['sew']['fam']="fam";
 
-include "assets/style_links.php";
+
+sws_iframe_head();
 
 ?>
 <div class='dirlist_holder'>

@@ -2,8 +2,10 @@
 
 // GENERAL FUNCTIONS USED BY MULTIPLE SITES/FILES
 
-function sws_iframe_head($themedir,$themedir2) { 
+function sws_iframe_head($themedir="X",$themedir2="X") { 
 
+if ($themedir=="X") { $themedir=$_SESSION['sew']['themedir']; }
+if ($themedir2=="X") { $themedir2=$_SESSION['sew']['themedir2']; }
 
 $swsStyleHead= <<<EOT
 <html lang="en-US">

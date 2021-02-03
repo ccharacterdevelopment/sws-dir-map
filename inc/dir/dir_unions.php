@@ -5,6 +5,8 @@ include "assets/functions_sws.php";
 include "assets/dir_functions.php";
 
 
+$_SESSION['sew']['which']="fam";
+
 if (isset($_GET['m'])) {$min=$_GET['m']; $_SESSION['sew']['min']=$_GET['m'];} else {$min='fam'; $_SESSION['sew']['min']="fam";}
 
 if (isset($_GET['t'])) { // get stylesheet directories from URL initially
@@ -14,10 +16,6 @@ if (isset($_GET['t'])) { // get stylesheet directories from URL initially
 	$themedir=$_SESSION['sew']['themedir'];
 	$themedir2=$_SESSION['sew']['themedir2'];
 }
-
-
-$_SESSION['sew']['which']="fam";
-
 
 sws_iframe_head($themedir,$themedir2);
 ?>
