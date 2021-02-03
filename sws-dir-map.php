@@ -22,41 +22,27 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'sws_dir_map'
 );
 
-
+//require_once plugin_dir_path(__FILE__)."inc/dir/assets/Db.php";
+//require_once plugin_dir_path(__FILE__)."inc/dir/assets/functions_sws.php";
+//require_once plugin_dir_path(__FILE__)."inc/dir/assets/dir_functions.php";
 
 
 // SHORTCODE FOR directories  
 function sws_dir_show($atts) {
+	
+	$themedir=urlencode(get_template_directory());
 	$a=shortcode_atts(array(
 	  'group' => 'conf_asam',
 	  'test' => 'foobar'
 	), $atts);
 	$list_shortname=$a['group']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
 	ob_start(); 
-		echo "<iframe src='".plugins_url( '/inc/dir/dir_unions.php', __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+		echo "<iframe src='".plugins_url( '/inc/dir/dir_unions.php?themedir='.$themedir, __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
 	return ob_get_clean();
 }
 
 // register shortcode
 add_shortcode('sws_dir_listing', 'sws_dir_show'); 
-
-
-
-$themedir=get_template_directory();
-	
-global $swsStyleHead= <<<EOT
-<html lang="en-US">
-  <head>
-  <link rel='stylesheet' id='slick-css'  href='//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css?ver=5.4' type='text/css' media='all' />
-<link rel='stylesheet' id='alps/main_css-css'  href='//cdn.adventist.org/alps/2/latest/css/main.css?ver=5.4' type='text/css' media='all' />
-<!--<link rel='stylesheet' id='alps/theme_css-css'  href='../Ze1Chi/themes/alps-wordpress/dist/styles/alps-theme.css' type='text/css' media='all' />
-<link href="../Ze1Chi/themes/alps-wordpress/style.css" rel="stylesheet" type="text/css">-->
-<link href="$themedir/style.css" rel="stylesheet" type="text/css">
-<link href="assets/dir_styles.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../custom/javascript/sew_spamspan.js"></script>
-</head>
-<body>
-EOT;
 
 
 ?>
