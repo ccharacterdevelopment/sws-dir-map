@@ -33,7 +33,7 @@ function sws_dir_show($atts) {
 	), $atts);
 	$list_shortname=$a['group']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
 	ob_start(); 
-		echo plugins_url( '/inc/dir/dir_page.php', __FILE__ );
+		echo "<iframe src='".plugins_url( '/inc/dir/dir_page.php', __FILE__ )."'></iframe>";
 	return ob_get_clean();
 }
 
