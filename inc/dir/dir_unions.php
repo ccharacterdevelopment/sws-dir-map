@@ -12,7 +12,7 @@ include "assets/dir_functions.php";
 if (isset($_GET['m'])) {$min=$_GET['m']; $_SESSION['sew']['min']=$_GET['m'];} else {$min='fam'; $_SESSION['sew']['min']="fam";}
 
 if (isset($_GET['vars'])) { // process url vars
-	$tmp=urldecode(base64_decode(json_decode($_GET['vars'],true)));
+	$tmp=json_decode(base64_decode(urldecode($_GET['vars'])),true);
 	print_r($tmp);
 } else {
 
