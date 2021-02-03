@@ -18,7 +18,7 @@ $swsStyleHead= <<<EOT
 </head>
 <body>
 EOT;
-	return $swsStyleHead;
+	echo $swsStyleHead;
 
 }
 
