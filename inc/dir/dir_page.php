@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include "assets/Db.php";
 include "assets/functions_sws.php";
 include "assets/dir_functions.php";
