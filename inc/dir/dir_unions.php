@@ -13,13 +13,15 @@ if (isset($_GET['m'])) {$min=$_GET['m']; $_SESSION['sew']['min']=$_GET['m'];} el
 
 if (isset($_GET['vars'])) { // process url vars
 	$tmp=json_decode(base64_decode(urldecode($_GET['vars'])),true);
-	print_r($tmp);
+	foreach ($tmp as $key=>$value) {
+		$_SESSION['sws'][$key]=$value;
+		${$key}=$value;
+	}
+	sws_iframe_head($themedir,$themedir2);
 } else {
-
-	
+	sws_iframe_head();
 }
 
-sws_iframe_head($themedir,$themedir2);
 ?>
 <div style='width:100%'>
 <?php

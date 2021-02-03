@@ -173,21 +173,11 @@ function sew_spamSpan($email) {
 	 } else { return $email; }
 }
 
-function sew_list_unions($min='fam') {
+function sew_list_unions($title="Men's Ministries",$group="conf_mmdir") {
 
-	switch ($min) {
-		case "asam": $ministry="ASAM"; break;
-		case "men": $ministry="Men's Ministries"; break;
-		case "ypac": $ministry = "YPAC Ministry"; break;
-		default: $ministry="Family Ministries";
-	}
 	
-	//if ($min=="asam") { 
-		echo "<h3>$ministry Leadership in the North American Division</h2><p style='margin-left:75px; width:100%'><ul class='dirlist_unions'>";	
-	//	} else {
-	//	echo "<h2>$ministry Leadership in the North American Division</h1><p style='margin-left:75px; width:100%'><ul>";	
-	//}
-	// get Union list
+	echo "<h3>$title Leadership in the North American Division</h2><p style='margin-left:75px; width:100%'><ul class='dirlist_unions'>";	
+
 	$db = new Db();
 	$union_array = $db -> select("select * from COMMON_temp_union order by full_text"); 
 	
@@ -195,10 +185,10 @@ function sew_list_unions($min='fam') {
 		$union=$union_array[$key]['full_text']; $id=$union_array[$key]['id'];
 		if (strpos($union,"Division")==false) { // skip NAD entry
 			if ($union=="Canadian") {	$union="Seventh-day Adventist Church in Canada"; } 
-			echo "<li><a href='dir_page.php?u=$id&m=$min'>$union</a></li>";
+			echo "<li><a href='dir_page.php?u=$id&m=$group'>$union</a></li>";
 		}
 	}
-	echo "<br /><li><a href='dir_page.php?u=ANNG&m=$min'>Guam-Micronesia Mission</a></li>";
+	echo "<br /><li><a href='dir_page.php?u=ANNG&m=$group'>Guam-Micronesia Mission</a></li>";
 	echo "</ul></p><p>&nbsp;</p>";	
 }
 

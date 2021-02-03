@@ -43,10 +43,10 @@ function sws_dir_show($atts) {
 	$vars['min_title']=$a['min_title'];
 	$vars['list_shortname']=$a['group']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
 	
-	error_log(print_r($vars,true),0);
+	//error_log(print_r($vars,true),0);
 	// construct the string being passed to the initial page
 	$getVar=urlencode(base64_encode(json_encode($vars)));
-	error_log($getVar);
+	//error_log($getVar);
 	
 	ob_start(); 
 		echo "<iframe src='".plugins_url( '/inc/dir/dir_unions.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
