@@ -30,14 +30,16 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 // SHORTCODE FOR directories  
 function sws_dir_show($atts) {
 	
-	$themedir=urlencode(get_template_directory());
+	$themedir=urlencode(get_template_directory_uri());
+	$themedir2=urlencode(get_stylesheet_directory_uri());
+
 	$a=shortcode_atts(array(
 	  'group' => 'conf_asam',
 	  'test' => 'foobar'
 	), $atts);
 	$list_shortname=$a['group']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
 	ob_start(); 
-		echo "<iframe src='".plugins_url( '/inc/dir/dir_unions.php?themedir='.$themedir, __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+		echo "<iframe src='".plugins_url( '/inc/dir/dir_unions.php?t='.$themedir.'&t2='.$themedir2, __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
 	return ob_get_clean();
 }
 
