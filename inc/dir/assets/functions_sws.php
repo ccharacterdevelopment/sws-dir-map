@@ -2,7 +2,7 @@
 
 // GENERAL FUNCTIONS USED BY MULTIPLE SITES/FILES
 
-function_sws_get_group_id($group_name="staff") {
+function sws_get_group_id($group_name="staff") {
 
 	$db = new Db();
 	$myVal=$db->query("select `id` as mytemp from dbi_group_names where `descr`='$group_name'")->fetch_object()->mytemp; 
