@@ -10,7 +10,7 @@ include "assets/dir_functions.php";
 
 if (isset($_GET['u'])) {$union=urldecode($_GET['u']);} else {$union="ANB";}
 
-$group=$_SESSION['sws']['list_shortname'];
+$group=$_SESSION['sws']['group'];
 
 sws_iframe_head();
 

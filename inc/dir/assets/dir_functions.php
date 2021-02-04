@@ -244,6 +244,9 @@ function sws_list_dir_by_union($unionCode) {
 
 	echo "<h3>$ministry Ministries Leadership in the $union</h2><div class='dirlist_div'>";
 	
+				$sql="select * from dbi_master where groups like '%:23:%' and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
+
+	
 	$union_array = $db -> select($sql); 
 
 	if (count($union_array)>0) {

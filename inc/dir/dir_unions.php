@@ -16,6 +16,7 @@ if (isset($_GET['vars'])) { // process url vars
 		${$key}=$value;
 		//error_log($key."|".$value,0);
 	}
+	sws_get_group_id($group);
 } else {
 	foreach ($_SESSION['sws'] as $key=>$value) {
 		${$key}=$value;

@@ -2,6 +2,13 @@
 
 // GENERAL FUNCTIONS USED BY MULTIPLE SITES/FILES
 
+function_sws_get_group_id($group_name="staff") {
+	$db=new DB();
+	$myVal=$db->query("select `id` as mytemp from dbi_group_names where `descr`='$group_name'")->fetch_object()->mytemp; 
+	if (!$myVal) { $myVal=5; }
+	$_SESSION['sws']['group_id']=$myVal;
+}
+
 function sws_iframe_head($themedir="X",$themedir2="X") { 
 
 if ($themedir=="X") { $themedir=$_SESSION['sew']['themedir']; }
@@ -176,7 +183,9 @@ function sew_spamSpan($email) {
 function sws_list_unions($title="Men's Ministries") {
 
 	
-	echo "<h3>$title Leadership in the North American Division</h2><p style='margin-left:75px; width:100%'><ul class='dirlist_unions'>";	
+	echo "<h3>$title Leadership in the North American Division</h3>
+	<p style='margin-left:75px; width:100%'>
+		<ul class='dirlist_unions'>";	
 
 	$db = new Db();
 	$union_array = $db -> select("select * from COMMON_temp_union order by full_text"); 
@@ -189,7 +198,7 @@ function sws_list_unions($title="Men's Ministries") {
 		}
 	}
 	echo "<br /><li><a href='dir_page.php?u=ANNG'>Guam-Micronesia Mission</a></li>";
-	echo "</ul></p><p>&nbsp;</p>";	
+	echo "</ul></p>";	
 }
 
 
