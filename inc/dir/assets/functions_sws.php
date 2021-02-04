@@ -161,11 +161,17 @@ function sew_su_tags($min) {
 }
 
 
-function sew_spamSpan($email) {
+function sws_spamSpan($email) {
 
+	if (!(strpos($email,";")===false)) { 
+
+		$tmp=explode(";",$email);
+		foreach($tmp as $item) { sws_spamspan(trim($item)); }
+	} 
+	
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {	
 		$at_pos=strpos($email,"@");
-		$last_dot=strrpos($email,".");
+		$last_dot=strrpos($email,"."); 
 
 		$user=substr($email,0,$at_pos);
 		$domain=substr($email,$at_pos+1,$last_dot-1-$at_pos);

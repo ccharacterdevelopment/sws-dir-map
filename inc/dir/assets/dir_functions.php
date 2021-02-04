@@ -328,7 +328,7 @@ function sws_dir_listing($row) {
 	}
 	if (strlen($row['work_phone'])>0) { echo "<strong>Phone:</strong> ".$row['work_phone']."<br />"; }
 	if ((strlen($row['email'])>0) && (strpos($row['email'],"BAD")==false)) { 
-		echo "<span style='font-weight:bold'>E-mail:</span> ".sew_spamSpan($row['email'])."<br />"; 
+		echo "<span style='font-weight:bold'>E-mail:</span> ".sws_spamSpan($row['email'])."<br />"; 
 	}
 	echo "</div>";
 }
