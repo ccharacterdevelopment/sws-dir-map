@@ -14,12 +14,12 @@ if (isset($_GET['vars'])) { // process url vars
 	foreach ($tmp as $key=>$value) {
 		$_SESSION['sws'][$key]=$value;
 		${$key}=$value;
-		error_log($key."|".$value,0);
+		//error_log($key."|".$value,0);
 	}
 } else {
 	foreach ($_SESSION['sws'] as $key=>$value) {
 		${$key}=$value;
-		error_log($key."|".$value,0);
+		//error_log($key."|".$value,0);
 	}
 }
 
@@ -29,7 +29,7 @@ sws_iframe_head($themedir,$themedir2);
 <div style='width:100%'>
 <?php
 
- sew_list_unions($list_shortname);
+ sew_list_unions($min_title);
 
 ?></div>
 </body></html>
