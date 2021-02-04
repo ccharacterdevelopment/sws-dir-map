@@ -185,7 +185,7 @@ function sws_list_unions($title="Men's Ministries") {
 
 	
 	echo "<h3>$title Leadership in the North American Division</h3>
-	<p style='margin-left:75px; width:100%'>
+	<div style='margin-left:75px; width:100%'>
 		<ul class='dirlist_unions'>";	
 
 	$db = new Db();
@@ -199,7 +199,7 @@ function sws_list_unions($title="Men's Ministries") {
 		}
 	}
 	echo "<br /><li><a href='dir_page.php?u=ANNG'>Guam-Micronesia Mission</a></li>";
-	echo "</ul></p>";	
+	echo "</ul></div>";	
 }
 
 
