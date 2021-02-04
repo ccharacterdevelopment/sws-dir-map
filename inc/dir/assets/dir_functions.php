@@ -306,7 +306,15 @@ function sws_dir_titles($row) {
 	if (!(strpos($row['title'],$ministry)===false)) { 	
 		$title= $row['title'];
 	} else {			
-		$title="Director of ".$ministry;
+		if (
+		(!(strpos($row['firstname']," and ")===false))
+		|| (!(strpos($row['firstname'], " & ")===false))
+		|| (!(strpos($row['firstname'], " &amp; ")===false))
+		) {
+			$title="Directors of ".$ministry;
+		} else {
+			$title="Director of ".$ministry;
+		}
 	}
 	return $title;	
 }
