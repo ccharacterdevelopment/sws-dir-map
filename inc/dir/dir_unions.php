@@ -18,6 +18,7 @@ if (isset($_GET['vars'])) { // process url vars
 } else {
 	foreach ($_SESSION['sws'] as $key=>$value) {
 		${$key}=$value;
+	}
 }
 
 sws_iframe_head($themedir,$themedir2);
