@@ -297,7 +297,6 @@ function sws_dir_names($row) {
 	$name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];}
 		
 	return $name;
-	}
 }
 
 function sws_dir_titles($row) {
