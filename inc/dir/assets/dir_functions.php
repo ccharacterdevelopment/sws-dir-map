@@ -290,87 +290,29 @@ function sws_list_dir_by_union($unionCode) {
 function sws_dir_names($row) {
 	$prefix=$_SESSION['sws']['show_prefixes'];
 	
-	error_log(print_r($row,true),0);
-	/*
-	$name="";
-	if (is_null($index)) { return $name; } else {
-		if (!($index=="X")) { 
-			$db = new Db(); 
-			$query = $db->select("select * from dbi_master where `id`='$index'");
-			foreach ($query as $key=>$value) { 	$row=$query[$key];	}
-		}
+	//error_log(print_r($row,true),0);
+	
+	if (($prefix=="Y") && (strlen($row['prefix'])>0)) { $name=$row['prefix']." "; } else {$name="";}
 
-		switch ($ministry) {
-			case "Men's": $co_row="men_codirectors"; 
-				$isCo=sew_get_custom($row['id'],11);
-				break;
-			case "Adventist Single Adult": $co_row="asam_codirectors"; 
-				$isCo=sew_get_custom($row['id'],12);
-				break;	
-			default: $co_row="fm_codirectors"; 
-				$isCo=sew_get_custom($row['id'],1);
-				break;
-		}
-		
-		//$name.=$row['id'];
-
-		if (($prefix=="Y") && (strlen($row['prefix'])>0)) { $name=$row['prefix']." "; }
-
-		if ($isCo) { 
-			$spouseFN=sew_get_custom($row['id'],2);
-			if (!($spouseFN)) { $spouseFN="Mrs.";}
-			$spouseLN=sew_get_custom($row['id'],3);
-			if (!($spouseLN)) {$spouseLN="";}
-			$spousePre=sew_get_custom($row['id'],5);
-			if (!($spousePre)) { $spousePre="";}
-			
-			if ((strpos($row['firstname']," and ")===false) || (!(strpos($row['firstname']," &amp; ")===false)) || (!(strpos($row['firstname']," & ")===false))) {
-				if (($spouseLN==$row['lastname']) || ($spouseLN=="")) {
-					 $name.=$row['firstname']." &amp; ".$spousePre." ".$spouseFN." ".$row['lastname'];
-				} else {
-					 $name.=$row['firstname']." ".$row['lastname']." &amp; ".$spouseFN." ".$spouseLN;
-				}
-			}
-			else { $name.= $row['firstname']." ".$row['mi']." ".$row['lastname'];}
-				
-		} else { $name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];}
+	$name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];}
 		
 	return $name;
-	}*/
+	}
 }
 
 function sws_dir_titles($row) {
 	$title="";
+	$ministry=$_SESSION['sws']['min_title'];
 
-	if (is_null($index)) { return $title;} else {
-		if (!($index=="X")) { 
-			$db = new Db(); 
-			$query = $db->select("select * from dbi_master where `index`='$index'");
-			foreach ($query as $key=>$value) { 	$row=$query[$key];	}
-		}
-
-		switch ($ministry) {
-			case "Men's": $co_row="men_codirectors"; 
-				$isCo=sew_get_custom($row['id'],11);			
-				break;
-			case "Adventist Single Adult": 
-				$isCo=sew_get_custom($row['id'],12);
-				$co_row="asam_codirectors"; break;	
-			case "Family": 		
-				$isCo=sew_get_custom($row['id'],1);
-				break;
-			default: $co_row="fm_codirectors"; 
-				$isCo=sew_get_custom($row['id'],1);
-				break;
-		}
-
-		if (($row['title']=="Conference Coordinator") || (!(strpos($row['title'],"Assistant")===false)) || (!(strpos($row['title'],"Associate")===false)) ) { $title= $row['title'];} else {
+	if (($row['title']=="Conference Coordinator") || (!(strpos($row['title'],"Assistant")===false)) 
+	|| (!(strpos($row['title'],"Associate")===false)) ) { 
+	
+		$title= $row['title'];
+	} else {
 				
-			if ($isCo) { $title=$ministry." Ministries Co-Directors"; } 
-			else { $title="Director of ".$ministry." Ministries";}
-		}
-	return $title;	
+			else { $title="Director of ".$ministry;}
 	}
+	return $title;	
 }
 
 function sws_dir_listing($row) {
@@ -378,9 +320,9 @@ function sws_dir_listing($row) {
 	$ministry=$_SESSION['sws']['min_title'];
 	
 	echo "<div style='margin-left:1.5em; margin-top:0;'><strong>";
-	echo sws_dir_names($row, $ministry);
+	echo sws_dir_names($row);
 	echo "</strong><br />";
-	//echo sws_dir_titles($row)."<br />";
+	echo sws_dir_titles($row)."<br />";
 
 	if (strlen($row['address1'])>0) { echo $row['address1']."<br />"; }
 	if (strlen($row['address2'])>0) { echo $row['address2']."<br />"; }
