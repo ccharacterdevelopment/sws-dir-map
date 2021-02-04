@@ -307,9 +307,8 @@ function sws_dir_titles($row) {
 	|| (!(strpos($row['title'],"Associate")===false)) ) { 
 	
 		$title= $row['title'];
-	} else {
-				
-			else { $title="Director of ".$ministry;}
+	} else {			
+		$title="Director of ".$ministry;
 	}
 	return $title;	
 }
