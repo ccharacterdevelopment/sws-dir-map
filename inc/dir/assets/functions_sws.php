@@ -188,7 +188,7 @@ function sew_list_unions($title="Men's Ministries") {
 			echo "<li><a href='dir_page.php?u=$id'>$union</a></li>";
 		}
 	}
-	echo "<br /><li><a href='dir_page.php?u=ANNG&m=$group'>Guam-Micronesia Mission</a></li>";
+	echo "<br /><li><a href='dir_page.php?u=ANNG'>Guam-Micronesia Mission</a></li>";
 	echo "</ul></p><p>&nbsp;</p>";	
 }
 
