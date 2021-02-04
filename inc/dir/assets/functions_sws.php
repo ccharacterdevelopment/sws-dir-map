@@ -166,7 +166,7 @@ function sws_spamSpan($email) {
 	if (!(strpos($email,";")===false)) { 
 
 		$tmp=explode(";",$email);
-		foreach($tmp as $item) { error_log($item,0); sws_spamspan(trim($item)); }
+		foreach($tmp as $item) { error_log($item,0); sws_spamSpan(trim($item)); }
 	} 
 	
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {	
