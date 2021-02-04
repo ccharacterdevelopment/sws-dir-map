@@ -229,8 +229,11 @@ function fm_dumpquery2($sql, $dir="N", $min="Family") {
 } 
 
 
-function fm_list_dir_by_union($unionCode,$min='fam') {
+function sws_list_dir_by_union($unionCode) {
 
+	$ministry=$_SESSION['sws']['min_title'];
+	$group=$_SESSION['sws']['list_shortname'];
+	
 	$db = new Db();
 	if (!($unionCode=="ANNG")) {
 		$union= $db->query("select full_text from COMMON_temp_union where id='$unionCode' ")->fetch_object()->full_text;
@@ -239,31 +242,7 @@ function fm_list_dir_by_union($unionCode,$min='fam') {
 		$unionCode="Guam";
 	}
 
-	
-	switch ($min) {
-		case "asam": $ministry="Adventist Single Adult"; break;
-		case "men": $ministry="Men's"; break;
-		case "fam": $ministry="Family"; break;
-		default: $ministry="Family";
-	}
-
-	switch ($min) {
-		case "asam":
-			echo "<h3>ASAM Leadership in the $union</h3><div class='dirlist_div'>";
-			$sql="select * from dbi_master where groups like '%:23:%' and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
-			break;
-		case "men":
-			echo "<h3>$ministry Ministries Leadership in the $union</h2><div class='dirlist_div'>";
-			$sql="select * from dbi_master where groups like '%:2:%' and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
-			break;
-		case "fam":
-			echo "<h3>$ministry Ministries Leadership in the $union</h2><div class='dirlist_div'>";
-			$sql="select * from dbi_master where groups like '%:4:%' and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
-			break;			
-		default:
-			echo "<h3>$ministry Ministries Leadership in the $union</h2><div class='dirlist_div'>";
-	}
-
+	echo "<h3>$ministry Ministries Leadership in the $union</h2><div class='dirlist_div'>";
 	
 	$union_array = $db -> select($sql); 
 
@@ -277,7 +256,7 @@ function fm_list_dir_by_union($unionCode,$min='fam') {
 		
 			echo $myconf."</span><br />";
 		
-			fm_dir_listing($row, $ministry);
+			sws_dir_listing($row);
 			echo "</div>";
 		}
 	}
@@ -316,8 +295,11 @@ function fm_list_dir_by_union($unionCode,$min='fam') {
 	} // don't do for NAD entry
 }
 
-function fm_dir_names($row, $ministry="Family", $prefix="Y", $index="X", $min='fm') {
-	//print_r($row);
+function sws_dir_names($row) {
+	$prefix=$_SESSION['sws']['show_prefixes'];
+	
+	error_log(print_r($row,true),0);
+	/*
 	$name="";
 	if (is_null($index)) { return $name; } else {
 		if (!($index=="X")) { 
@@ -362,10 +344,10 @@ function fm_dir_names($row, $ministry="Family", $prefix="Y", $index="X", $min='f
 		} else { $name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];}
 		
 	return $name;
-	}
+	}*/
 }
 
-function fm_dir_titles($row, $ministry="Family", $index="X",$min='fm') {
+function sws_dir_titles($row) {
 	$title="";
 
 	if (is_null($index)) { return $title;} else {
@@ -399,12 +381,14 @@ function fm_dir_titles($row, $ministry="Family", $index="X",$min='fm') {
 	}
 }
 
-function fm_dir_listing($row, $ministry="Family",$min="fm") {
+function sws_dir_listing($row) {
+	
+	$ministry=$_SESSION['sws']['min_title'];
 	
 	echo "<div style='margin-left:1.5em; margin-top:0;'><strong>";
-	echo fm_dir_names($row, $ministry);
+	echo sws_dir_names($row, $ministry);
 	echo "</strong><br />";
-	echo fm_dir_titles($row, $ministry)."<br />";
+	//echo sws_dir_titles($row)."<br />";
 
 	if (strlen($row['address1'])>0) { echo $row['address1']."<br />"; }
 	if (strlen($row['address2'])>0) { echo $row['address2']."<br />"; }

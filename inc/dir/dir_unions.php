@@ -29,7 +29,7 @@ sws_iframe_head($themedir,$themedir2);
 <div style='width:100%'>
 <?php
 
- sew_list_unions($min_title);
+ sws_list_unions($min_title);
 
 ?></div>
 </body></html>

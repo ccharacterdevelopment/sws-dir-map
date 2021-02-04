@@ -173,7 +173,7 @@ function sew_spamSpan($email) {
 	 } else { return $email; }
 }
 
-function sew_list_unions($title="Men's Ministries") {
+function sws_list_unions($title="Men's Ministries") {
 
 	
 	echo "<h3>$title Leadership in the North American Division</h2><p style='margin-left:75px; width:100%'><ul class='dirlist_unions'>";	

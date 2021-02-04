@@ -19,7 +19,7 @@ sws_iframe_head();
 <p><a href='dir_unions.php'>BACK TO UNION LIST</a></p>
 <?php
 
-fm_list_dir_by_union($union,$group);
+sws_list_dir_by_union($union,$group);
 
 ?>
 <br>

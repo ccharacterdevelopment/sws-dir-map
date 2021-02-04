@@ -37,11 +37,13 @@ function sws_dir_show($atts) {
 
 	$a=shortcode_atts(array(
 	  'group' => 'conf_asam',
-	  'min_title' => 'ASAM'
+	  'min_title' => 'ASAM',
+	  'show_prefixes' => "Y"
 	), $atts);
 	
-	$vars['min_title']=$a['min_title'];
-	$vars['list_shortname']=$a['group']; // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
+	foreach ($a as $key=>$value) { 
+		$vars[$key]=$value;
+	} // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
 	
 	//error_log(print_r($vars,true),0);
 	// construct the string being passed to the initial page
