@@ -3,7 +3,8 @@
 // GENERAL FUNCTIONS USED BY MULTIPLE SITES/FILES
 
 function_sws_get_group_id($group_name="staff") {
-	$db=new DB();
+
+	$db = new Db();
 	$myVal=$db->query("select `id` as mytemp from dbi_group_names where `descr`='$group_name'")->fetch_object()->mytemp; 
 	if (!$myVal) { $myVal=5; }
 	$_SESSION['sws']['group_id']=$myVal;
