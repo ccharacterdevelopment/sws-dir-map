@@ -173,7 +173,7 @@ function sew_spamSpan($email) {
 	 } else { return $email; }
 }
 
-function sew_list_unions($title="Men's Ministries",$group="conf_mmdir") {
+function sew_list_unions($title="Men's Ministries") {
 
 	
 	echo "<h3>$title Leadership in the North American Division</h2><p style='margin-left:75px; width:100%'><ul class='dirlist_unions'>";	
@@ -185,7 +185,7 @@ function sew_list_unions($title="Men's Ministries",$group="conf_mmdir") {
 		$union=$union_array[$key]['full_text']; $id=$union_array[$key]['id'];
 		if (strpos($union,"Division")==false) { // skip NAD entry
 			if ($union=="Canadian") {	$union="Seventh-day Adventist Church in Canada"; } 
-			echo "<li><a href='dir_page.php?u=$id&m=$group'>$union</a></li>";
+			echo "<li><a href='dir_page.php?u=$id'>$union</a></li>";
 		}
 	}
 	echo "<br /><li><a href='dir_page.php?u=ANNG&m=$group'>Guam-Micronesia Mission</a></li>";
