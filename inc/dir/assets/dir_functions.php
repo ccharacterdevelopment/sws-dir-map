@@ -294,7 +294,7 @@ function sws_dir_names($row) {
 	
 	if (($prefix=="Y") && (strlen($row['prefix'])>0)) { $name=$row['prefix']." "; } else {$name="";}
 
-	$name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];}
+	$name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];
 		
 	return $name;
 }
