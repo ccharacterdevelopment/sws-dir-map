@@ -279,7 +279,7 @@ function sws_list_dir_by_union($unionCode) {
 	foreach ($conf_array as $key=>$value) {
 		$row=$conf_array[$key];
 
-		echo "<div class='dir_entry'><h4>".$row['conference']." Conference</h4>";
+		echo "<div class='dir_entry'><span class='h4'>".$row['conference']." Conference</span>";
 		sws_dir_listing($row, $ministry);
 		echo "</div>";
 	}
@@ -303,9 +303,7 @@ function sws_dir_titles($row) {
 	$title="";
 	$ministry=$_SESSION['sws']['min_title'];
 
-	if (($row['title']=="Conference Coordinator") || (!(strpos($row['title'],"Assistant")===false)) 
-	|| (!(strpos($row['title'],"Associate")===false)) ) { 
-	
+	if (!(strpos($row['title'],$ministry)===false)) { 	
 		$title= $row['title'];
 	} else {			
 		$title="Director of ".$ministry;
