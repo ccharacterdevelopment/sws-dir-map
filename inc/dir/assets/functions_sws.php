@@ -167,24 +167,25 @@ function sws_spamSpan($email) {
 
 		$tmp=explode(";",$email);
 		foreach($tmp as $item) { error_log($item,0); sws_spamSpan(trim($item)); }
-	} 
+	} else {
 	
-	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {	
-		$at_pos=strpos($email,"@");
-		$last_dot=strrpos($email,"."); 
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {	
+			$at_pos=strpos($email,"@");
+			$last_dot=strrpos($email,"."); 
 
-		$user=substr($email,0,$at_pos);
-		$domain=substr($email,$at_pos+1,$last_dot-1-$at_pos);
-		$ext=substr($email,$last_dot+1,strlen($email));	
+			$user=substr($email,0,$at_pos);
+			$domain=substr($email,$at_pos+1,$last_dot-1-$at_pos);
+			$ext=substr($email,$last_dot+1,strlen($email));	
 
-		$mytext="<span class=\"sew_spamspan\">
-		<span class=\"sew_u\">$user</span>
-		[at]
-		<span class=\"sew_d\">$domain [dot] $ext</span>
-		</span>";
-		return $mytext;
+			$mytext="<span class=\"sew_spamspan\">
+			<span class=\"sew_u\">$user</span>
+			[at]
+			<span class=\"sew_d\">$domain [dot] $ext</span>
+			</span>";
+			return $mytext;
 
-	 } else { return $email; }
+		} else { return $email; }
+	}
 }
 
 function sws_list_unions($title="Men's Ministries") {
