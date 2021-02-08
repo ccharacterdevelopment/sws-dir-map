@@ -3,8 +3,8 @@ session_start();
 
 date_default_timezone_set("America/New_York");
 
-include "../custom/functions/Db.php";
-include "../custom/functions/functions_sew.php";
+include "assets/Db.php";
+include "assets/functions_sws.php";
 include "assets/dir_functions.php";
 
 $_SESSION['sew']['which']="fam";
