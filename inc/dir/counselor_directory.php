@@ -19,17 +19,9 @@ switch ($min) {
 	
 }
 
+sws_iframe_head($themedir,$themedir2);
+
 ?>
-<html lang="en-US">
-  <head>
-  <link rel='stylesheet' id='slick-css'  href='//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css?ver=5.4' type='text/css' media='all' />
-<link rel='stylesheet' id='alps/theme_css-css'  href='../Ze1Chi/themes/alps-wordpress/dist/styles/alps-theme.css' type='text/css' media='all' />
-<link href="../Ze1Chi/themes/alps-wordpress/style.css" rel="stylesheet" type="text/css">
-<link href="../Ze1Chi/themes/nadfm-theme/style.css" rel="stylesheet" type="text/css">
-<link href="assets/dir_styles.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../custom/javascript/sew_spamspan.js"></script>
-</head>
-<body style='font-size:.8rem !important'>
 <h2>Counselor Search</h2>
 
 Fill out the form below and click START SEARCH to query our database 
