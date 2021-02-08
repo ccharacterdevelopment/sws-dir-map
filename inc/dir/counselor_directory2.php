@@ -24,13 +24,28 @@ if ((isset($vars['new_sort']))) {$sort=$vars['new_sort'];} else {$sort="`lastnam
 
 $db = new Db();
 
-if (isset($_POST['min'])) {$min=$_POST['min'];} else {$min="fam";}
+/*if (isset($_POST['min'])) {$min=$_POST['min'];} else {$min="fam";}
 
 switch ($min) {
 	case "men": $ministry="Men's Ministries"; break;
 	case "asam": $ministry="Adventist Single Adult Ministries";	break;
 	default: $ministry="Family Ministries";
 	
+}*/
+
+if (isset($_GET['vars'])) { // process url vars
+	$tmp=json_decode(base64_decode(urldecode($_GET['vars'])),true);
+	foreach ($tmp as $key=>$value) {
+		$_SESSION['sws'][$key]=$value;
+		${$key}=$value;
+		//error_log($key."|".$value,0);
+	}
+	sws_get_group_id($group);
+} else {
+	foreach ($_SESSION['sws'] as $key=>$value) {
+		${$key}=$value;
+		//error_log($key."|".$value,0);
+	}
 }
 
 sws_iframe_head($themedir,$themedir2);
