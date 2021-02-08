@@ -24,7 +24,7 @@ if (isset($_GET['vars'])) { // process url vars
 	foreach ($tmp as $key=>$value) {
 		$_SESSION['sws'][$key]=$value;
 		${$key}=$value;
-		error_log($key."|".$value,0);
+		//error_log($key."|".$value,0);
 	}
 	sws_get_group_id($group);
 } else {
@@ -41,7 +41,7 @@ sws_iframe_head($themedir,$themedir2);
 
 Fill out the form below and click START SEARCH to query our database 
   of  counselors.
-<form name="form1" method="post" action="counselor_directory2.php"><input type='hidden' name='min' value='<?php echo $min; ?>' />
+<form name="form1" method="post" action="counselor_directory2.php"><input type='hidden' name='min_title' value='<?php echo $min_title; ?>' />
 <div style='margin-left:25%; padding-left:1.5em;'><br>
     Search by. . . </div>
 <!--<div>
@@ -89,7 +89,7 @@ To search for other Christian Counselors near you <a href="https://connect.aacc.
 <br>
 <em>Please 
               note that listing in this directory does not consitute a recommendation 
-              or endorsement from the North American Division <?php echo $ministry; ?> Department.</em>
+              or endorsement from the North American Division <?php echo $min_title; ?> Department.</em>
 </div>
 <p>&nbsp;</p>
 </body></html>
