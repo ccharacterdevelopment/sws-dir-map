@@ -29,7 +29,7 @@ h4, .h4 { font-variant: small-caps; }
 
 input[type='text'] { padding: 0 !important; }
 
-input[type=checkbox]{ webkit-appearance: auto !important; }
+input[type=checkbox], .item { webkit-appearance: auto !important; }
 
 
 /* COUNSELOR DIRECTORY STYLES */
