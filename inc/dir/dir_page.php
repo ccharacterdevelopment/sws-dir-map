@@ -16,13 +16,13 @@ sws_iframe_head();
 
 ?>
 <div class='dirlist_holder'>
-<p><a href='dir_unions.php'>BACK TO UNION LIST</a></p>
+<a href='dir_unions.php'>BACK TO UNION LIST</a>
 <?php
 
 sws_list_dir_by_union($union,$group);
 
 ?>
 <br>
-<a href='dir_unions.php'>BACK TO UNION LIST</a></p>
-</div><script type="text/javascript" src="../custom/javascript/iframeResizer.contentWindow.min.js"></script>
+<a href='dir_unions.php'>BACK TO UNION LIST</a>
+</div><!--<script type="text/javascript" src="../custom/javascript/iframeResizer.contentWindow.min.js"></script>-->
 </body></HTML>

@@ -12,8 +12,8 @@ function sws_get_group_id($group_name="staff") {
 
 function sws_iframe_head($themedir="X",$themedir2="X") { 
 
-if ($themedir=="X") { $themedir=$_SESSION['sew']['themedir']; }
-if ($themedir2=="X") { $themedir2=$_SESSION['sew']['themedir2']; }
+if ($themedir=="X") { $themedir=$_SESSION['sws']['themedir']; }
+if ($themedir2=="X") { $themedir2=$_SESSION['sws']['themedir2']; }
 
 $swsStyleHead= <<<EOT
 <html lang="en-US">
