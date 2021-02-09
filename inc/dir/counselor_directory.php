@@ -3,11 +3,11 @@ session_start();
 
 date_default_timezone_set("America/New_York");
 
-include "../custom/functions/Db.php";
-include "../custom/functions/functions_sew.php";
+include "assets/Db.php";
+include "assets/functions_sws.php";
 include "assets/dir_functions.php";
 
-$_SESSION['sew']['which']="fam";
+/*$_SESSION['sew']['which']="fam";
 
 if ((isset($_GET['m'])) && ($_GET['m'])) {$min=$_GET['m'];} else {$min='fam';}
 
@@ -17,24 +17,31 @@ switch ($min) {
 	case "asam": $ministry="Adventist Single Adult Ministries";	break;
 	default: $ministry="Family Ministries";
 	
+}*/
+
+if (isset($_GET['vars'])) { // process url vars
+	$tmp=json_decode(base64_decode(urldecode($_GET['vars'])),true);
+	foreach ($tmp as $key=>$value) {
+		$_SESSION['sws'][$key]=$value;
+		${$key}=$value;
+		//error_log($key."|".$value,0);
+	}
+	sws_get_group_id($group);
+} else {
+	foreach ($_SESSION['sws'] as $key=>$value) {
+		${$key}=$value;
+		//error_log($key."|".$value,0);
+	}
 }
 
+sws_iframe_head($themedir,$themedir2);
+
 ?>
-<html lang="en-US">
-  <head>
-  <link rel='stylesheet' id='slick-css'  href='//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css?ver=5.4' type='text/css' media='all' />
-<link rel='stylesheet' id='alps/theme_css-css'  href='../Ze1Chi/themes/alps-wordpress/dist/styles/alps-theme.css' type='text/css' media='all' />
-<link href="../Ze1Chi/themes/alps-wordpress/style.css" rel="stylesheet" type="text/css">
-<link href="../Ze1Chi/themes/nadfm-theme/style.css" rel="stylesheet" type="text/css">
-<link href="assets/dir_styles.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../custom/javascript/sew_spamspan.js"></script>
-</head>
-<body style='font-size:.8rem !important'>
 <h2>Counselor Search</h2>
 
 Fill out the form below and click START SEARCH to query our database 
   of  counselors.
-<form name="form1" method="post" action="counselor_directory2.php"><input type='hidden' name='min' value='<?php echo $min; ?>' />
+<form name="form1" method="post" action="counselor_directory2.php"><input type='hidden' name='min_title' value='<?php echo $min_title; ?>' />
 <div style='margin-left:25%; padding-left:1.5em;'><br>
     Search by. . . </div>
 <!--<div>
@@ -82,7 +89,7 @@ To search for other Christian Counselors near you <a href="https://connect.aacc.
 <br>
 <em>Please 
               note that listing in this directory does not consitute a recommendation 
-              or endorsement from the North American Division <?php echo $ministry; ?> Department.</em>
+              or endorsement from the North American Division <?php echo $min_title; ?> Department.</em>
 </div>
 <p>&nbsp;</p>
 </body></html>

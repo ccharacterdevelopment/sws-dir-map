@@ -59,4 +59,35 @@ function sws_dir_show($atts) {
 add_shortcode('sws_dir_listing', 'sws_dir_show'); 
 
 
+// SHORTCODE FOR directories  
+function sws_search_show($atts) {
+	
+	$vars=array();
+	
+	$vars['themedir']=get_template_directory_uri();
+	$vars['themedir2']=get_stylesheet_directory_uri();
+
+	$a=shortcode_atts(array(
+	  'group' => 'conf_asam',
+	  'min_title' => 'ASAM',
+	  'show_prefixes' => "Y"
+	), $atts);
+	
+	foreach ($a as $key=>$value) { 
+		$vars[$key]=$value;
+	} // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
+	
+	//error_log(print_r($vars,true),0);
+	// construct the string being passed to the initial page
+	$getVar=urlencode(base64_encode(json_encode($vars)));
+	//error_log($getVar);
+	
+	ob_start(); 
+		echo "<iframe src='".plugins_url( '/inc/dir/counselor_directory.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+	return ob_get_clean();
+}
+
+// register shortcode
+add_shortcode('sws_search_listing', 'sws_search_show');
+
 ?>

@@ -2,8 +2,8 @@
 session_start();
 
 
-include "../custom/functions/Db.php";
-include "../custom/functions/functions_sew.php";
+include "assets/Db.php";
+include "assets/functions_sws.php";
 include "assets/dir_functions.php";
 
 $_SESSION['sew']['which']="fam";
@@ -24,25 +24,33 @@ if ((isset($vars['new_sort']))) {$sort=$vars['new_sort'];} else {$sort="`lastnam
 
 $db = new Db();
 
-if (isset($_POST['min'])) {$min=$_POST['min'];} else {$min="fam";}
+/*if (isset($_POST['min'])) {$min=$_POST['min'];} else {$min="fam";}
 
 switch ($min) {
 	case "men": $ministry="Men's Ministries"; break;
 	case "asam": $ministry="Adventist Single Adult Ministries";	break;
 	default: $ministry="Family Ministries";
 	
+}*/
+
+if (isset($_GET['vars'])) { // process url vars
+	$tmp=json_decode(base64_decode(urldecode($_GET['vars'])),true);
+	foreach ($tmp as $key=>$value) {
+		$_SESSION['sws'][$key]=$value;
+		${$key}=$value;
+		//error_log($key."|".$value,0);
+	}
+	sws_get_group_id($group);
+} else {
+	foreach ($_SESSION['sws'] as $key=>$value) {
+		${$key}=$value;
+		//error_log($key."|".$value,0);
+	}
 }
 
-?><html lang="en-US">
-  <head>
-  <link rel='stylesheet' id='slick-css'  href='//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css?ver=5.4' type='text/css' media='all' />
-<link rel='stylesheet' id='alps/theme_css-css'  href='../Ze1Chi/themes/alps-wordpress/dist/styles/alps-theme.css' type='text/css' media='all' />
-<link href="../Ze1Chi/themes/alps-wordpress/style.css" rel="stylesheet" type="text/css">
-<link href="../Ze1Chi/themes/nadfm-theme/style.css" rel="stylesheet" type="text/css">
-<link href="assets/dir_styles.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../custom/javascript/sew_spamspan.js"></script>
-</head>
-<body style='font-size:.8rem !important'>
+sws_iframe_head($themedir,$themedir2);
+
+?>
 <div style='width:100%;'>
 <h2>Search Results</h2>
 <span style='color:#FF0000; font-weight:bold;'>*</span> 
