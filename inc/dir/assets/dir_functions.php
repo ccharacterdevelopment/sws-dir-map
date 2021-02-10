@@ -4,7 +4,7 @@
 function ejj_dir_listing($row) {
 	
 
-	error_log(print_r($row), 0);
+	error_log(print_r($row, true), 0);
 	$ministry=$_SESSION['sws']['min_title'];
 	
 	echo "ejj<div style='margin-left:1.5em; margin-top:0;'><strong>";
