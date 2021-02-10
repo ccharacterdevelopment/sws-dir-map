@@ -214,28 +214,6 @@ function sws_list_unions($title="Men's Ministries") {
 	echo "</ul></div>";	
 }
 
-function ejj_list_unions($title="Men's Ministries") {
-
-	
-	echo "<h3>$title Leadership in the North American Division</h3>
-	<div style='margin-left:75px; width:100%'>
-		<ul class='dirlist_unions'>";	
-
-	$db = new Db();
-	$union_array = $db -> select("select * from COMMON_temp_union order by full_text"); 
-	
-	foreach ($union_array as $key=>$value) {
-		$union=$union_array[$key]['full_text']; $id=$union_array[$key]['id'];
-		if (strpos($union,"Division")==false) { // skip NAD entry
-			if ($union=="Canadian") {	$union="Seventh-day Adventist Church in Canada"; } 
-			echo "<li><a href='dir_page_ejj.php?u=$id'>$union</a></li>";
-		}
-	}
-	echo "<br /><li><a href='dir_page_ejj.php?u=ANNG'>Guam-Micronesia Mission</a></li>";
-	echo "</ul></div>";	
-}
-
-
 function sew_list_dir_by_union($union,$min='fam') {
 
 	$db = new Db();

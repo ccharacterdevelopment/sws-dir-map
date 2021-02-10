@@ -1,5 +1,109 @@
 <?php
 
+//Eric's code
+function ejj_dir_listing($row) {
+	
+	$ministry=$_SESSION['sws']['min_title'];
+	
+	echo "ejj<div style='margin-left:1.5em; margin-top:0;'><strong>";
+	echo sws_dir_names($row);
+	echo "</strong><br />";
+	echo sws_dir_titles($row)."<br />";
+
+	if (strlen($row['address1'])>0) { echo $row['address1']."<br />"; }
+	if (strlen($row['address2'])>0) { echo $row['address2']."<br />"; }
+	echo $row['city']." ".$row['state']." ".$row['zip']."<br />";
+	if (!($row['country']=="USA")) {
+		if (strlen($row['country'])>0) { echo $row['country']."<br />";}
+	}
+	if (strlen($row['work_phone'])>0) { echo "<strong>Phone:</strong> ".$row['work_phone']."<br />"; }
+	if ((strlen($row['email'])>0) && (strpos($row['email'],"BAD")==false)) { 
+		echo "<span style='font-weight:bold'>E-mail:</span> ".sws_spamSpan($row['email'])."<br />"; 
+	}
+	echo "</div>";
+}
+
+function ejj_list_unions($title="Men's Ministries") {
+
+	
+	echo "<h3>$title Leadership in the North American Division</h3>
+	<div style='margin-left:75px; width:100%'>
+		<ul class='dirlist_unions'>";	
+
+	$db = new Db();
+	$union_array = $db -> select("select * from COMMON_temp_union order by full_text"); 
+	
+	foreach ($union_array as $key=>$value) {
+		$union=$union_array[$key]['full_text']; $id=$union_array[$key]['id'];
+		if (strpos($union,"Division")==false) { // skip NAD entry
+			if ($union=="Canadian") {	$union="Seventh-day Adventist Church in Canada"; } 
+			echo "<li><a href='dir_page_ejj.php?u=$id'>$union</a></li>";
+		}
+	}
+	echo "<br /><li><a href='dir_page_ejj.php?u=ANNG'>Guam-Micronesia Mission</a></li>";
+	echo "</ul></div>";	
+}
+
+function ejj_list_dir_by_union($unionCode) {
+
+	$ministry=$_SESSION['sws']['min_title'];
+	$group=$_SESSION['sws']['group'];
+	$group_id=$_SESSION['sws']['group_id'];
+	
+	$db = new Db();
+	if (!($unionCode=="ANNG")) {
+		$union= $db->query("select full_text from COMMON_temp_union where id='$unionCode' ")->fetch_object()->full_text;
+	} else {
+		$union= $db->query("select full_text from COMMON_temp_conf where id='$unionCode' ")->fetch_object()->full_text;  
+		$unionCode="Guam";
+	}
+
+	echo "Test 3 <h3>$ministry Ministries Leadership in the $union</h3><div class='dirlist_div'>";
+	
+	$sql="select * from dbi_master where groups like '%:$group_id:%' and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
+
+	
+	$union_array = $db -> select($sql); 
+
+	if (count($union_array)>0) {
+		foreach ($union_array as $key=>$value) {
+			$row=$union_array[$key];
+			echo "<div class='dir_entry'><span class='h4'>";
+		
+			if (strlen($row['conference'])>0) { $myconf= $row['conference']; } else { $myconf=$row['union_conf'];}
+			if (!(strpos($myconf," in Canada")===false)) { $myconf="Seventh-day Adventist Church<br />in Canada";} 
+		
+			echo $myconf."</span><br />";
+		
+			ejj_dir_listing($row);
+			echo "</div>";
+		}
+	}
+
+	// cycle through conference personnel
+	$sqlC="select * from dbi_master where union_conf like '".$union."%' and groups like '%:$group_id:%' and conference not like '%Union%' and conference is not null and conference!='' and conference not like '%Adventist%' order by conference"; 		
+
+	if ($unionCode=="Guam") { // modify the query
+		$sqlC=str_replace("union_conf like '".$union."%'","conference like '%Guam%' ",$sqlC);
+		//echo $sqlC;
+	}
+	
+	$conf_array = $db -> select($sqlC);
+
+	if (!($unionCode=="ANN")) {
+	foreach ($conf_array as $key=>$value) {
+		$row=$conf_array[$key];
+
+		echo "<div class='dir_entry'><span class='h4'>".$row['conference']." Conference</span>";
+		ejj_dir_listing($row, $ministry);
+		echo "</div>";
+	}
+	echo "</div>";
+	} // don't do for NAD entry
+}
+
+//End Eric's code
+
 function fm_counselor_topics() {
 	$db = new Db(); $retArr=array();
 	$sql="SELECT field_options FROM dbi_custom_fields WHERE field_name='Counseling Specialties'";
@@ -299,6 +403,18 @@ function sws_dir_names($row) {
 	return $name;
 }
 
+function sws_dir_names($row) {
+	$prefix=$_SESSION['sws']['show_prefixes'];
+	
+	//error_log(print_r($row,true),0);
+	
+	if (($prefix=="Y") && (strlen($row['prefix'])>0)) { $name=$row['prefix']." "; } else {$name="";}
+
+	$name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];
+		
+	return $name;
+}
+
 function sws_dir_titles($row) {
 	$title="";
 	$ministry=$_SESSION['sws']['min_title'];
@@ -340,6 +456,8 @@ function sws_dir_listing($row) {
 	}
 	echo "</div>";
 }
+
+
 
 function sew_get_custom($record_id,$field_id,$min="fam") {
 

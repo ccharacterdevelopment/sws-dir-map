@@ -20,7 +20,7 @@ test 2
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>
 <?php
 
-sws_list_dir_by_union($union,$group);
+ejj_list_dir_by_union($union,$group);
 
 ?>
 <br>
