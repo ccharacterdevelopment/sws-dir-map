@@ -4,7 +4,7 @@
 function ejj_dir_listing($row) {
 	
 
-	error_log(print_r($row, true), 0);
+	// error_log(print_r($row, true), 0);
 	$ministry=$_SESSION['sws']['min_title'];
 	
 	echo "<div style='margin-left:1.5em; margin-top:0;'><strong>";
@@ -102,7 +102,7 @@ function ejj_list_dir_by_union($unionCode) {
 
 		echo "<div class='dir_entry'>";
 		echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' class='ejj_dir_pic'/><br/>";
-		echo "<img src='Error.src' onerror='this.style.display' display='none'/>";
+		// echo "<img src='Error.src' onerror='this.style.display' display='none'/>";
 		echo "<span class='h4'>".$row['conference']." Conference</span>";
 
 		ejj_dir_listing($row, $ministry);

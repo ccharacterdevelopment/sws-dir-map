@@ -19,7 +19,7 @@ sws_iframe_head();
 .ejj_dir_pic {
   max-width:70%;
   max-height: 300px;
-  max-width: 300px;
+  max-width: 200px;
 }
 
 </style>
