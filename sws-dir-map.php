@@ -91,3 +91,4 @@ function sws_search_show($atts) {
 add_shortcode('sws_search_listing', 'sws_search_show');
 
 ?>
+
