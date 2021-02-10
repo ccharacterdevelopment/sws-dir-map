@@ -3,6 +3,8 @@
 //Eric's code
 function ejj_dir_listing($row) {
 	
+
+	error_log(print_r($row), 0);
 	$ministry=$_SESSION['sws']['min_title'];
 	
 	echo "ejj<div style='margin-left:1.5em; margin-top:0;'><strong>";
@@ -20,6 +22,8 @@ function ejj_dir_listing($row) {
 	if ((strlen($row['email'])>0) && (strpos($row['email'],"BAD")==false)) { 
 		echo "<span style='font-weight:bold'>E-mail:</span> ".sws_spamSpan($row['email'])."<br />"; 
 	}
+	echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' />"
+
 	echo "</div>";
 }
 
