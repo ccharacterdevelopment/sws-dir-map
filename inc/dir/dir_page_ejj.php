@@ -15,7 +15,13 @@ $group=$_SESSION['sws']['group'];
 sws_iframe_head();
 
 ?>
-test 2
+<style>
+.ejj_dir_pic {
+  max-width:70%;
+  max-height: 300px;
+}
+
+</style>
 <div class='dirlist_holder'>
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>
 <?php
