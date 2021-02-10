@@ -72,9 +72,9 @@ function ejj_list_dir_by_union($unionCode) {
 	if (count($union_array)>0) {
 		foreach ($union_array as $key=>$value) {
 			$row=$union_array[$key];
-			echo "<div class='dir_entry'><span class='h4'>";
+			echo "<div class='dir_entry'>";
 
-			echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' class='ejj_dir_pic'/><br/>"; 
+			echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' class='ejj_dir_pic'/><br/><span class='h4'>"; 
 		
 			if (strlen($row['conference'])>0) { $myconf= $row['conference']; } else { $myconf=$row['union_conf'];}
 			if (!(strpos($myconf," in Canada")===false)) { $myconf="Seventh-day Adventist Church<br />in Canada";} 
@@ -100,7 +100,10 @@ function ejj_list_dir_by_union($unionCode) {
 	foreach ($conf_array as $key=>$value) {
 		$row=$conf_array[$key];
 
-		echo "<div class='dir_entry'><span class='h4'>".$row['conference']." Conference</span>";
+		echo "<div class='dir_entry'>";
+		echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' class='ejj_dir_pic'/><br/>";
+		echo "<span class='h4'>".$row['conference']." Conference</span>";
+		
 		ejj_dir_listing($row, $ministry);
 		echo "</div>";
 	}
