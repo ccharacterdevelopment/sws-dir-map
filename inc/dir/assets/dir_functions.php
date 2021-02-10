@@ -74,7 +74,7 @@ function ejj_list_dir_by_union($unionCode) {
 			$row=$union_array[$key];
 			echo "<div class='dir_entry'><span class='h4'>";
 
-			echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' style= '/><br/>"; 
+			echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg'/><br/>"; 
 		
 			if (strlen($row['conference'])>0) { $myconf= $row['conference']; } else { $myconf=$row['union_conf'];}
 			if (!(strpos($myconf," in Canada")===false)) { $myconf="Seventh-day Adventist Church<br />in Canada";} 
