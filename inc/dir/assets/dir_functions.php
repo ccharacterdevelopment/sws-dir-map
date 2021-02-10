@@ -7,7 +7,8 @@ function ejj_dir_listing($row) {
 	error_log(print_r($row, true), 0);
 	$ministry=$_SESSION['sws']['min_title'];
 	
-	echo "ejj<div style='margin-left:1.5em; margin-top:0;'><strong>";
+	echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' style= '/>";
+	echo "<div style='margin-left:1.5em; margin-top:0;'><strong>";
 	echo sws_dir_names($row);
 	echo "</strong><br />";
 	echo sws_dir_titles($row)."<br />";
@@ -22,7 +23,7 @@ function ejj_dir_listing($row) {
 	if ((strlen($row['email'])>0) && (strpos($row['email'],"BAD")==false)) { 
 		echo "<span style='font-weight:bold'>E-mail:</span> ".sws_spamSpan($row['email'])."<br />"; 
 	}
-	echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' />";
+	
 
 	echo "</div>";
 }
