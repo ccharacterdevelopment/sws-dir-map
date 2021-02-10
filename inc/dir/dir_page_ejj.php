@@ -21,6 +21,7 @@ sws_iframe_head();
   grid-template-columns: max-content;
   grid-auto-rows: 150px;
   grid-template-rows: 200px;
+  align-self: flex-end;
   max-width:70%;
   max-height: 300px;
   max-width: 200px;
