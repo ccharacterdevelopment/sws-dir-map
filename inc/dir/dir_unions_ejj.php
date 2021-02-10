@@ -31,7 +31,7 @@ test
 <div style='width:100%'>
 <?php
 
- sws_list_unions($min_title);
+ ejj_list_unions($min_title);
 
 ?></div>
 </body></html>
