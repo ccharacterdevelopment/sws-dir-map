@@ -22,7 +22,7 @@ function ejj_dir_listing($row) {
 	if ((strlen($row['email'])>0) && (strpos($row['email'],"BAD")==false)) { 
 		echo "<span style='font-weight:bold'>E-mail:</span> ".sws_spamSpan($row['email'])."<br />"; 
 	}
-	echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' />"
+	echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' />";
 
 	echo "</div>";
 }
