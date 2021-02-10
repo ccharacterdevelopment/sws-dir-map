@@ -391,17 +391,17 @@ function sws_list_dir_by_union($unionCode) {
 	} // don't do for NAD entry
 }
 
-function sws_dir_names($row) {
-	$prefix=$_SESSION['sws']['show_prefixes'];
+// function sws_dir_names($row) {
+// 	$prefix=$_SESSION['sws']['show_prefixes'];
 	
-	//error_log(print_r($row,true),0);
+// 	//error_log(print_r($row,true),0);
 	
-	if (($prefix=="Y") && (strlen($row['prefix'])>0)) { $name=$row['prefix']." "; } else {$name="";}
+// 	if (($prefix=="Y") && (strlen($row['prefix'])>0)) { $name=$row['prefix']." "; } else {$name="";}
 
-	$name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];
+// 	$name.=$row['firstname']." ".$row['mi']." ".$row['lastname'];
 		
-	return $name;
-}
+// 	return $name;
+// }
 
 function sws_dir_names($row) {
 	$prefix=$_SESSION['sws']['show_prefixes'];
