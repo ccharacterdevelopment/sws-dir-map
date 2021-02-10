@@ -3,7 +3,7 @@
  * Plugin Name:       SWS Directory/Interactive Map
  * Plugin URI:        https://ccharacter.com/custom-plugins/sws-dir-map/
  * Description:       Builds on the DBI to display interactive map/directory
- * Version:           1.1
+ * Version:           1.3
  * Requires at least: 5.2
  * Requires PHP:      5.5
  * Author:            Sharon Stromberg
@@ -68,9 +68,9 @@ function sws_search_show($atts) {
 	$vars['themedir2']=get_stylesheet_directory_uri();
 
 	$a=shortcode_atts(array(
-	  'group' => 'conf_asam',
+	  //'group' => 'conf_asam',
 	  'min_title' => 'ASAM',
-	  'show_prefixes' => "Y"
+	  //'show_prefixes' => "Y"
 	), $atts);
 	
 	foreach ($a as $key=>$value) { 

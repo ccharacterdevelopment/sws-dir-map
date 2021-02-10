@@ -6,9 +6,9 @@ include "assets/Db.php";
 include "assets/functions_sws.php";
 include "assets/dir_functions.php";
 
-$_SESSION['sew']['which']="fam";
+//$_SESSION['sew']['which']="fam";
 
-$vars=sew_clean_post($_POST); error_log(print_r($vars,true),0);
+$vars=sew_clean_post($_POST); //error_log(print_r($vars,true),0);
 
 $specialties="";
 foreach ($vars as $key=>$value) { // loop specialties
