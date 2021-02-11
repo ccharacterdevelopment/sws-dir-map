@@ -26,7 +26,7 @@ sws_iframe_head();
   max-width: 200px;
 }
 
-.dir_entry{
+.dir_entry {
   align-self: flex-end;
 }
 
@@ -35,11 +35,16 @@ sws_iframe_head();
   max-height: fit-content;
 }
 
-.ejj_nopic{
+.ejj_nopic {
   width: 150px;
   height: 200px;
   border: 3px solid gray;
 
+}
+
+.ejj_has_pic {
+  width: 150px;
+  height: 200px;
 }
 
 </style>
