@@ -102,7 +102,7 @@ function ejj_list_dir_by_union($unionCode) {
 
 		echo "<div class='dir_entry'>";
 
-		if (file_exists('/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg')) {
+		if (file_exists("/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg")) {
 			echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' alt=''class='ejj_dir_pic'/><br/>";
 		
 		}
