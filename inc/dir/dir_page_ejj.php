@@ -27,7 +27,6 @@ sws_iframe_head();
 }
 
 .dir_entry{
-  display: flex;
   align-self: flex-end;
 }
 
