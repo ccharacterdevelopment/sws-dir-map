@@ -2,7 +2,7 @@
 
 session_start();
 
-error_log(print_r($_SESSION['sws'],true),0);
+// error_log(print_r($_SESSION['sws'],true),0);
 
 include "assets/Db.php";
 include "assets/functions_sws.php";
@@ -45,5 +45,6 @@ ejj_list_dir_by_union($union,$group);
 ?>
 <br>
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>
-</div><script type="text/javascript" src="/custom/javascript/iframeResizer.contentWindow.min.js"></script>
+</div><!--<script type="text/javascript" src="/custom/javascript/iframeResizer.contentWindow.min.js"></script> -->
+  <script type="text/javascript" src="../js/iframeResizer.contentWindow.min.js"></script> 
 </body></HTML>
