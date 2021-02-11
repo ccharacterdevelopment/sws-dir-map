@@ -30,6 +30,11 @@ sws_iframe_head();
   align-self: flex-end;
 }
 
+.dir_list_div {
+  overflow: visible;
+  max-height: fit-content;
+}
+
 </style>
 <div class='dirlist_holder'>
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>
@@ -40,5 +45,5 @@ ejj_list_dir_by_union($union,$group);
 ?>
 <br>
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>
-</div><!--<script type="text/javascript" src="../custom/javascript/iframeResizer.contentWindow.min.js"></script>-->
+</div><script type="text/javascript" src="/custom/javascript/iframeResizer.contentWindow.min.js"></script>
 </body></HTML>

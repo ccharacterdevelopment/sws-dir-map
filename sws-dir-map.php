@@ -115,7 +115,7 @@ function ejj_search_show($atts) {
 	//error_log($getVar);
 	
 	ob_start(); 
-	echo "<iframe src='".plugins_url( '/inc/dir/dir_unions_ejj.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+	echo "<iframe src='".plugins_url( '/inc/dir/dir_unions_ejj.php?vars='.$getVar, __FILE__ )."' style='width: 100%; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
 	return ob_get_clean();
 }
 
