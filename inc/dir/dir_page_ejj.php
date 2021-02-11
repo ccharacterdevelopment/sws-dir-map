@@ -35,6 +35,13 @@ sws_iframe_head();
   max-height: fit-content;
 }
 
+.ejj_nopic{
+  width: 150px;
+  height: 200px;
+  border: 3px solid gray;
+
+}
+
 </style>
 <div class='dirlist_holder'>
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>
