@@ -26,6 +26,11 @@ sws_iframe_head();
   max-width: 200px;
 }
 
+.dir_entry{
+  display: flex;
+  align-self: flex-end;
+}
+
 </style>
 <div class='dirlist_holder'>
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>
