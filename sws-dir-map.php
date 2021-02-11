@@ -100,9 +100,9 @@ function ejj_search_show($atts) {
 	$vars['themedir2']=get_stylesheet_directory_uri();
 
 	$a=shortcode_atts(array(
-	  //'group' => 'conf_asam',
+	  'group' => 'conf_asam',
 	  'min_title' => 'ASAM',
-	  //'show_prefixes' => "Y"
+	  'show_prefixes' => "Y"
 	), $atts);
 	
 	foreach ($a as $key=>$value) { 
