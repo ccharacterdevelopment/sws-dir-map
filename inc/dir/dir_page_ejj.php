@@ -17,7 +17,6 @@ sws_iframe_head();
 ?>
 <style>
 .ejj_dir_pic {
-  display: flex;
   display: grid;
   grid-template-columns: max-content;
   grid-auto-rows: 150px;
@@ -25,7 +24,6 @@ sws_iframe_head();
   max-width:70%;
   max-height: 300px;
   max-width: 200px;
-  align-self: flex-end;
 }
 
 </style>
