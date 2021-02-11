@@ -24,7 +24,6 @@ sws_iframe_head();
   max-width:70%;
   max-height: 300px;
   max-width: 200px;
-  align-self: flex-end;
 }
 
 </style>
