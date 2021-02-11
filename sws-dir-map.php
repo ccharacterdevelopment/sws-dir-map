@@ -122,7 +122,7 @@ iframe {
 	min-width: 100%;
 }
 </style>";
-	echo "<iframe id='myIframe' src='".plugins_url( '/inc/dir/dir_unions_ejj.php?vars='.$getVar, __FILE__ )."' style='width: 100%; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+	echo "<iframe id='myIframe' src='".plugins_url( '/inc/dir/dir_unions_ejj.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height:1000px; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
 	echo "<script>
   iFrameResize({ log: true }, '#myIframe')
 </script>";
