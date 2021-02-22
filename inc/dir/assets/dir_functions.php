@@ -74,7 +74,16 @@ function ejj_list_dir_by_union($unionCode) {
 			$row=$union_array[$key];
 			echo "<div class='dir_entry'>";
 
-			echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' class='ejj_dir_pic'/><br/><span class='h4'>"; 
+			if (file_exists("/var/www/html/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg")) {
+				//echo "<img src= '/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg' alt=''class='ejj_dir_pic'/><br/>";
+				echo "<div class='ejj_has_pic' style='background-image: url(\"/custom/dbi/files/acs/".$row['id']."/P/presenter_pic.jpg\")'></div>";
+			
+			}
+	
+			else {
+				echo "<div class='ejj_nopic'> No Photo Available </div>";
+	
+			}
 		
 			if (strlen($row['conference'])>0) { $myconf= $row['conference']; } else { $myconf=$row['union_conf'];}
 			if (!(strpos($myconf," in Canada")===false)) { $myconf="Seventh-day Adventist Church<br />in Canada";} 

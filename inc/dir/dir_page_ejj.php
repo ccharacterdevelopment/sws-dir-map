@@ -39,12 +39,17 @@ sws_iframe_head();
   width: 150px;
   height: 200px;
   border: 3px solid gray;
+  text-align: center;
+  padding-top: 25%;
+  font-size: 200%;
 
 }
 
 .ejj_has_pic {
   width: 150px;
   height: 200px;
+  background-size: cover;
+  background-position: center center;
 }
 
 </style>
