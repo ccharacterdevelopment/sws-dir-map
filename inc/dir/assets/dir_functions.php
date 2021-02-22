@@ -62,7 +62,7 @@ function ejj_list_dir_by_union($unionCode) {
 		$unionCode="Guam";
 	}
 
-	echo "Test 3 <h3>$ministry Ministries Leadership in the $union</h3><div class='dirlist_div'>";
+	echo "<h3>$ministry Ministries Leadership in the $union</h3><div class='dirlist_div'>";
 	
 	$sql="select * from dbi_master where groups like '%:$group_id:%' and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
 

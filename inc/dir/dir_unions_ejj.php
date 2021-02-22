@@ -27,7 +27,6 @@ if (isset($_GET['vars'])) { // process url vars
 sws_iframe_head($themedir,$themedir2);
 
 ?>
-test
 <div style='width:100%'>
 <?php
 
