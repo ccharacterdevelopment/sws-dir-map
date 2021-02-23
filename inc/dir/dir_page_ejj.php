@@ -10,8 +10,23 @@ include "assets/dir_functions.php";
 
 if (isset($_GET['u'])) {$union=urldecode($_GET['u']);} else {$union="ANB";}
 
-$group=$_SESSION['sws']['group'];
 
+if (isset($_GET['vars'])) { // process url vars
+	$tmp=json_decode(base64_decode(urldecode($_GET['vars'])),true);
+	foreach ($tmp as $key=>$value) {
+		$_SESSION['sws'][$key]=$value;
+		${$key}=$value;
+		//error_log($key."|".$value,0);
+	}
+	sws_get_group_id($group);
+} else {
+	foreach ($_SESSION['sws'] as $key=>$value) {
+		${$key}=$value;
+		//error_log($key."|".$value,0);
+	}
+}
+
+sws_iframe_head();
 sws_iframe_head();
 
 ?>
@@ -26,13 +41,14 @@ sws_iframe_head();
   max-width: 200px;
 }
 
-.dir_entry {
+/*.dir_entry {
   align-self: flex-end;
-}
+}*/
 
 .dir_list_div {
   overflow: visible;
   max-height: fit-content;
+  align-items:flex-start;
 }
 
 .ejj_nopic {
@@ -57,8 +73,12 @@ sws_iframe_head();
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>
 <?php
 
-ejj_list_dir_by_union($union,$group);
-
+if ($group_by_conf=="Y") {
+	ejj_list_dir_by_union($union,$group,$group2);
+} else {
+	
+	// do something else
+}
 ?>
 <br>
 <a href='dir_unions_ejj.php'>BACK TO UNION LIST</a>

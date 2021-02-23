@@ -53,6 +53,9 @@ function ejj_list_dir_by_union($unionCode) {
 	$ministry=$_SESSION['sws']['min_title'];
 	$group=$_SESSION['sws']['group'];
 	$group_id=$_SESSION['sws']['group_id'];
+	if (isset($_SESSION['sws']['group_id2'])) { // adapt for multiple groups
+		$groupCond="(groups like '%:$group_id:%' OR groups like '%:".$_SESSION['sws']['group_id2'].":%')"; 
+	} else { $groupCond="groups like '%:$group_id:%'"; }
 	
 	$db = new Db();
 	if (!($unionCode=="ANNG")) {
@@ -62,9 +65,9 @@ function ejj_list_dir_by_union($unionCode) {
 		$unionCode="Guam";
 	}
 
-	echo "<h3>$ministry Ministries Leadership in the $union</h3><div class='dirlist_div'>";
+	echo "<h3>$ministry Leadership in the $union</h3><div class='dirlist_div'>";
 	
-	$sql="select * from dbi_master where groups like '%:$group_id:%' and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
+	$sql="select * from dbi_master where $groupCond and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
 
 	
 	$union_array = $db -> select($sql); 
@@ -96,7 +99,7 @@ function ejj_list_dir_by_union($unionCode) {
 	}
 
 	// cycle through conference personnel
-	$sqlC="select * from dbi_master where union_conf like '".$union."%' and groups like '%:$group_id:%' and conference not like '%Union%' and conference is not null and conference!='' and conference not like '%Adventist%' order by conference"; 		
+	$sqlC="select * from dbi_master where union_conf like '".$union."%' and $groupCond and conference not like '%Union%' and conference is not null and conference!='' and conference not like '%Adventist%' order by conference"; 		
 
 	if ($unionCode=="Guam") { // modify the query
 		$sqlC=str_replace("union_conf like '".$union."%'","conference like '%Guam%' ",$sqlC);
@@ -151,7 +154,7 @@ function fm_counselor_topics() {
 	}
 }
 
-
+/*
 function min_validate_page($roles="administrator|office") {
 
 	///print_r($_SESSION['sew']);
@@ -254,7 +257,7 @@ function fm_update_record ($vars, $POST, $tableName, $lookup) {
 	
 	$_SESSION['sew']['js_text']="Okay, your changes to ".$vars['firstname']." ".$vars['lastname']." have been saved.";
 	 unset($_SESSION['sew']['working']);  unset($_SESSION['sew']['lookup']);
-}
+}*/
 
 function fm_field_array() {
 	$field_array=array(
@@ -283,7 +286,7 @@ function fm_get_filter_val($id){
 	return $cond;
 }
 
-function fm_dumpquery2($sql, $dir="N", $min="Family") {
+/*function fm_dumpquery2($sql, $dir="N", $min="Family") {
 	echo $sql;
 	
 	$db = new Db();
@@ -362,15 +365,20 @@ function fm_dumpquery2($sql, $dir="N", $min="Family") {
 
     }
     echo '</table>';    	
-} 
+} */
 
 
 function sws_list_dir_by_union($unionCode) {
 
 	$ministry=$_SESSION['sws']['min_title'];
 	$group=$_SESSION['sws']['group'];
+	$group2=$_SESSION['sws']['group2'];
+	$all_conf=$_SESSION['sws']['all_conf'];
 	$group_id=$_SESSION['sws']['group_id'];
-	
+	if (isset($_SESSION['sws']['group_id2'])) { // adapt for multiple groups
+		$groupCond="(groups like '%:$group_id:%' OR groups like '%:".$_SESSION['sws']['group_id2'].":%')"; 
+	} else { $groupCond="groups like '%:$group_id:%'"; }
+
 	$db = new Db();
 	if (!($unionCode=="ANNG")) {
 		$union= $db->query("select full_text from COMMON_temp_union where id='$unionCode' ")->fetch_object()->full_text;
@@ -379,9 +387,9 @@ function sws_list_dir_by_union($unionCode) {
 		$unionCode="Guam";
 	}
 
-	echo "<h3>$ministry Ministries Leadership in the $union</h3><div class='dirlist_div'>";
+	echo "<h3>$ministry Leadership in the $union</h3><div class='dirlist_div'>";
 	
-	$sql="select * from dbi_master where groups like '%:$group_id:%' and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
+	$sql="select * from dbi_master where $groupCond and union_conf like '".$union."%' and (conference like '%".$union."%' or conference='' or conference like '%Union%' or conference is null)";  //echo $sql;
 
 	
 	$union_array = $db -> select($sql); 
@@ -399,10 +407,15 @@ function sws_list_dir_by_union($unionCode) {
 			sws_dir_listing($row);
 			echo "</div>";
 		}
+	} else { 
+		if ($all_conf=="Y") {
+			echo "<div class='dir_entry'><span class='h4'>$union</span><br />NONE LISTED</div>";
+		
+		}	
 	}
 
 	// cycle through conference personnel
-	$sqlC="select * from dbi_master where union_conf like '".$union."%' and groups like '%:$group_id:%' and conference not like '%Union%' and conference is not null and conference!='' and conference not like '%Adventist%' order by conference"; 		
+	$sqlC="select * from dbi_master where union_conf like '".$union."%' and $groupCond and conference not like '%Union%' and conference is not null and conference!='' and conference not like '%Adventist%' order by conference"; 		
 
 	if ($unionCode=="Guam") { // modify the query
 		$sqlC=str_replace("union_conf like '".$union."%'","conference like '%Guam%' ",$sqlC);

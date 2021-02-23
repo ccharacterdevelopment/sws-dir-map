@@ -37,6 +37,9 @@ function sws_dir_show($atts) {
 
 	$a=shortcode_atts(array(
 	  'group' => 'conf_asam',
+	  'group2' => 'X',
+	  'all_conf'=> 'Y',
+	  'group_by_conf'=>'Y',
 	  'min_title' => 'ASAM',
 	  'show_prefixes' => "Y"
 	), $atts);
@@ -51,7 +54,11 @@ function sws_dir_show($atts) {
 	//error_log($getVar);
 	
 	ob_start(); 
+	if ($vars['group_by_conf']=="Y") { 
 		echo "<iframe src='".plugins_url( '/inc/dir/dir_unions.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+	} else {
+		echo "<iframe src='".plugins_url( '/inc/dir/dir_page.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height: 80vh; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 		
+	}
 	return ob_get_clean();
 }
 
@@ -68,7 +75,7 @@ function sws_search_show($atts) {
 	$vars['themedir2']=get_stylesheet_directory_uri();
 
 	$a=shortcode_atts(array(
-	  //'group' => 'conf_asam',
+	  'group' => 'conf_asam',
 	  'min_title' => 'ASAM',
 	  //'show_prefixes' => "Y"
 	), $atts);
@@ -88,11 +95,11 @@ function sws_search_show($atts) {
 }
 
 // register shortcode
-add_shortcode('sws_search_listing', 'sws_search_show');
+add_shortcode('sws_dir_search', 'sws_search_show');
 
 
 // SHORTCODE FOR pics directories  
-function ejj_search_show($atts) {
+function ejj_photo_dir($atts) {
 	
 	$vars=array();
 	
@@ -101,6 +108,9 @@ function ejj_search_show($atts) {
 
 	$a=shortcode_atts(array(
 	  'group' => 'conf_asam',
+	  'group2' => 'X',
+	  'all_conf'=> 'Y',
+	  'group_by_conf'=>'Y',
 	  'min_title' => 'ASAM',
 	  'show_prefixes' => "Y"
 	), $atts);
@@ -116,13 +126,17 @@ function ejj_search_show($atts) {
 	
 	ob_start(); 
 
-echo 	"<style>
+/*echo 	"<style>
 iframe {
 	width: 1px;
 	min-width: 100%;
 }
-</style>";
-	echo "<iframe id='myIframe' src='".plugins_url( '/inc/dir/dir_unions_ejj.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height:1000px; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+</style>";*/
+	if ($vars['group_by_conf']=="Y") { 
+		echo "<iframe id='myIframe' src='".plugins_url( '/inc/dir/dir_unions_ejj.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height:1000px; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+	} else {
+		echo "<iframe id='myIframe' src='".plugins_url( '/inc/dir/dir_page_ejj.php?vars='.$getVar, __FILE__ )."' style='width: 100%; height:1000px; min-height: 50em;' frameborder='no' scrolling='no'></iframe>"; 
+	}
 	echo "<script>
   iFrameResize({ log: true }, '#myIframe')
 </script>";
@@ -130,7 +144,7 @@ iframe {
 }
 
 // register shortcode
-add_shortcode('ejj_search_listing', 'ejj_search_show');
+add_shortcode('sws_dir_photo', 'ejj_photo_dir');
 
 ?>
 

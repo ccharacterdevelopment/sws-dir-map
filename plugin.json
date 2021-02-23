@@ -13,7 +13,7 @@
 	"author_homepage": "http://ccharacter.com/",
 
 	"sections": {
-		"description": "This plugin creates shortcodes for displaying maps and directories using data pulled from the DBI system.<ul><li>[sws_dir_listing group='conf_asam' min_title='ASAM' show_prefixes='Y']</li><li>[sws_search_listing group='conf_asam' min_title='ASAM' show_prefixes='Y']</li></ul>"
+		"description": "This plugin creates shortcodes for displaying maps and directories using data pulled from the DBI system.<ul><li>[sws_dir_listing group='conf_asam' group2='conf_dir' all_conf='Y' group_by_conf='Y' min_title='ASAM' show_prefixes='Y']</li><li>[sws_dir_search group='conf_asam' min_title='ASAM' show_prefixes='Y']</li><li>[sws_dir_photo group='conf_asam' group2='conf_dir' all_conf='Y' group_by_conf='Y' min_title='ASAM' show_prefixes='Y']</li></ul>"
 	}
 
 }
