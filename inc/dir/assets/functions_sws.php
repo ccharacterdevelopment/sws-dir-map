@@ -214,7 +214,6 @@ function sws_list_unions($title="Men's Ministries") {
 	echo "</ul></div>";	
 }
 
-
 function sew_list_dir_by_union($union,$min='fam') {
 
 	$db = new Db();
