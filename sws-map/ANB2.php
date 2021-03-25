@@ -15,7 +15,7 @@
 	
 	/* Columbia Union */
 	#pennsylvania-area, #delaware-area,
-	#new-jersey-area, #virginia-state, #maryland-state, #west-virginia-state,
+	#new-jersey-area, 
 	#ohio-area {
 		fill: #b975b7;
 		stroke: black;

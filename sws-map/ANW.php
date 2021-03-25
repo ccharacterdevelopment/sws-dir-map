@@ -1,5 +1,7 @@
 <style>
-		/* Region Titles */
+	
+	
+	/* Region Titles */
 	#arkansas-title,
 	#louisiana-title,
 	#oklahoma-title,
@@ -102,12 +104,12 @@
 	#tx-link:hover #texas-conf {
 		fill: #f19039;					
 	}
+
 </style>
-<div id='ANW' class='ANW country hideClass'>
 	<div class="column1">
 			<svg viewBox="0 0 379.5 260.42" preserveAspectRatio="xMidYMin slice">
 		
-			<a xlink:href= "#" id="african-american-conference" transform="translate(11 9) scale(0.9)" onclick="showOne('ANWB','anw_confs');">
+			<a xlink:href= "#" id="african-american-conference" transform="translate(11 9) scale(0.9)" onclick="showOne('ANWB');">
 				<g id="arkansas-louisiana-area2">
 					<polygon id="arkansas2" fill="#EF8423" points="354.282,35.411 353.452,37.89 353.442,37.92 353.43,37.94 
 						352.131,42.34 352.09,42.47 352.081,42.6 351.872,44.451 348.522,46.371 347.381,47.031 347.891,48.25 349.202,51.401 
@@ -197,7 +199,7 @@
 
 			<g id="southwestern-union" transform="scale(0.9)">
 				<g id="arkansas-louisiana-area">
-					<a xlink:href= "#" id="ar-link" onclick="showOne('AR','anw_confs');">
+					<a xlink:href= "#" id="ar-link" onclick="showOne('AR');">
 						<polygon id="arkansas" fill="#EF8423" points="354.282,35.411 353.452,37.89 353.442,37.92 353.43,37.94 352.131,42.34 352.09,42.47 
 							352.081,42.6 351.872,44.451 348.522,46.371 347.381,47.031 347.891,48.25 349.202,51.401 348.42,54.831 347.241,55.77 
 							346.01,55.791 345.981,56.781 344.34,58.09 345.952,58.05 345.901,59.651 344.102,60.38 343.59,60.59 343.331,61.09 
@@ -211,7 +213,7 @@
 							
 					</a>
 					
-					<a xlink:href= "#" id="la-link" onclick="showOne('LA','anw_confs');">
+					<a xlink:href= "#" id="la-link" onclick="showOne('LA');">
 						<path id="louisiana" fill="#EF8423" d="M379.071,183.27v1.5l-2.299,3.102l-1.102-1h-2.898l-1-1.5l-4-1.9c0,0-3.4-0.6-4.201-0.6
 							c-0.799,0-0.6-3.102-0.6-3.102l-0.6-0.799l-1.1,1.299l-2.102,0.5l0.201,1.5l-0.801,1.602l2.1,0.299l-0.799,0.5l-2.301,3.4
 							l-3.4,1.301l-0.6-0.602l2.301-0.799l-0.801-2.9l-1.299-1l-1.801,1.5l-2.6,0.6l-1,2.4l-3.6,1.301l-8.4-3.602l-1.6-1.6
@@ -231,7 +233,7 @@
 
 				</g>
 				
-				<a xlink:href= "#" id="ok-link" onclick="showOne('OK','anw_confs');">
+				<a xlink:href= "#" id="ok-link" onclick="showOne('OK');">
 					<polygon id="oklahoma-area" fill="#EF8423" points="270.372,53.47 268.981,42.56 268.971,42.46 268.971,34.34 
 						267.411,27.611 266.991,25.81 267.532,25.8 266.872,19.871 266.772,16.071 254.67,16.371 208.271,15.871 163.271,13.77 
 						139.171,12.871 128.471,12.371 122.671,11.92 122.071,11.871 122.371,12.071 121.671,22.47 122.671,22.531 143.671,23.871 
@@ -251,13 +253,13 @@
 <g id="tx-nm">
 				
 							
-<a xlink:href= "#" id="nm-link" onclick="showOne('NM','anw_confs');">
+<a xlink:href= "#" id="nm-link" onclick="showOne('NM');">
 						<polygon id="new-mexico" fill="#EF8423" points="120.821,12.84 120.171,22.371 120.151,22.72 119.171,22.571 118.341,37.22 117.921,42.121 
 							114.021,97.701 111.851,120.14 83.971,118.77 54.471,115.67 45.871,115.17 45.941,115.77 46.571,121.27 46.311,121.241 
 							34.071,119.67 17.371,117.071 16.071,127.071 0.571,125.071 2.571,111.77 6.371,84.871 13.371,31.67 15.251,17.88 
 							37.561,20.85 39.541,6.97 40.961,5.98 43.541,3.96 52.071,4.97 88.971,9.371 118.971,11.611"/>						
     				</a>   
-	<a xlink:href= "#" id="tx-link" onclick="showOne('TX','anw_confs');">	
+	<a xlink:href= "#" id="tx-link" onclick="showOne('TX');">	
 				 <path id="texas-state"  fill="none" d="M173.864,26.609l-2.23,22.771l-0.18,20.659l4.844,4.14l2.526,0.96l1.78-0.11
 						l1.54,0.111l1.493,0.217l1.547-0.458l-0.26,3.48l5.31,0.489l2.7,1.101l3.761,0.64l2.92,2.434l2.92-2.534l2.08,0.43l1.434,1.958
 						l1.336,1.591v1.91l3.939,1.2l2.53-2.16l1.444,0.49l1.436-0.04l0.6,2.33l5.215,2.241l3.227-0.251l1.699-3.51l0.73,1.324
@@ -320,21 +322,3 @@
             </g>
 		</svg>
 	</div>
-    <div class='column2'>
-<?php
-
-$arr=sws_entity_personnel("ANW"); 
-
-foreach ($arr as $arrTmp) { echo sws_show_entity($arrTmp); }
-
-$tmp=sws_fromBig("ANW",$unionArr); 
-
-foreach ($tmp as $arr) { $myID=$arr[0]; //echo $myID."<br />";
-	$newArr=sws_entity_personnel($myID); 
-	foreach ($newArr as $arrTmp2) { echo sws_show_entity($arrTmp2,'anw_confs hideClass'); }
-}
-
-?></div>
-
-
-</div>

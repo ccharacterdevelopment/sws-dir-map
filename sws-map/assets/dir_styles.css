@@ -1,88 +1,82 @@
-.sws-map { height: 100vh; }
+<style>
 
-.u-dropdown { font-weight: 900 !important; }
-
-.sws_dir { 
-	margin-left: 1.5rem; 
-	text-indent: -1.5rem; 
-	margin-bottom: 1rem; 
-	display: block;
+body {
+	font-family: 'Questrial', sans-serif;
 }
-
-.sws_dir2 { 
-	margin-left: 1.5rem; 
-	text-indent: -1.5rem; 
-	margin-bottom: 1rem; 
-	display: block;
-}
-
-
-.sws_dir_title { font-weight: bold; }
-
-.sws-map input[type=radio] { margin-left: 1rem; float: none !important; }
-
-.sws-map a:focus, a:hover  { 
+	
+a:focus, a:hover  { 
 	text-decoration: none;
 }
 	
-.sws-map .scale-it {
+	.scale-it {
 		width: 90%;
 		max-height: 100%;
+		padding-top: 55%;
 		position: relative;
 		margin-left: 4%;
 		margin-right: auto;
 	}
 	
-.sws-map .scaling-svg {
+	.scaling-svg {
 		width: 100%;
 		max-height: 100%;
-		/*position: absolute;
+		position: absolute;
 		top: 0;
-		left: 0;*/
+		left: 0;
 		overflow: visible;
 	}
 
-.sws-map #settings {
+#settings {
 	display: inline-block;
 }
 	
-.sws-map .hideClass { 
+.dropdown-menu {
+	background-color: AliceBlue;
+	max-height: 500px;
+	overflow: auto;
+	padding-left: .5em;
+	margin-left:2.5em;
+}
+
+.btn-primary {
+background-image: linear-gradient(to bottom,#459bc0 0,#1682B0 100%);	
+	
+}
+
+
+.container {
+	margin:0;
+}
+.hideClass { 
 	display: none;
 }
 
-div#us-map.showClass { display: block; }
-#can-map.showClass, #ANP.showClass, #AN4.showClass, #ANB.showClass, #AN6.showClass,
-#ANF.showClass, #ANI.showClass, #ANW.showClass, #ANG.showClass { display: flex; }
 
-.sws-map .container { max-height: 100vh; }
 
 	/* SECONDARY PAGE */
 	
-.sws-map .column1 {
-		width: 65%;
-		padding: 2.5%;
-/*    	position: relative; 
+		.column1 {
+    	position: relative; 
+		width: 55%;
 		max-height: 75%;
-		float: left;*/
+		float: left;
+		padding: 2.5%;
 	}
 	
-.sws-map 	svg {
-		max-width: 100%;
-		max-height: 100vh;
+	svg {
+		width: auto;
+		max-height: 100%;
 		overflow: visible;
 	}
 
-.sws-map 	.column2 {
-		width: 35%;
-		max-height:80vh;
-		overflow:auto;
-		/*float: left; */
+	.column2 {
+		width: 40%;
+		float: left;
 		margin-top:3em;
 		margin-left: 3em;
-		display:block;
 	}
 	
-.u-title {
+	.u-title {
 		opacity: 1;
 		fill: #000;
 		display: block;
@@ -90,3 +84,5 @@ div#us-map.showClass { display: block; }
 		font-weight: 700;
 		text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 	}	
+	
+</style>

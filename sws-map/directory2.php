@@ -23,8 +23,7 @@ if (isset($_GET['id'])) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Interactive Directory</title>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -63,7 +62,7 @@ function showOne(id) {
 <?php  include $fileName; ?>
 	<div class="column2">
 <?php  
-if (!($_GET['s']=="GU")) {
+if ((!(isset($_GET['s']))) || (!($_GET['s']=="GU"))) {
 min_list_union($u_name,$id,"N","N",4,"Y","N"); 
 min_interactive_state_divs($id);
 min_interactive_conf_divs($id);
@@ -71,13 +70,13 @@ min_interactive_conf_divs($id);
 	
 	echo "<h3>Guam-Micronesia Mission</h3>";
 	
-	$sql="select * from ".$my_min.".".$my_min."_master where conference like \"%Guam%\" and groups like '%:7:%' order by lastname";
+	$sql="select * from ".$my_min.".".$my_min."_master where conference like \"%Guam%\" and groups like '%:7:%' order by lastname"; error_log($sql,0); 
 $conf_array = $db -> select($sql); 
 	if (count($conf_array)>0) {
 			foreach ($conf_array as $key=>$value) {
 				echo "<hr />";
 				$row=$conf_array[$key];
-
+				error_log(print_r($row,true),0); 
 				min_directory($row,"N","N","Y","Y","N","Y",$u_group,"N","Y"); 
 // min_directory($row, $edit="Y", $show_groups="Y", $show_dir="Y", $show_conf="N", $show_union="N",$link_site="N", $u_group=4,$outerDiv="Y",$confWord="N")					
 			

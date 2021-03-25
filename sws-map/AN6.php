@@ -1,9 +1,196 @@
-<div id='can-map' class='AN6 country <?php if ((isset($_GET['id'])) && ($_GET['id']=="AN6")) { echo "showClass"; } else { echo "hideClass"; } ?>'>
-	<div class='column1'>
-	<svg  viewBox="0 0 900 750" preserveAspectRatio="xMaxYMid meet"  >
+<style>
+
+
+	/* Union Titles */
+	#british-columbia-title,
+	#alberta-title,
+	#manitoba-saskatchewan-title,
+	#ontario-title,
+	#quebec-title,
+	#maritime-title,
+	#newfoundland-labrador-title,
+	#newfoundland-labrador-line, #maritime-line {
+		/*text-shadow: 1px 1px 1px white;*/
+		opacity: 0;
+		fill: #000;
+		z-index: 999;
+		display: block;
+		font-weight: 400;
+		font-size:26px;
+	}
+	
+	/* British Columbia Union */
+	#yukon,
+	#queen-charlottes,
+	#british-columbia-cordillera,
+	#vancouver-island {
+		fill: #12a89d;
+	}
+	
+	#british-columbia-link:hover #yukon,
+	#british-columbia-link:hover #queen-charlottes,
+	#british-columbia-link:hover #british-columbia-cordillera,
+	#british-columbia-link:hover #vancouver-island {
+		fill: #16d0c3;
+	}
+	/* Alberta Union */
+	#north-west-melville,
+	#eglinton,
+	#prince-patrick,
+	#mackenzie-king,
+	#north-west-borden,
+	#north-west-victoria,
+	#banks,
+	#mackenzie,
+	#alberta,
+	#king-william,
+	#prince-of-wales,
+	#cornwallis,
+	#bylot,
+	#somerset,
+	#devon,
+	#meighen,
+	#axel-heiberg,
+	#ellesmere,
+	#bathurst,
+	#cornwall,
+	#amund-ringnes,
+	#ellef-ringnes,
+	#nunavut-borden,
+	#lougheed,
+	#byam-martin,
+	#nunavut-melville,
+	#nunavut-victoria,
+	#rowley,
+	#prince-charles,
+	#air-force,
+	#baffin,
+	#salisbury,
+	#nottingham,
+	#mansel,
+	#coats,
+	#southampton,
+	#keewatin {
+		fill: #ef8423;
+	}
+	
+	#alberta-link:hover #alberta,
+	#alberta-link:hover #northwest-territories {
+		fill: #f19641;	
+	}
+	
+	/* Manitoba Saskatchewan Union */
+	#saskatchewan,
+	#manitoba {
+		fill: #fed20d;
+	}
+	#manitoba-saskatchewan-link:hover #saskatchewan,
+	#manitoba-saskatchewan-link:hover #manitoba {
+		fill: #fee267;
+	}
+	
+	/* Ontario Union */
+	#ontario-area {
+		fill: #1682b0;
+	}
+	#ontario-link:hover #ontario-area {
+		fill: #33b0e6;	
+	}
+	
+	/* Quebec Union */
+	#qc-quebec,
+	#qc-anticosti {
+		fill: #b975b7;
+	}
+	
+	#quebec-link:hover #qc-quebec,
+	#quebec-link:hover #qc-anticosti {
+		fill: #cc99ca;
+	}
+	
+	/* Maritime Union */
+	#acadian-peninsula,
+	#cape-breton,
+	#prince-edward-island,
+	#new-brunswick {
+		fill: #5abb47;
+	}
+	
+	#maritime-link:hover #cape-breton,
+	#maritime-link:hover #acadian-peninsula,
+	#maritime-link:hover #cape-breton,
+	#maritime-link:hover #prince-edward-island,
+	#maritime-link:hover #new-brunswick {
+	fill: #8acf7d;
+	}
+	
+	/* Newfoundland Labrador Union */
+	#newfoundland,
+	#labrador {
+		fill: #ed2052;
+	}
+	
+	#newfoundland-labrador-area:hover,
+	#maritime-area:hover,
+	#quebec-area:hover,
+	#ontario-area:hover,
+	#manitoba-saskatchewan-area:hover,
+	#alberta-area:hover,
+	#british-columbia-area:hover {
+		stroke: #231F20;
+		stroke-width: 2px;
+	}
+	
+	#newfoundland-labrador-link:hover #newfoundland,
+	#newfoundland-labrador-link:hover #labrador 	 {
+		fill: #f25a80;	
+	}
+	
+	#newfoundland-labrador-link:hover #newfoundland-labrador-title, #newfoundland-labrador-link:hover #newfoundland-labrador-line {
+		opacity: 1;
+		fill: #000;		
+	}
+	
+	#quebec-link:hover #quebec-title {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#maritime-link:hover #maritime-title, #maritime-link:hover #maritime-line {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#ontario-link:hover #ontario-title {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#alberta-link:hover #alberta-title {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#british-columbia-link:hover #british-columbia-title {
+		opacity: 1;
+		fill: #000;
+	}
+
+	#manitoba-saskatchewan-link:hover #manitoba-saskatchewan-title {			
+		opacity: 1;
+		fill: #000;
+	}
+
+</style>
+<?php if (isset($_GET['id'])) { $class=""; } 
+else { $class="class='hideClass'"; ?>
+<div id='can-map' <?php echo $class ?> style="width: 100%; text-align:left">
+<?php } ?>	
+<div class='column1'>
+	<svg  viewBox="14.596 7.479 960.607 931.467" preserveAspectRatio="xMaxYMid meet"  >
 		
 <g id="Canada" transform="rotate(-9) scale(0.9 0.8) translate(-80 120)" x="0" y="0">
-			<a xlink:href= "#"  id="newfoundland-labrador-link" onclick="showOne('AN6T','can_confs');">
+			<a xlink:href= "#"  id="newfoundland-labrador-link" onclick="showOne('AN6T');">
             <text id="newfoundland-labrador-title" transform="matrix(1 0 0 1 822.6943 569.856) rotate(10)"><tspan x="0" y="-15" >Newfoundland &amp;</tspan><tspan x="37.56" y="9.199"  >Labrador</tspan></text>
 				<line id="newfoundland-labrador-line" fill="none" stroke="#000000" stroke-miterlimit="10" x1="892.047" y1="600.387" x2="881.547" y2="645.385"/>
 				<g id="newfoundland-labrador-area">			
@@ -48,7 +235,7 @@
                 
 			</g>
 			</a>
-       	<a xlink:href= "#"  id="maritime-link" onclick="showOne('AN6F','can_confs');">
+       	<a xlink:href= "#"  id="maritime-link" onclick="showOne('AN6F');">
          <text id="maritime-title" transform="matrix(1 0 0 1 854.1084 890.8384) rotate(10)" >Maritime</text>
 				<line id="maritime-line" fill="none" stroke="#000000" stroke-miterlimit="10" x1="880.047" y1="862.875" x2="845.549" y2="835.875"/>
 
@@ -79,7 +266,7 @@
 				
                </g>
 	</a>
-            	<a xlink:href= "#"  id="quebec-link" onclick="showOne('AN6P','can_confs');">
+            	<a xlink:href= "#"  id="quebec-link" onclick="showOne('AN6P');">
 			<g id="quebec-area" transform="translate(1.3625671,-0.454189)">
             <path id="qc-anticosti" fill="#4C4CE0" d="M824.799,742.443c-4.021-1.525-7.375-3.119-7.45-3.543
 					c-0.372-2.068,0.095-2.676,2.985-3.871c7.474-3.098,31.817,1.617,31.817,6.158c0,1.484-1.041,2.01-4.882,2.463
@@ -122,7 +309,7 @@
                 <text id="quebec-title" transform="matrix(1 0 0 1 674.2546 717.3023) rotate(10)" >Quebec</text>
 
             </a>
-            	<a xlink:href= "#" id="ontario-link"  onclick="showOne('AN6M','can_confs');">	
+            	<a xlink:href= "#" id="ontario-link"  onclick="showOne('AN6M');">	
                 <g id="ontario-area">
                 
 						
@@ -152,7 +339,7 @@
                                   <text id="ontario-title" transform="matrix(1 0 0 1 509.125 769.3462) rotate(10)" >Ontario</text>
 
 			</a>
-            	<a xlink:href= "#" id="manitoba-saskatchewan-link"  onclick="showOne('AN6B','can_confs');">
+            	<a xlink:href= "#" id="manitoba-saskatchewan-link"  onclick="showOne('AN6B');">
 <g id="manitoba-saskatchewan-area">
 
 				
@@ -188,7 +375,7 @@
              <text id="manitoba-saskatchewan-title" transform="matrix(1 0 0 1 305 650) rotate(10)"><tspan x="0" y="0"  >Manitoba-</tspan><tspan x="-19.488" y="25"  >Saskatchewan</tspan></text>
                
 			</a>
-         	<a xlink:href= "#"  id="alberta-link" onclick="showOne('AN64','can_confs');">
+         	<a xlink:href= "#"  id="alberta-link" onclick="showOne('AN64');">
 			<g id="alberta-area">            
 				
 				<path id="alberta" fill="#EFAC18" d="M221.504,769.393c-26.62-7.168-26.319-7.045-28.926-11.82
@@ -304,7 +491,7 @@
 				<path id="rowley" fill="#EFAC18" d="M580.63,379.399c0-0.532,0.442-1.241,0.983-1.575
 					c0.541-0.334,1.759-3.368,2.705-6.741c0.945-3.373,2.175-6.133,2.729-6.133c1.205,0,0.066,8.772-1.535,11.819
 					C583.887,379.863,580.63,381.617,580.63,379.399z"/>
-
+				
 				<path id="nunavut-victoria" fill="#EFAC18" d="M386.906,381.503c-7.242-3.978-18.04-11.75-18.548-13.351
 					c-0.711-2.239-3.372-2.529-4.168-0.454c-0.628,1.632-4.323,3.247-9.657,4.218c-1.979,0.36-5.196,1.381-7.15,2.269
 					c-2.918,1.326-5.973,1.498-17.114,0.964c-18.541-0.889-18.428-0.831-19.273-9.938c-0.854-9.183-1.714-10.809-6.554-12.382
@@ -446,39 +633,6 @@
 					c-0.851-0.341-1.548-0.725-1.553-0.853s-0.314-0.631-0.688-1.118l-0.681-0.885l-2.31,1.5c-5.145,3.34-8.038,3.835-21.386,3.659
 					c-10.088-0.133-10.68-0.274-11.994-2.851c-0.405-0.795-0.993-1.446-1.307-1.446c-0.314,0-1.577,0.959-2.81,2.131
 					C495.775,254.771,495.941,254.741,492.156,252.836L492.156,252.836z"/>
-
-					<path id="north-west-borden" fill="#EFAC18" d="M383.397,143.644c-1.963-1.362-4.622-2.476-5.909-2.476
-						c-3.072,0-3.032-2.583,0.07-4.617c2.286-1.498,11.293-2.575,12.388-1.481c0.585,0.585-1.401,9.348-2.354,10.372
-						C387.248,145.815,385.359,145.006,383.397,143.644L383.397,143.644z"/>
-					
-					<path id="mackenzie-king" fill="#EFAC18" d="M371.326,165.883c-1.186-1.104-2.702-3.669-3.373-5.702
-						c-0.671-2.033-2.333-4.809-3.693-6.169c-2.754-2.754-3.376-7.706-0.968-7.706c0.828,0,1.99,0.905,2.582,2.012
-						c0.996,1.861,1.852,1.965,11.4,1.383l10.323-0.629l-0.677,2.985c-3.474,15.329-3.766,15.832-9.186,15.832
-						C374.935,167.889,372.743,167.203,371.326,165.883L371.326,165.883z"/>
-					
-					<path id="prince-patrick" fill="#EFAC18" d="M314.743,186.434c-1.122-1.972-2.599-3.119-4.02-3.123
-						c-4.337-0.013-7.518-1.885-7.518-4.427c0-3.367,3.438-6.109,11.744-9.368c4.347-1.705,9.144-4.613,12.316-7.466
-						c2.858-2.57,6.275-5.083,7.593-5.583c3.548-1.349,13.949-1.104,15.867,0.374c3.034,2.339,2.719,6.684-0.761,10.437
-						c-1.413,1.525-2.568,3.901-2.568,5.281c0,1.525-1.266,3.62-3.228,5.343c-1.773,1.559-3.855,3.446-4.626,4.193
-						c-3.835,3.725-7.142-1.796-3.973-6.633c1.607-2.455,1.6-2.533-0.179-1.558c-1.028,0.565-4.415,3.64-7.522,6.834
-						c-3.109,3.194-6.937,6.483-8.504,7.309C316.622,189.494,316.451,189.435,314.743,186.434L314.743,186.434z"/>
-					
-					<path id="eglinton" fill="#EFAC18" d="M320.521,198.272c-1.627-3.57-0.498-5.521,4.51-7.794
-						c5.392-2.447,7.848-2.547,8.688-0.354c0.45,1.173-0.88,3.024-4.398,6.127C323.482,201.396,322.09,201.715,320.521,198.272
-						L320.521,198.272z"/>
-					
-					<path id="north-west-melville" fill="#EFAC18" d="M345.448,234.285c-4.279-4.416-3.883-6.795,1.441-8.658
-						c8.676-3.035,9.714-3.535,9.17-4.417c-0.309-0.5-1.588-0.908-2.842-0.908s-3.3-0.714-4.546-1.587
-						c-1.698-1.189-2.769-1.318-4.271-0.514c-4.159,2.226-6.936,1.244-11.81-4.176c-5.055-5.623-5.785-8.219-2.921-10.377
-						c1.888-1.423,3.546-3.993,6.589-10.214c2.495-5.101,9.024-10.129,13.152-10.129c4.374,0,7.235,1.671,7.235,4.226
-						c0,1.154,1.394,3.492,3.097,5.194c4.071,4.072,4.78,5.528,5.668,11.647c0.887,6.118,1.967,7.708,5.234,7.708
-						c3.021,0,3.108,1.842,0.563,11.79c-1.779,6.954-1.998,7.264-7.427,10.53C355.893,239.146,350.125,239.11,345.448,234.285
-						L345.448,234.285z"/>
-                        
-				<path id="cornwallis" fill="#EFAC18" d="M466.166,250.081c-2.304-0.876-9.564-5.876-11.756-8.095
-					c-0.938-0.95-1.021-1.236-0.876-2.996c0.201-2.427,3.785-9.744,5.72-11.679c3.117-3.117,8.825-2.816,12.801,0.674
-					c1.68,1.473,1.987,2.818,2.487,10.821c0.472,7.541,0.273,8.627-1.886,10.337C470.931,250.51,468.295,250.891,466.166,250.081
-					L466.166,250.081z"/>
 				
 				<path id="somerset" fill="#EFAC18" d="M460.199,313.979c-0.784-0.286-1.899-0.994-2.479-1.574
 					c-0.951-0.951-1.103-1.449-1.556-5.115c-0.275-2.234-0.587-4.2-0.691-4.368c-0.607-0.985-0.912-7.355-0.569-11.947
@@ -493,6 +647,11 @@
 					c-2.747-5.525-4.306-9.563-3.861-10.006c1.016-1.016,13.312-1.035,17.057-0.027c3.26,0.878,9.015,6.002,12.172,10.839
 					c3.172,4.859,2.484,5.69-4.977,6.015c-4.05,0.176-4.648,0.298-7.449,1.515C571.581,290.57,569.91,290.798,568.388,289.842
 					L568.388,289.842z"/>
+				
+				<path id="cornwallis" fill="#EFAC18" d="M466.166,250.081c-2.304-0.876-9.564-5.876-11.756-8.095
+					c-0.938-0.95-1.021-1.236-0.876-2.996c0.201-2.427,3.785-9.744,5.72-11.679c3.117-3.117,8.825-2.816,12.801,0.674
+					c1.68,1.473,1.987,2.818,2.487,10.821c0.472,7.541,0.273,8.627-1.886,10.337C470.931,250.51,468.295,250.891,466.166,250.081
+					L466.166,250.081z"/>
 				
 				<path id="prince-of-wales" fill="#EFAC18" d="M429.853,329.14c-0.688-0.341-2.349-1.688-3.69-2.994
 					c-2.294-2.229-2.456-2.495-2.673-4.372c-0.749-6.472-2.16-8.835-7.772-13.017c-2.3-1.714-4.383-4.382-6.132-7.854
@@ -560,13 +719,41 @@
 						c-0.387-2.384-0.091-3.906,0.923-4.747c0.819-0.681,1.704-1.025,1.964-0.766c0.443,0.444-15.486,65.605-16.146,66.041
 						C341.884,341.249,340.821,341.146,339.69,340.909L339.69,340.909z"/>
 					
+					<path id="north-west-borden" fill="#EFAC18" d="M383.397,143.644c-1.963-1.362-4.622-2.476-5.909-2.476
+						c-3.072,0-3.032-2.583,0.07-4.617c2.286-1.498,11.293-2.575,12.388-1.481c0.585,0.585-1.401,9.348-2.354,10.372
+						C387.248,145.815,385.359,145.006,383.397,143.644L383.397,143.644z"/>
+					
+					<path id="mackenzie-king" fill="#EFAC18" d="M371.326,165.883c-1.186-1.104-2.702-3.669-3.373-5.702
+						c-0.671-2.033-2.333-4.809-3.693-6.169c-2.754-2.754-3.376-7.706-0.968-7.706c0.828,0,1.99,0.905,2.582,2.012
+						c0.996,1.861,1.852,1.965,11.4,1.383l10.323-0.629l-0.677,2.985c-3.474,15.329-3.766,15.832-9.186,15.832
+						C374.935,167.889,372.743,167.203,371.326,165.883L371.326,165.883z"/>
+					
+					<path id="prince-patrick" fill="#EFAC18" d="M314.743,186.434c-1.122-1.972-2.599-3.119-4.02-3.123
+						c-4.337-0.013-7.518-1.885-7.518-4.427c0-3.367,3.438-6.109,11.744-9.368c4.347-1.705,9.144-4.613,12.316-7.466
+						c2.858-2.57,6.275-5.083,7.593-5.583c3.548-1.349,13.949-1.104,15.867,0.374c3.034,2.339,2.719,6.684-0.761,10.437
+						c-1.413,1.525-2.568,3.901-2.568,5.281c0,1.525-1.266,3.62-3.228,5.343c-1.773,1.559-3.855,3.446-4.626,4.193
+						c-3.835,3.725-7.142-1.796-3.973-6.633c1.607-2.455,1.6-2.533-0.179-1.558c-1.028,0.565-4.415,3.64-7.522,6.834
+						c-3.109,3.194-6.937,6.483-8.504,7.309C316.622,189.494,316.451,189.435,314.743,186.434L314.743,186.434z"/>
+					
+					<path id="eglinton" fill="#EFAC18" d="M320.521,198.272c-1.627-3.57-0.498-5.521,4.51-7.794
+						c5.392-2.447,7.848-2.547,8.688-0.354c0.45,1.173-0.88,3.024-4.398,6.127C323.482,201.396,322.09,201.715,320.521,198.272
+						L320.521,198.272z"/>
+					
+					<path id="north-west-melville" fill="#EFAC18" d="M345.448,234.285c-4.279-4.416-3.883-6.795,1.441-8.658
+						c8.676-3.035,9.714-3.535,9.17-4.417c-0.309-0.5-1.588-0.908-2.842-0.908s-3.3-0.714-4.546-1.587
+						c-1.698-1.189-2.769-1.318-4.271-0.514c-4.159,2.226-6.936,1.244-11.81-4.176c-5.055-5.623-5.785-8.219-2.921-10.377
+						c1.888-1.423,3.546-3.993,6.589-10.214c2.495-5.101,9.024-10.129,13.152-10.129c4.374,0,7.235,1.671,7.235,4.226
+						c0,1.154,1.394,3.492,3.097,5.194c4.071,4.072,4.78,5.528,5.668,11.647c0.887,6.118,1.967,7.708,5.234,7.708
+						c3.021,0,3.108,1.842,0.563,11.79c-1.779,6.954-1.998,7.264-7.427,10.53C355.893,239.146,350.125,239.11,345.448,234.285
+						L345.448,234.285z"/>
+                        
 				</g>
             
 </g>
 <text id="alberta-title" transform="matrix(1 0 0 1 180 616.354) rotate(10)"  >Alberta</text>
 
              </a>
-                	<a xlink:href= "#"  id="british-columbia-link" onclick="showOne('AN68','can_confs');">      
+                	<a xlink:href= "#"  id="british-columbia-link" onclick="showOne('AN68');">      
 			<g id="british-columbia-area">
             
 			  <path id="vancouver-island" fill="#C0A8DD" d="M70.576,732.006c-3.571-2.291-10.187-10.703-11.319-14.395
@@ -607,24 +794,16 @@
 
             </a>
 			<g class="u-title">
-            <text id="canadian-union-title" class='u-title' transform="translate(650,225) rotate(10)"  font-size="34">Seventh-day Adventist</text>
-             <text id="canadian-union-title" class='u-title' transform="translate(700,285)  rotate(10)" font-size="34">Church in Canada</text>
+            <text id="canadian-union-title" transform="translate(650,225) rotate(10)" font-size="34">Seventh-day Adventist</text>
+             <text id="canadian-union-title" transform="translate(700,285)  rotate(10)" font-size="34">Church in Canada</text>
             </g>
 			
-	</div>
+</div>
+<?php if (!(isset($_GET['id']))) {  ?>
 <div class='column2'>
 <?php
+min_list_union("Seventh-day Adventist Church in Canada","AN6","N","N",4,"Y","N"); 
+min_interactive_conf_divs("AN6");
 
-$arr=sws_entity_personnel("AN6"); 
-
-foreach ($arr as $arrTmp) { echo sws_show_entity($arrTmp); }
-
-$tmp=sws_fromBig("AN6",$unionArr); 
-
-foreach ($tmp as $arr) { $myID=$arr[0]; //echo $myID."<br />";
-	$newArr=sws_entity_personnel($myID); 
-	foreach ($newArr as $arrTmp2) { echo sws_show_entity($arrTmp2,'can_confs hideClass'); }
-}
-
-?></div>
-</div>
+?></div></div>
+<?php } ?>	

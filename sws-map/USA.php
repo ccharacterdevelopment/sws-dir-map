@@ -1,11 +1,345 @@
-<div id='us-map' class="country <?php if ((isset($_GET['id'])) && ($_GET['id']=="AN6")) { echo "hideClass"; }  ?>">
+<style>
+	/* Region Titles */
+	#southern-union-titles,
+	#southwestern-union-titles,
+	#pacific-union-titles,
+	#north-pacific-union-titles,
+	#mid-america-union-titles,
+	#lake-union-titles,
+	#columbia-union-titles,
+	#atlantic-union-titles {
+		opacity: 0;
+	}
+	
+	/* Union Titles */
+	#southern-union-title,
+	#southwestern-union-title,
+	#pacific-union-title,
+	#north-pacific-union-title,
+	#mid-america-union-title,
+	#lake-union-title,
+	#columbia-union-title,
+	#atlantic-union-title,
+	#canadian-union-title {
+		/*text-shadow: 1px 1px 1px white;*/
+		fill: #000;
+		z-index: 999;
+		display: block;
+		text-transform: uppercase;
+		font-weight: 700;
+		text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+	}
+	
+	#southern-union:hover #southern-union-titles,
+	#southwestern-union:hover #southwestern-union-titles,
+	#pacific-union:hover #pacific-union-titles,
+	#north-pacific-union:hover #north-pacific-union-titles,
+	#mid-america-union:hover #mid-america-union-titles,
+	#lake-union:hover #lake-union-titles,
+	#columbia-union:hover #columbia-union-titles,
+	#atlantic-union:hover #atlantic-union-titles,
+	#canadian-union:hover #canadian-union-titles  {
+		opacity: 1;
+		-webkit-font-smoothing: antialiased;
+		font-smoothing: antialiased;
+		-webkit-transform: translate3d( 0, 0, 0);
+		transform: translate3d( 0, 0, 0);
+	}
+	
+	/* Atlantic Union */
+	#new-york-area,
+	#greater-new-york-area,
+	#northern-new-england-area,
+	#maine,
+	#new-hampshire,
+	#vermont,
+	#southern-new-england-area,
+	#massachusetts,
+	#rhode-island,
+	#connecticut {
+		fill: #ed2052;
+	}
+	
+	#atlantic-union:hover #new-york-area,
+	#atlantic-union:active #new-york-area {
+		fill: #f68fa8;
+	}
+	
+	#atlantic-union:hover #greater-new-york-area,
+	#atlantic-union:active #greater-new-york-area {
+		fill: #ed2052;
+	}
+	
+	#atlantic-union:hover #maine,
+	#atlantic-union:active #maine,
+	#atlantic-union:hover #new-hampshire,
+	#atlantic-union:active #new-hampshire,
+	#atlantic-union:hover #vermont,
+	#atlantic-union:active #vermont {
+		fill: #f17191;
+	}
+	
+	#atlantic-union:hover #massachusetts,
+	#atlantic-union:active #massachusetts,
+	#atlantic-union:hover #rhode-island,
+	#atlantic-union:active #rhode-island,
+	#atlantic-union:hover #connecticut,
+	#atlantic-union:active #connecticut {
+		fill: #fabdcb;
+	}
+	
+	/* Southwestern Union */
+	#texas-area,
+	#oklahoma-area,
+	#arkansas,
+	#louisiana,
+	#new-mexico,
+	#western-texas {
+		fill: #ef8423;
+	}
+	
+	#southwestern-union:hover #texas-area {
+		fill: #ef8423;
+	}
+	
+	#southwestern-union:hover #new-mexico,
+	#southwestern-union:hover #western-texas {
+		fill: #f29d4f;
+	}
+	
+	#southwestern-union:hover #oklahoma-area {
+		fill: #f5b57b;
+	}
+	
+	#southwestern-union:hover #arkansas,
+	#southwestern-union:hover #louisiana {
+		fill: #f9cea7;
+	}
+	
+	/* Columbia Union */
+	#mountain-view-area,
+	#chesapeake-area,
+	#pennsylvania-area,
+	#new-jersey-area,
+	#potomac-area,
+	#ohio-area {
+		fill: #b975b7;
+	}
+	
+	#columbia-union:hover #mountain-view-area {
+		fill: #b975b7;
+	}
+	
+	#columbia-union:hover #chesapeake-area {
+		fill: #e3c8e2;
+	}
+	
+	#columbia-union:hover #pennsylvania-area {
+		fill: #d3a8d2;
+	}
+	
+	#columbia-union:hover #new-jersey-area {
+		fill: #d6a6d5;
+	}
+	
+	#columbia-union:hover #potomac-area {
+		fill: #c791c5;
+	}
+	
+	#columbia-union:hover #ohio-area {
+		fill: #b975b7;
+	}
+	
+	/* Lake Union */
+	#indiana-area,
+	#michigan-area,
+	#wisconsin-area,
+	#illinois-area {
+		fill: #1682b0;
+	}
+	
+	#lake-union:hover #indiana-area {
+		fill: #1682b0;
+	}
+	
+	#lake-union:hover #michigan-area {
+		fill: #a2cddf;
+	}
+	
+	#lake-union:hover #wisconsin-area {
+		fill: #73b4d0;
+	}
+	
+	#lake-union:hover #illinois-area {
+		fill: #459bc0;
+	}
+	
+	/* Southern Union */
+	#georgia,
+	#eastern-tennessee,
+	#north-carolina,
+	#south-carolina,
+	#florida-area,
+	#kentucky,
+	#tennessee,
+	#mississippi,
+	#alabama {
+		fill: #5abb47;
+	}
+	
+	#southern-union:hover #georgia,
+	#southern-union:hover #eastern-tennessee {
+		fill: #bde4b5;
+	}
+	
+	#southern-union:hover #north-carolina,
+	#southern-union:hover #south-carolina {
+		fill: #acdda3;
+	}
+	
+	#southern-union:hover #florida-area {
+		fill: #7bc96c;
+	}
+	
+	#southern-union:hover #kentucky,
+	#southern-union:hover #western-tennessee {
+		fill: #5abb47;
+	}
+	
+	#southern-union:hover #mississippi,
+	#southern-union:hover #alabama {
+		fill: #9cd691;
+	}
+	
+	/* North Pacific Union */
+	#wa-island,
+	#wa
+	#eastern-wa,
+	#upper-idaho,
+	#s-idaho-area,
+	#montana-area,
+	#alaska-area,
+	#w-oregon, #e-oregon,
+	#south-washington {
+		fill: #ff00cc;
+	}
+	
+	#north-pacific-union:hover #wa-island,
+	#north-pacific-union:hover #wa {
+		fill: #ffccf5;
+	}
+	
+	#north-pacific-union:hover #eastern-wa,
+	#north-pacific-union:hover #upper-idaho {
+		fill: #ff66e0;
+	}
+	
+	#north-pacific-union:hover #s-idaho-area,
+	#north-pacific-union:hover #e-oregon-area {
+		fill: #ff33d6;
+	}
+	
+	#north-pacific-union:hover #montana-area {
+		fill: #ff00cc;
+	}
+	
+	#north-pacific-union:hover #alaska-area {
+		fill: #ff7fe5;
+	}
+	
+	#north-pacific-union:hover #w-oregon-area,
+	#north-pacific-union:hover #south-washington {
+		fill: #ff99eb;
+	}
+	
+	/* Mid-America Union */
+	#colorado,
+	#wyoming,
+	#new-mexico2,
+	#kansas,
+	#nebraska
+	#iowa,
+	#missouri
+	#minnesota-area,
+	#north-dakota,
+	#south-dakota {
+		fill: #fed20d;
+	}
+	
+	#mid-america-union:hover #colorado,
+	#mid-america-union:hover #wyoming,
+	#mid-america-union:hover #new-mexico2 {
+		fill: #fff6cf;	
+	}
+	
+	#mid-america-union:hover #kansas,
+	#mid-america-union:hover #nebraska {
+		fill: #fed20d;
+	}
+	
+	#mid-america-union:hover #iowa,
+	#mid-america-union:hover #missouri {
+		fill: #ffed9e;
+	}
+	
+	#mid-america-union:hover #minnesota-area {
+		fill: #fedb3d;
+	}
+	
+	#mid-america-union:hover #north-dakota,
+	#mid-america-union:hover #south-dakota {
+		fill: #fee46e;
+	}
+	
+	/* Pacific Union */
+	#hawaii-area,
+	#arizona-area,
+	#nevada,
+	#utah,
+	#southern-california-area,
+	#south-eastern-california-area,
+	#northern-california-area,
+	#central-california-area {
+		fill: #12a89d;
+	}
+	
+	#pacific-union:hover #hawaii-area {
+		fill: #b7e5e1;
+	}
+	
+	#pacific-union:hover #arizona-area {
+		fill: #41b9b1;
+	}
+	
+	#pacific-union:hover #nevada,
+	#pacific-union:hover #utah {
+		fill: #12a89d;
+	}
+	
+	#pacific-union:hover #southern-california-area {
+		fill: #88d3ce;
+	}
+	
+	#pacific-union:hover #south-eastern-california-area {
+		fill: #5ac2bb;
+	}
+	
+	#pacific-union:hover #northern-california-area {
+		fill: #a0dcd8;
+	}
+	
+	#pacific-union:hover #central-california-area {
+		fill: #71cbc4;
+	}
+
+</style><div id='us-map' class="scale-it">
 	
 	<svg class="scaling-svg" viewBox="0 0 1186.94 676.456" preserveAspectRatio="xMaxYMid meet" >
 		
-		<a onClick="showOne('AN4','country');">
-			<g id="USatlantic-union" transform="translate(0 -60)" >
+		<a xlink:href= "directory2.php?id=AN4" >
+			<g id="atlantic-union" transform="translate(0 -60)" >
             
-            <text id="nad-title" class='u-title' transform="translate(430,105)" font-size="25">North American Division</text>
+            <text id="canadian-union-title" transform="translate(430,105)" font-size="25">North American Division</text>
             
 				<g id="southern-new-england-area">
 					<polygon id="rhode-island" fill="#ED2052" points="1108.85,271.43 1106.66,272.56 1105.36,272.36 1104.26,274.16 
@@ -70,25 +404,25 @@
 					l5.5-1.3l3.2,0.2l4.5-1.5l7.181-1.98l0.42-0.12l0.5,5l2.399,6.5l0.8,5.2l-1,3.9l2.601,4.5l0.8,2.1l-0.8,2.9l2.899,1.3l0.601,0.3
 					L1067.66,246.86z"/>
 
-				<g id="USatlantic-union-titles">
-					<text id="USnew-york-title" transform="matrix(1 0 0 1 1013.2251 256.7603)" font-size="10">New York</text>
-					<text id="USnorthern-new-england-title" transform="matrix(1 0 0 1 1076.8423 184.0938)"><tspan x="0" y="0" font-size="10">Northern</tspan><tspan x="-8.734" y="12" font-size="10">New England</tspan></text>
-					<g id="USgreater-new-york-title">
+				<g id="atlantic-union-titles">
+					<text id="new-york-title" transform="matrix(1 0 0 1 1013.2251 256.7603)" font-size="10">New York</text>
+					<text id="northern-new-england-title" transform="matrix(1 0 0 1 1076.8423 184.0938)"><tspan x="0" y="0" font-size="10">Northern</tspan><tspan x="-8.734" y="12" font-size="10">New England</tspan></text>
+					<g id="greater-new-york-title">
 						<text transform="matrix(1 0 0 1 1087.2583 310.7607)" font-size="10">Greater New York</text>
 						<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1083.859" y1="307.093" x2="1074.526" y2="299.093"/>
 					</g>
-					<g id="USsouthern-new-england-title">
+					<g id="southern-new-england-title">
 						<text transform="matrix(1 0 0 1 1139.8813 274.7607)"><tspan x="0" y="0" font-size="10">Southern</tspan><tspan x="-8.44" y="12" font-size="10">New England</tspan></text>
 						<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1129.192" y1="277.093" x2="1101.192" y2="271.76"/>
 					</g>
 				</g>
 			
-				<text id="atlantic-union-title"  class='u-title' transform="matrix(1 0 0 1 1006.6333 230.8491)" >atlantic union</text>
+				<text id="atlantic-union-title" transform="matrix(1 0 0 1 1006.6333 230.8491)" >atlantic union</text>
 			</g>
 		</a>
 		
-		<a onClick="showOne('ANB','country');">
-			<g id="UScolumbia-union" transform="translate(0 -60)">
+		<a xlink:href= "directory2.php?id=ANB">
+			<g id="columbia-union" transform="translate(0 -60)">
 				<polygon id="ohio-area" fill="#92278F" points="959.2,321.86 957.93,323.76 959.11,327.09 959.11,331.58 
 					958.61,336.63 958.419,341.84 956.25,345.51 953.26,348.79 951.31,350.15 949.09,349.62 947.44,351.54 945.16,354.9 
 					944.01,356.4 944.01,359.37 944.66,360.02 944.89,361.4 944.29,360.5 942.16,359.23 940.09,361.16 939.03,365.27 938.82,370.12 
@@ -141,30 +475,30 @@
 					l1-1.16l1.98,0.48l2.58-1.8l3.22-3.5l2.49-4.19l0.31-5.85l0.5-5.07v-4.7l-1.02-3l0.75-1.12l0.229-0.23l3.38,19.12l5.28-0.92
 					l10.14-0.94l0.95,4.21l1.29,8.13l4.6-3.45l2.29-3.03l2.44-0.59l1.65-1.65l1.52-2.17l0.81,0.41l3.341-0.35l2.75-2.22l1.89-1.42
 					l1.3-0.36l1,0.77L1008.93,339.58z"/>
-				<g id="UScolumbia-union-titles">
-					<text id="USmountain-view-title" transform="matrix(1 0 0 1 941.5552 372.0923)"><tspan x="0" y="0" font-size="10">Mountain</tspan><tspan x="10.159" y="12" font-size="10">View</tspan></text>
-					<text id="USpotomac-title" transform="matrix(1 0 0 1 993.2349 390.7593)" font-size="10">Potomac</text>
-					<text id="USohio-title" transform="matrix(1 0 0 1 909.0571 330.0928)" font-size="10">Ohio</text>
+				<g id="columbia-union-titles">
+					<text id="mountain-view-title" transform="matrix(1 0 0 1 941.5552 372.0923)"><tspan x="0" y="0" font-size="10">Mountain</tspan><tspan x="10.159" y="12" font-size="10">View</tspan></text>
+					<text id="potomac-title" transform="matrix(1 0 0 1 993.2349 390.7593)" font-size="10">Potomac</text>
+					<text id="ohio-title" transform="matrix(1 0 0 1 909.0571 330.0928)" font-size="10">Ohio</text>
 				
-					<text id="USpennsylvania-title" transform="matrix(1 0 0 1 977.1255 311.4263)" font-size="10">Pennsylvania</text>
+					<text id="pennsylvania-title" transform="matrix(1 0 0 1 977.1255 311.4263)" font-size="10">Pennsylvania</text>
 					
-					<g id="USchesapeake-title">
+					<g id="chesapeake-title">
 						<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1062.527" y1="367.092" x2="1053.194" y2="359.092"/>
 						<text transform="matrix(1 0 0 1 1066.6782 369.4263)" font-size="10">Chesapeake</text>
 					</g>
 				
-					<g id="USnew-jersey-title">
+					<g id="new-jersey-title">
 						<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="1075.86" y1="329.758" x2="1066.527" y2="324.425"/>
 						<text transform="matrix(1 0 0 1 1079.8276 333.4263)" font-size="10">New Jersey</text>
 					</g>
 				</g>
 			
-				<text id="columbia-union-title"  class='u-title' transform="matrix(1 0 0 1 923.6333 346.8491)" >columbia-union</text>
+				<text id="columbia-union-title" transform="matrix(1 0 0 1 923.6333 346.8491)" >columbia-union</text>
 			</g>
 		</a>
 		
-		<a onClick="showOne('ANT','country');">
-			<g id="USsouthern-union" transform="translate(0 -60)">
+		<a xlink:href= "directory2.php?id=ANT">
+			<g id="southern-union" transform="translate(0 -60)">
 				<g id="gulf-states-area">
 					<polygon id="alabama" fill="#5ABB47" points="910.51,542.14 910.75,543.5 906.44,543.26 906.34,543.26 906.23,543.27 899.43,543.87 
 						873.89,546.77 863.669,548.069 862.48,548.22 862.37,549.42 862.07,552.51 862,553.22 862.5,553.72 864.3,555.52 
@@ -289,21 +623,21 @@
 						l0.32-0.04l0.28-0.16l0.689-0.41h0.021l0.01-0.01l5.811-0.47l12-1.9l7.899-0.2l2.4-1.899L954.56,413.26z"/>
 				</g>
 				
-				<g id="USsouthern-union-titles">
-					<text id="USgulf-states-title" transform="matrix(1 0 0 1 822.5044 510.4258)" font-size="10">Gulf States</text>
-					<text id="UScarolina-title" transform="matrix(1 0 0 1 968.3013 448.4258)" font-size="10">Carolina</text>
-					<text id="USflorida-title" transform="matrix(1 0 0 1 971.7974 602.4258)" font-size="10">Florida</text>
+				<g id="southern-union-titles">
+					<text id="gulf-states-title" transform="matrix(1 0 0 1 822.5044 510.4258)" font-size="10">Gulf States</text>
+					<text id="carolina-title" transform="matrix(1 0 0 1 968.3013 448.4258)" font-size="10">Carolina</text>
+					<text id="florida-title" transform="matrix(1 0 0 1 971.7974 602.4258)" font-size="10">Florida</text>
 				
-					<text id="USkentucky-tennessee-title" transform="matrix(1 0 0 1 847.3032 411.7598)" font-size="10">Kentucky-Tennessee</text>
-					<text id="USgeorgia-cumberland-title" transform="matrix(1 0 0 1 924.3696 502.4258)"><tspan x="0" y="0" font-size="10">Georgia</tspan><tspan x="-9.505" y="12" font-size="10">Cumberland</tspan></text>
+					<text id="kentucky-tennessee-title" transform="matrix(1 0 0 1 847.3032 411.7598)" font-size="10">Kentucky-Tennessee</text>
+					<text id="georgia-cumberland-title" transform="matrix(1 0 0 1 924.3696 502.4258)"><tspan x="0" y="0" font-size="10">Georgia</tspan><tspan x="-9.505" y="12" font-size="10">Cumberland</tspan></text>
 				</g>
 			
-				<text id="southern-union-title" class='u-title' transform="matrix(1 0 0 1 854.3003 473.5156)" >southern union</text>
+				<text id="southern-union-title" transform="matrix(1 0 0 1 854.3003 473.5156)" >southern union</text>
 			</g>
 		</a>
 		
-		<a onClick="showOne('ANF','country');">
-			<g id="USlake-union" transform="translate(0 -60)">
+		<a xlink:href= "directory2.php?id=ANF">
+			<g id="lake-union" transform="translate(0 -60)">
 				<polygon id="illinois-area" fill="#1682B0" points="848.99,379.46 846.54,383.14 844.72,386.97 842.23,390.18 
 					841.91,395.36 841.91,398.85 841.33,400.71 841.06,401.51 840.59,402.02 839.7,402.99 840.68,405.67 840.93,406.21 
 					838.07,407.37 835.37,409.22 834.89,412.14 836.02,415.029 836.06,415.46 835.89,415.39 831.73,413.8 830.08,413.16 
@@ -358,19 +692,19 @@
 					852.9,312.87 855.47,311.4 860.44,311.21 882.43,308.91 887.28,308.47 888.709,323.75 893.01,360.54 893.51,365.37 
 					893.51,365.38 893.41,365.76 892.81,367.97 892.58,368.8 893.2,369.42 894.34,370.56"/>
 			
-				<g id="USlake-union-titles">
-					<text id="USmichigan-title" transform="matrix(1 0 0 1 874.5044 280.7593)" font-size="10">Michigan</text>
-					<text id="USwisconsin-title" transform="matrix(1 0 0 1 780.7944 254.0928)" font-size="10">Wisconsin</text>
-					<text id="USillinois-title" transform="matrix(1 0 0 1 803.1313 356.0928)" font-size="10">Illinois</text>
-					<text id="USindiana-title" transform="matrix(1 0 0 1 852.9712 350.7593)" font-size="10">Indiana</text>
+				<g id="lake-union-titles">
+					<text id="michigan-title" transform="matrix(1 0 0 1 874.5044 280.7593)" font-size="10">Michigan</text>
+					<text id="wisconsin-title" transform="matrix(1 0 0 1 780.7944 254.0928)" font-size="10">Wisconsin</text>
+					<text id="illinois-title" transform="matrix(1 0 0 1 803.1313 356.0928)" font-size="10">Illinois</text>
+					<text id="indiana-title" transform="matrix(1 0 0 1 852.9712 350.7593)" font-size="10">Indiana</text>
 				</g>
 			
-				<text id="lake-union-title" class='u-title' transform="matrix(1 0 0 1 830.0229 293.8594)"><tspan x="0" y="0" >lake</tspan><tspan x="-6.185" y="19.2" >union</tspan></text>
+				<text id="lake-union-title" transform="matrix(1 0 0 1 830.0229 293.8594)"><tspan x="0" y="0" >lake</tspan><tspan x="-6.185" y="19.2" >union</tspan></text>
 			</g>
 		</a>
 		
-		<a onClick="showOne('ANG','country');">
-			<g id="USmid-america-union" transform="translate(0 -60)">
+		<a xlink:href= "directory2.php?id=ANG">
+			<g id="mid-america-union" transform="translate(0 -60)">
 				<g id="dakota-area">
 					<polygon id="north-dakota" fill="#FED20D" points="695.37,224.28 639.41,222.51 583.34,218.76 583.81,208.53 588.74,155.06 612.92,156.91 
 						639.44,158.21 658.04,158.81 685.94,159.4 687.79,164.23 687.12,167.93 687.11,178.36 688.74,183.97 690.72,187.1 
@@ -438,25 +772,25 @@
 					<polygon id="colorado" fill="#FED20D" points="604.06,333.54 602.71,354.11 598.36,418.279 582.53,417.51 550.54,414.31 512.84,410.01 
 						479.69,406.3 479.9,404.26 485.2,365.17 488.4,342.75 490.92,321.29 510.88,323.7 572.69,330.51"/>
 				
-					<polygon id="USnew-mexico2" fill="#FED20D" points="500.52,411.319 498.44,412.779 496.64,425.42 478.52,423.01 480.53,408.95"/>
+					<polygon id="new-mexico2" fill="#FED20D" points="500.52,411.319 498.44,412.779 496.64,425.42 478.52,423.01 480.53,408.95"/>
 				</g>
 				
-				<g id="USmid-america-union-titles">
-					<text id="USminnesota-title" transform="matrix(1 0 0 1 704.4917 216.0928)" font-size="10">Minnesota</text>
-					<text id="USdakota-title" transform="matrix(1 0 0 1 624.2979 236.7593)" font-size="10">Dakota</text>
-					<text id="USrocky-mountain-title" transform="matrix(1 0 0 1 516.1509 320.7588)"><tspan x="0" y="0" font-size="10">Rocky</tspan><tspan x="-7.93" y="12" font-size="10">Mountain</tspan></text>
+				<g id="mid-america-union-titles">
+					<text id="minnesota-title" transform="matrix(1 0 0 1 704.4917 216.0928)" font-size="10">Minnesota</text>
+					<text id="dakota-title" transform="matrix(1 0 0 1 624.2979 236.7593)" font-size="10">Dakota</text>
+					<text id="rocky-mountain-title" transform="matrix(1 0 0 1 516.1509 320.7588)"><tspan x="0" y="0" font-size="10">Rocky</tspan><tspan x="-7.93" y="12" font-size="10">Mountain</tspan></text>
 				
-					<text id="USkansas-nebraska-title" transform="matrix(1 0 0 1 625.3062 348.7593)" font-size="10">Kansas-Nebraska</text>
+					<text id="kansas-nebraska-title" transform="matrix(1 0 0 1 625.3062 348.7593)" font-size="10">Kansas-Nebraska</text>
 				
-					<text id="USiowa-missouri-title" transform="matrix(1 0 0 1 719.5063 354.7593)" font-size="10">Iowa-Missouri</text>
+					<text id="iowa-missouri-title" transform="matrix(1 0 0 1 719.5063 354.7593)" font-size="10">Iowa-Missouri</text>
 				</g>
 			
-				<text id="mid-america-union-title" class='u-title' transform="matrix(1 0 0 1 557.6348 297.8594)" >mid-america union</text>
+				<text id="mid-america-union-title" transform="matrix(1 0 0 1 557.6348 297.8594)" >mid-america union</text>
 			</g>
 		</a>
 		
-		<a onClick="showOne('ANW','country');">
-			<g id="USsouthwestern-union" transform="translate(0 -60)">
+		<a xlink:href= "directory2.php?id=ANW">
+			<g id="southwestern-union" transform="translate(0 -60)">
 				<g id="arkansas-louisiana-area">
 					<polygon id="arkansas" fill="#EF8423" points="815.27,442.5 814.44,444.979 814.43,445.01 814.419,445.029 813.12,449.43 813.08,449.56 
 						813.07,449.689 812.86,451.54 809.51,453.46 808.37,454.12 808.879,455.34 810.19,458.49 809.41,461.92 808.23,462.859 
@@ -541,19 +875,19 @@
 					740.36,585.939 745.43,584.51 744.879,580.529 746.33,577.74 747.11,570.58 747.49,568.229 747.129,567.18 746.62,565.7 
 					746.87,565.29"/>
 			
-				<g id="USsouthwestern-union-titles">
-					<text id="USarkansas-louisiana-title" transform="matrix(1 0 0 1 745.397 507.7598)"><tspan x="0" y="0" font-size="10">Arkansas-</tspan><tspan x="0.354" y="12" font-size="10">Louisiana</tspan></text>
-					<text id="UStexas-title" transform="matrix(1 0 0 1 668.8315 572.7598)" font-size="10">Texas</text>
-					<text id="UStexico-title" transform="matrix(1 0 0 1 559.0664 472.7598)" font-size="10">Texico</text>
-					<text id="USoklahoma-title" transform="matrix(1 0 0 1 662.0464 455.7598)" font-size="10">Oklahoma</text>
+				<g id="southwestern-union-titles">
+					<text id="arkansas-louisiana-title" transform="matrix(1 0 0 1 745.397 507.7598)"><tspan x="0" y="0" font-size="10">Arkansas-</tspan><tspan x="0.354" y="12" font-size="10">Louisiana</tspan></text>
+					<text id="texas-title" transform="matrix(1 0 0 1 668.8315 572.7598)" font-size="10">Texas</text>
+					<text id="texico-title" transform="matrix(1 0 0 1 559.0664 472.7598)" font-size="10">Texico</text>
+					<text id="oklahoma-title" transform="matrix(1 0 0 1 662.0464 455.7598)" font-size="10">Oklahoma</text>
 				</g>
 			
-				<text id="southwestern-union-title" class='u-title' transform="matrix(1 0 0 1 554.9673 522.8486)" >southwestern union</text>
+				<text id="southwestern-union-title" transform="matrix(1 0 0 1 554.9673 522.8486)" >southwestern union</text>
 			</g>
 		</a>
 		
-		<a  onClick="showOne('ANI','country');">
-			<g id="USnorth-pacific-union" transform="translate(0 -60)">
+		<a xlink:href= "directory2.php?id=ANI">
+			<g id="north-pacific-union" transform="translate(0 -60)">
 				<g id="oregon-south-washington-area">
 					<path id="south-washington" fill="#FF00CC" d="M322.81,174.65l-1.72,1.07c-0.27,0.17-0.47,0.44-0.55,0.76c-0.06,0.22-0.14,0.63-0.23,1.05l-0.02,0.08
 						l-2.88-1.14l-0.35-0.15l-0.39,0.05l-0.45,0.06l-3.97-1.39l-0.86-0.3l-0.41,0.4l-0.07,0.06l-1.8,1.49l-5.03-0.26l-1.11-0.78
@@ -749,26 +1083,26 @@
 						c0-0.3,1.5-2.6,1.5-2.6l-1.7-0.6l-0.3,1.5l-0.7,0.6l-1.5-2.3l-0.5-2.4l2-0.2l0.5,1.4l1.5-1.6h2.3l0.8,1.5L314.56,112.46z"/>
 				</g>
 			
-				<g id="USnorth-pacific-union-titles">
-					<text id="USoregon-title" transform="matrix(1 0 0 1 290.46 227.2598)" font-size="10">Oregon</text>
-					<text id="USalaska-title" transform="matrix(1 0 0 1 96.4756 145.2593)" font-size="10">Alaska</text>
+				<g id="north-pacific-union-titles">
+					<text id="oregon-title" transform="matrix(1 0 0 1 290.46 227.2598)" font-size="10">Oregon</text>
+					<text id="alaska-title" transform="matrix(1 0 0 1 96.4756 145.2593)" font-size="10">Alaska</text>
 				
-					<g id="USwashington-title">
-						<text id="USwashington" transform="matrix(1 0 0 1 256.0503 90.2598)" font-size="10">Washington</text>
+					<g id="washington-title">
+						<text id="washington" transform="matrix(1 0 0 1 256.0503 90.2598)" font-size="10">Washington</text>
 						<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="281.36" y1="93.76" x2="295.36" y2="118.76"/>
 					</g>
 				
-					<text id="USidaho-title" transform="matrix(1 0 0 1 404.415 256.7598)" font-size="10">Idaho</text>
-					<text id="USupper-columbia-title" transform="matrix(1 0 0 1 372.7949 157.7598)"><tspan x="0" y="0" font-size="10">Upper</tspan><tspan x="-7.11" y="12" font-size="10">Columbia</tspan></text>
-					<text id="USmontana-title" transform="matrix(1 0 0 1 479.0703 176.7598)" font-size="10">Montana</text>
+					<text id="idaho-title" transform="matrix(1 0 0 1 404.415 256.7598)" font-size="10">Idaho</text>
+					<text id="upper-columbia-title" transform="matrix(1 0 0 1 372.7949 157.7598)"><tspan x="0" y="0" font-size="10">Upper</tspan><tspan x="-7.11" y="12" font-size="10">Columbia</tspan></text>
+					<text id="montana-title" transform="matrix(1 0 0 1 479.0703 176.7598)" font-size="10">Montana</text>
 				</g>
 			
-				<text id="north-pacific-union-title" class='u-title' transform="matrix(1 0 0 1 318.9678 209.8594)"  >north pacific union</text>
+				<text id="north-pacific-union-title" transform="matrix(1 0 0 1 318.9678 209.8594)"  >north pacific union</text>
 			</g>
 		</a>
 		
-		<a onClick="showOne('ANP','country');">
-			<g id="USpacific-union" transform="translate(0 -60)">
+		<a xlink:href= "directory2.php?id=ANP">
+			<g id="pacific-union" transform="translate(0 -60)">
 				<polygon id="central-california-area" fill="#12A89D" points="311.068,414.644 312.605,413.725 315.389,408.047 
 					317.871,403.766 318.244,402.718 318.547,400.48 318.467,397.682 318.327,395.084 318.336,394.92 318.857,391.813 
 					317.487,388.974 316.796,382.218 316.81,380.461 317.207,377.251 316.788,375.44 314.266,373.384 314.003,372.663 
@@ -862,28 +1196,28 @@
 					l-3.101,1.8l-2.399,3.2l-2.3,2.899l-1.801-0.2l-3.6-2.6l-0.3-4.5l0.6-2.4l-1.6-5.699l-2.101-1.801l-0.199-2.6l2.3-1l2.1-3.1
 					l0.5-1l-1.6-1.801L237.552,527.756z"/>
 			
-				<g id="USpacific-union-titles">
-					<text id="USnevada-utah-title" transform="matrix(1 0 0 1 370.8887 338.2563)" font-size="10">Nevada-Utah</text>
-					<text id="USnorthern-california-title" transform="matrix(1 0 0 1 257.3486 291.2563)"><tspan x="0" y="0" font-size="10">Northern</tspan><tspan x="-0.84" y="12" font-size="10">California</tspan></text>
-					<text id="UScentral" transform="matrix(1 0 0 1 275.8037 389.2563)"><tspan x="0" y="0" font-size="10">Central</tspan><tspan id="california3" x="-4.795" y="12" font-size="10">California</tspan></text>
+				<g id="pacific-union-titles">
+					<text id="nevada-utah-title" transform="matrix(1 0 0 1 370.8887 338.2563)" font-size="10">Nevada-Utah</text>
+					<text id="northern-california-title" transform="matrix(1 0 0 1 257.3486 291.2563)"><tspan x="0" y="0" font-size="10">Northern</tspan><tspan x="-0.84" y="12" font-size="10">California</tspan></text>
+					<text id="central" transform="matrix(1 0 0 1 275.8037 389.2563)"><tspan x="0" y="0" font-size="10">Central</tspan><tspan id="california3" x="-4.795" y="12" font-size="10">California</tspan></text>
 				
-					<g id="USsouthern-california-title">
+					<g id="southern-california-title">
 						<line fill="#0001FE" x1="283.36" y1="446.76" x2="294.36" y2="437.26"/>
 						<text id="southern" transform="matrix(1 0 0 1 238.5537 443.2559)"><tspan x="0" y="0" font-size="10">Southern</tspan><tspan id="california" x="-0.545" y="12" font-size="10">California</tspan></text>
 					</g>
 				
-					<g id="USsouth-eastern-california-title">
+					<g id="south-eastern-california-title">
 						<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="298.36" y1="485.26" x2="322.36" y2="471.26"/>
 						<text id="south-eastern" transform="matrix(1 0 0 1 278.4888 498.2559)"><tspan x="0" y="0" font-size="10">Southeastern</tspan><tspan id="california2" x="9.02" y="12" font-size="10">California</tspan></text>
 					</g>
 				
-					<text id="UShawaii-title" transform="matrix(1 0 0 1 179.2642 538.2559)" font-size="10">Hawaii</text>
-					<text id="USarizona-title" transform="matrix(1 0 0 1 407.9282 457.2559)" font-size="10">Arizona</text>
+					<text id="hawaii-title" transform="matrix(1 0 0 1 179.2642 538.2559)" font-size="10">Hawaii</text>
+					<text id="arizona-title" transform="matrix(1 0 0 1 407.9282 457.2559)" font-size="10">Arizona</text>
 				</g>
 			
-				<text id="pacific-union-title" class='u-title' transform="matrix(1 0 0 1 298.4688 368.3506)" >pacific union</text>
+				<text id="pacific-union-title" transform="matrix(1 0 0 1 298.4688 368.3506)" >pacific union</text>
 			</g>
 		</a>
 	</svg>
-    <div style='position:absolute; bottom: 8em; left: 5em;'><a href='OLD/directory2.php?id=ANN&amp;s=GU' style='color:black'>Guam-Micronesia Mission</a></div>
+    <div style='position:absolute; bottom: 8em; left: 5em;'><a href='directory2.php?id=ANN&s=GU' style='color:black'>Guam-Micronesia Mission</a></div>
 	</div>

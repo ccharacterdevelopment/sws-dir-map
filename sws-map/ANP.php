@@ -1,7 +1,5 @@
 <style>
-
-/* PACIFIC UNION STYLES */
-
+	
 	/* Region Titles */
 	.california .cal-titles,
 	.nev-ut-titles,
@@ -111,13 +109,12 @@
 	a:hover #hawaii-area .hi-details {
 		opacity: 1;
 	}
-
-</style>
-<div id='ANP' class='ANP country hideClass'>
+	
+</style> 
 	<div class="column1">
-		<svg xmlns="//www.w3.org/2000/svg" version="1.1" viewBox="50 0 438.408 430.897" preserveAspectRatio="xMidYMin slice">
+		<svg xmlns="//www.w3.org/2000/svg" version="1.1" viewBox="0 0 438.408 430.897" preserveAspectRatio="xMidYMin slice">
 		
-			<a xlink:href= "#" alt="California" title="California" class="cal-link"  onclick="showOne('CA','anp_confs');">
+			<a xlink:href= "#" alt="California" title="California" class="cal-link"  onclick="showOne('CA');">
 				<g class="california">
 					<polygon id="central-california-area" fill="#12A89D" points="260.515,169.084 262.052,168.165 264.836,162.487 
 						267.318,158.206 267.692,157.158 267.995,154.921 267.916,152.123 267.775,149.525 267.784,149.36 268.304,146.253 
@@ -197,7 +194,7 @@
 				</g>
 			</a>
 			
-			<a xlink:href= "#" class="nev-ut" onClick="showOne('ANPF','anp_confs');">
+			<a xlink:href= "#" class="nev-ut" onClick="showOne('NV');">
 				<polygon id="nevada" fill="#12A89D" stroke-miterlimit="10" points="361.388,39.15 361.337,39.41 360.238,45.01 356.738,62.51 352.927,83.03 351.038,91.89 
 					351.038,91.92 351.028,91.96 348.828,105.56 345.638,122.01 342.437,137.19 342.437,137.22 342.427,137.24 340.888,146.08 
 					340.828,146.44 340.658,147.44 340.607,147.7 340.578,147.92 338.107,164.5 337.607,165.601 336.507,168.101 334.607,168 
@@ -230,7 +227,7 @@
 				</g>
 			</a>
 				
-			<a xlink:href= "#" class="az-area" onClick="showOne('ANP4','anp_confs');">
+			<a xlink:href= "#" class="az-area" onClick="showOne('AZ');">
 				<polygon id="arizona-area" fill="#12A89D" stroke-miterlimit="10" points="427.107,162.4 427.087,162.58 422.808,193.4 415.808,246.299 
 					412.007,273.5 409.507,286 384.408,283.299 372.107,280.901 355.308,270.901 340.607,262.299 328.507,254.7 309.607,244 
 					309.107,243 309.408,241.5 311.048,240.11 311.058,240.11 311.208,240.09 315.007,239.59 315.627,239.5 316.007,239 317.507,237 
@@ -249,7 +246,7 @@
 				</g>
 			</a>
 				
-			<a xlink:href= "#" class="hi-area"  onclick="showOne('ANPB','anp_confs');" transform="translate(80,-60)" >
+			<a xlink:href= "#" class="hi-area"  onclick="showOne('HI');" transform="translate(80,-60)" >
 				<path id="hawaii-area" fill="#12A89D" d="M0,273.397l1.9-3.6l2.3-0.301l0.3,0.801l-2.1,3.1H0z M10.2,269.696l6.101,2.602
 					l2.1-0.301l1.6-3.9l-0.6-3.4l-4.2-0.5l-4,1.801L10.2,269.696z M40.9,279.696l3.7,5.5L47,284.897l1.101-0.5l1.5,1.299l3.7-0.199
 					l1-1.5l-2.9-1.801l-1.9-3.699l-2.1-3.6l-5.8,2.9L40.9,279.696z M61.101,288.596l1.3-1.9l4.7,1l0.6-0.5l6.101,0.602l-0.301,1.299
@@ -268,22 +265,3 @@
 		</svg>
 	
 	</div>
-    
-<div class='column2'>
-<?php
-
-$arr=sws_entity_personnel("ANP"); 
-
-foreach ($arr as $arrTmp) { echo sws_show_entity($arrTmp); }
-
-$tmp=sws_fromBig("ANP",$unionArr); 
-
-foreach ($tmp as $arr) { $myID=$arr[0]; //echo $myID."<br />";
-	$newArr=sws_entity_personnel($myID); 
-	foreach ($newArr as $arrTmp2) { echo sws_show_entity($arrTmp2,'anp_confs hideClass'); }
-}
-
-?></div>
-    
-    
-</div>

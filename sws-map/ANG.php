@@ -20,13 +20,13 @@
 	
 	/* Union Titles */
 	#mid-america-union-title {
-		/*text-shadow: 1px 1px 1px white;
+		/*text-shadow: 1px 1px 1px white;*/
 		fill: #000;
 		z-index: 999;
 		display: block;
 		text-transform: uppercase;
 		font-weight: 700;
-		text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);*/
+		text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 	}
 	
 	#dakota-area:hover #dakota-title,
@@ -128,12 +128,11 @@
 		stroke-opacity: 0.7;	
 	}
 
-</style>
-<div id='ANG' class='ANG country hideClass'>
+</style> 
 	<div class="column1">
-	<svg viewBox="-40 0 365.33 290.54" preserveAspectRatio="xMidYMin slice">
+	<svg viewBox="0 0 365.33 290.54" preserveAspectRatio="xMidYMin slice">
 		
-			<a xlink:href= "#" id="mid-america-conference" transform="translate(10 10) scale(0.9)" onclick="showOne('ANG4','ang_confs');">
+			<a xlink:href= "#" id="mid-america-conference" transform="translate(10 10) scale(0.75)" onclick="showOne('ANG4');">
 		
 				<g id="dakota-area2">
 					<polygon id="north-dakota2" fill="#662D91" points="236.06,73.22 180.1,71.45 124.03,67.7 124.5,57.47 129.43,4 153.61,5.85 
@@ -233,15 +232,15 @@
 
 			</a>
 		
-			<g id="mid-america-union" transform="scale(0.9)">
+			<g id="mid-america-union" transform="scale(0.75)">
 
 					<g id="dakota-area" transform="translate(1 0)">
-				<a xlink:href= "#" id="nd-link" onclick="showOne('ANG6','ang_confs');">
+				<a xlink:href= "#" id="nd-link" onclick="showOne('ND');">
 						<polygon id="north-dakota" fill="#FED20D" points="236.06,73.22 180.1,71.45 124.03,67.7 124.5,57.47 129.43,4 153.61,5.85 180.13,7.15 
 						198.73,7.75 226.63,8.34 228.48,13.17 227.81,16.87 227.8,27.3 229.429,32.91 231.41,36.04 231.91,45.7 233.71,59.3 
 						235.71,66.62"/>
 				</a>
-   				<a xlink:href= "#" id="sd-link" onclick="showOne('ANG6','ang_confs');">
+   				<a xlink:href= "#" id="sd-link" onclick="showOne('SD');">
 						<polygon id="south-dakota" transform="translate(0 -1)" fill="#FED20D" points="235.22,145.23 232.33,143.55 227.72,142.1 224.48,140.84 221.589,140.95 217.589,141.25 
 						214.32,142.08 213.58,141.48 209.32,138.51 206.19,136.03 195.291,136.85 171.5,135.55 153.49,134.25 133.9,133.15 
 						118.65,132.2 120.2,108.35 121.5,90.47 123.09,74.61 123.79,70 179.33,73.85 235.939,75.43 235.82,77.11 234.531,78.74 
@@ -252,7 +251,7 @@
 					</g>
 
 				
-				<a xlink:href= "#" id="min-link" onclick="showOne('ANGI','ang_confs');">
+				<a xlink:href= "#" id="min-link" onclick="showOne('MN');">
 					<polygon id="minnesota-area" fill="#FED20D" points="341.849,26.54 341.609,27.47 338.041,29.11 328.859,33.21 
 				324.06,35.21 320.769,37.93 318.201,41.72 316.031,45.41 314.3,46.18 309.871,51.1 308.65,51.29 304.689,54.3 301.621,57.8 
 				301.4,61.12 301.589,68.6 300.259,69.93 294.91,73.84 292.919,80.13 295.55,83.9 295.97,86.04 294.951,88.84 294.701,92.85 
@@ -269,7 +268,7 @@
 				</a>
 				
 					<g id="iowa-missouri-area" transform="translate(0 -2)">
-				<a xlink:href= "#" id="ia-link" onclick="showOne('ANGB','ang_confs');">
+				<a xlink:href= "#" id="ia-link" onclick="showOne('IA');">
 						<polygon id="iowa" fill="#FED20D" points="339.871,158.911 339.14,161.55 337.63,165.09 336.9,167.54 335,168.93 333.451,169.48 
 						327.55,171.09 326.74,173.75 325.849,176.331 326.621,178.13 328.201,179.709 328.201,182.72 326.109,184.23 325.541,185.959 
 						325.5,188.161 324.509,188.491 322.41,190.161 321.759,192.09 322.189,193.55 321.73,193.94 319.97,191.87 318.259,188.911 
@@ -279,7 +278,7 @@
 						300.179,128.25 319.669,127.56 323.109,132.5 323.359,132.89 321.669,135.41 322.23,140.06 324.91,144.25 328.21,146.23 
 						330.4,146.42 331.419,148.14 331.65,150.3 334.179,151.51 335.06,152.55 335.38,153.92 339.3,157.14"/>
 				</a>
-   				<a xlink:href= "#" id="mo-link" onclick="showOne('ANGB','ang_confs');">
+   				<a xlink:href= "#" id="mo-link" onclick="showOne('MO');">
 						<polygon id="missouri" transform="translate(0 -1)" fill="#FED20D" points="365.33,270.18 364.839,271.549 364.72,274.219 364.41,274.36 364.21,274.459 363.031,275.02 
 						362.38,275.59 362.24,275.7 359.82,277.799 359.55,277.799 359.56,278.02 358.64,278.821 358.339,281.331 357.91,284.94 
 						356.371,289.94 353.019,290.54 348.66,290.141 348.89,289.45 352.031,287.02 352.849,283.151 350.25,279.141 338.121,279.35 
@@ -296,14 +295,14 @@
 				
 					<g id="kansas-nebraska-area" transform="translate(1 -2)">
 
-				<a xlink:href= "#" id="ks-link" onclick="showOne('ANGF','ang_confs');">
+				<a xlink:href= "#" id="ks-link" onclick="showOne('KS');">
 						<polygon id="kansas" fill="#FED20D" points="251.371,204.25 207.87,203.35 167.09,202.45 146.64,201.491 147.74,180.209 114.37,177.51 
 						118.53,134.99 133.31,135.95 153.5,137.05 171.32,138.15 195.179,139.25 205.53,138.77 207.4,140.81 212.28,143.88 
 						213.69,145.04 218.32,143.53 222.11,143.05 224.52,142.87 226.089,144.09 231.259,145.79 233.929,147.22 234.359,148.6 
 						235.46,151.151 237.929,151.151 238.81,155.741 241.519,163.79 242.72,168.39 244.82,172.23 245.3,176.98 246.71,181.35 
 						247.201,187.76 247.951,187.7 249.75,193.3 249.08,193.64 250.41,196.2 250.509,198.34 253.08,202.28 254.74,204.25"/>
 				</a>
-				<a xlink:href= "#" id="ne-link" onclick="showOne('ANGF','ang_confs');">                				
+				<a xlink:href= "#" id="ne-link" onclick="showOne('NE');">                				
 						<polygon id="nebraska" transform="translate(0 -1)" fill="#FED20D" points="268.8,236.29 268.21,270.661 256.349,270.85 210.291,270.35 165.69,268.25 141.85,266.991 
 						145.85,203.78 166.92,204.55 207.44,205.95 251.55,206.45 256.339,206.45 259.519,209.63 262.269,209.821 262.8,210.47 
 						262.8,211.86 261.06,213.411 260.46,216.54 262.871,220.47 265.371,223.571 267.73,225.491"/>
@@ -315,15 +314,15 @@
 
 					<g id="rocky-mountain-area" transform="translate(1 -2)">
 
-				<a xlink:href= "#" id="wy-link" onclick="showOne('ANGM','ang_confs');">
+				<a xlink:href= "#" id="wy-link" onclick="showOne('WY');">
                 		<polygon id="wyoming" fill="#FED20D" transform="translate(1 0)"points="116.5,133.52 112.08,176.959 89.03,174.151 31.62,167.75 5.75,165.26 0,164.459 3.09,142.83 
 						8.39,112.42 12.19,88.09 13.5,77.66 32.64,80.54 60.95,84.64 77.17,86.75 109.29,90.05 119.05,90.79 117.9,108.16"/>
 				</a>
-				<a xlink:href= "#" id="co-link" onclick="showOne('ANGM','ang_confs');">                
+				<a xlink:href= "#" id="co-link" onclick="showOne('CO');">                
 						<polygon id="colorado" transform="translate(1 -1)" fill="#FED20D" points="144.75,182.48 143.4,203.05 139.05,267.219 123.22,266.45 91.23,263.25 
 						53.53,258.95 20.38,255.241 20.59,253.2 25.89,214.11 29.09,191.69 31.61,170.23 51.57,172.64 113.38,179.45"/>
 				</a>
-				<a xlink:href= "#" id="nm-link" onclick="showOne('ANGM','ang_confs');">                
+				<a xlink:href= "#" id="nm-link" onclick="showOne('NM');">                
 						<polygon id="new-mexico2" transform="translate(1 -1)" fill="#FED20D" points="41.21,260.26 39.13,261.719 37.33,274.36 19.21,271.95 21.22,257.891"/>
 					</a>
 						<text id="rocky-mountain-title" transform="matrix(1 0 0 1 60 169.6997)"><tspan x="0" y="0"  font-size="10">Rocky</tspan><tspan x="-7.93" y="16"  font-size="10">Mountain</tspan></text>
@@ -333,19 +332,4 @@
 			</g>
 		</svg>
 	</div>
-	<div class='column2'>
-<?php
-
-$arr=sws_entity_personnel("ANG"); 
-
-foreach ($arr as $arrTmp) { echo sws_show_entity($arrTmp); }
-
-$tmp=sws_fromBig("ANG",$unionArr); 
-
-foreach ($tmp as $arr) { $myID=$arr[0]; //echo $myID."<br />";
-	$newArr=sws_entity_personnel($myID); 
-	foreach ($newArr as $arrTmp2) { echo sws_show_entity($arrTmp2,'ang_confs hideClass'); }
-}
-
-?></div>
-</div>	
+	

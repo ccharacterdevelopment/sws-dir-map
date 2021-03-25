@@ -1,6 +1,6 @@
 <style>
 	
-	/* Region Titles */
+/* Region Titles */
 	#illinois-link #illinois-title,
 	#wisconsin-link #wisconsin-title,
 	#michigan-link #michigan-title,
@@ -82,14 +82,12 @@
 		fill: #459bc0;
 	}
 	
-
-</style>
-<div id='ANF' class='ANF country hideClass'>
+</style> 
 	<div class="column1">
-	<svg viewBox="-40 0 167.169 245.43" preserveAspectRatio="xMidYMin slice">
+	<svg viewBox="0 0 167.169 245.43" preserveAspectRatio="xMidYMin slice">
 		
 			<g id="lake-conference" transform="scale(0.55)">
-				<a xlink:href= "#" id="lake-conference" transform="translate(8 8)" onclick="showOne('ANFB','anf_confs');">
+				<a xlink:href= "#" id="lake-conference" transform="translate(8 8)" onclick="showOne('ANFB');">
 					<path id="lake-conference-area" fill="#EC008C" d="M167.168,110.09l-1.229,0.64l-0.12-0.03l-0.16-0.49l-2.04-1.11
 						l-1.92,3.83l-0.18,3.22l-0.771,0.21l-1.97,1.97l0.2,5.06l-1.73,1.471l-2.33,4.029l-0.22,1.62l-3.37,0.48l-10.319,1.5l-6.07,1.06
 						l-0.101-1.67l-8.079,1.101l-21.351,2.3l-2.38,0.109l2.03-1.899l0.31-2.86l2.351-5.09l1.89-11.06l-1.59-5.06l-2.94-6.58l-3.47-5.78
@@ -174,7 +172,7 @@
 			</g>
 
 			<g id="lake-union" transform="scale(0.55)">
-				<a xlink:href= "#" id="illinois-link" onclick="showOne('ANF4','anf_confs');">
+				<a xlink:href= "#" id="illinois-link" onclick="showOne('IL');">
 					<polygon id="illinois-area" fill="#1682B0" transform="translate(3 -2)" points="93.769,206.331 91.32,210.01 89.5,213.84 87.009,217.049 
 						86.689,222.23 86.689,225.719 86.109,227.581 85.839,228.379 85.371,228.889 84.48,229.86 85.46,232.54 85.71,233.081 
 						82.85,234.241 80.149,236.09 79.67,239.01 80.8,241.899 80.84,242.331 80.67,242.26 76.51,240.67 74.859,240.03 71.399,241.219 
@@ -190,7 +188,7 @@
 					<text id="illinois-title" transform="matrix(1 0 0 1 47.9106 182.9634)"  font-size="7">Illinois</text>
 				</a>
 				
-				<a xlink:href= "#" id="wisconsin-link" onclick="showOne('ANFI','anf_confs');">
+				<a xlink:href= "#" id="wisconsin-link" onclick="showOne('WI');">
 					<polygon id="wisconsin-area" fill="#1682B0" transform="translate(1 -1)" points="89.65,61.41 89.5,63.15 86.66,69.81 83.96,75.51 
 						83.409,78.86 82.739,81.76 83.569,83.12 83.409,85.34 81.56,87.68 80.97,89.79 82.149,96.69 80.79,99.06 79.93,102.1 
 						78.84,105.48 80.01,108.03 80.59,114 82.17,118.51 81.87,120.76 72.899,121.98 46.819,123.48 37.97,123.48 36.72,122.13 
@@ -205,7 +203,7 @@
 					<text id="wisconsin-title" transform="matrix(1 0 0 1 25.5742 80.9629)"  font-size="7">Wisconsin</text>
 				</a>
 				
-				<a xlink:href= "#" id="michigan-link" onclick="showOne('ANFF','anf_confs');">
+				<a xlink:href= "#" id="michigan-link" onclick="showOne('MI');">
 					<path id="michigan-area" fill="#1682B0" d="M60.97,0.22L55.5,4.13l-2.021,0.74l-1.09,1.27l0.6,0.35l1.761-0.75
 						l3.13-1.81L61.81,0L60.97,0.22z M141.621,38.88c-0.271-0.24-0.74-0.79-1.422-1.67l-2.879,0.32l0.77,0.39l0.551,2.3l2.33,0.14
 						l0.789-0.73C141.72,39.32,141.669,39.02,141.621,38.88z M166.8,101.59l-3.16-8.09l-2.291-9.04l-2.24-2.98l-2.068-1.44
@@ -229,7 +227,7 @@
 					<text id="michigan-title" transform="matrix(1 0 0 1 119.2847 107.6294)"  font-size="7">Michigan</text>
 				</a>
 				
-				<a xlink:href= "#" id="indiana-link" onclick="showOne('ANF8','anf_confs');">
+				<a xlink:href= "#" id="indiana-link" onclick="showOne('IN');">
 					<polygon id="indiana-area" fill="#1682B0" transform="translate(2 -2)" points="139.16,197.98 139.16,198.04 138.14,198.69 138.109,198.709 137.121,199.35 
 						137.08,199.37 135.699,200 133.8,200.87 133.791,200.87 133.71,200.91 130.15,201.57 130.06,201.59 129.47,206.49 
 						127.679,207.969 127.669,207.98 125.099,209.82 122.99,212.79 122.949,212.84 121.96,214.24 122.269,216.73 121.929,217.581 
@@ -250,19 +248,3 @@
 		</svg>
 	
 	</div>
-	<div class='column2'>
-<?php
-
-$arr=sws_entity_personnel("ANF"); 
-
-foreach ($arr as $arrTmp) { echo sws_show_entity($arrTmp); }
-
-$tmp=sws_fromBig("ANF",$unionArr); 
-
-foreach ($tmp as $arr) { $myID=$arr[0]; //echo $myID."<br />";
-	$newArr=sws_entity_personnel($myID); 
-	foreach ($newArr as $arrTmp2) { echo sws_show_entity($arrTmp2,'anf_confs hideClass'); }
-}
-
-?></div>
-</div>

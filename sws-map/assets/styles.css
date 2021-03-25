@@ -34,17 +34,4 @@ a:hover, a:active {
 	*/
 }
 
-.hidden {
-	display: none;
-}
-
-.u-title {
-		fill: #000;
-		z-index: 999;
-		display: block;
-		text-transform: uppercase;
-		font-weight: 700;
-		text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
-}
-
 </style>

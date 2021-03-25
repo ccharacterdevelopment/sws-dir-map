@@ -20,7 +20,7 @@ function min_validate_page($roles="administrator|office") {
 		$test="Cowabunga"; 
 	} else {
 		if ((!isset($_SESSION['sew']['role'])) || (strpos($roles,$_SESSION['sew']['role'])===false)) { // redirect to login page
-	header("Location: https://min-db1.nadadventist.org/dbi/blank.html");
+			header("Location: https://min-db1.nadadventist.org/dbi/blank.html");
 		}
 	}
 }

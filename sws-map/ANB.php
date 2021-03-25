@@ -1,4 +1,9 @@
 <style>
+	
+	.hidden {
+		display: none;
+	}
+	
 	#new-jersey-title,
 	#chesapeake-title,
 	#pennsylvania-title,
@@ -168,9 +173,7 @@
 	#allegheny-east-text {
 		opacity: 0;
 	}
-
-</style>
-<div id='ANB' class='ANB country hideClass'>
+</style> 
 	<div class="column1">
 	<svg viewBox="0 0 237.086 175" preserveAspectRatio="xMidYMin slice">
 		
@@ -178,7 +181,7 @@
 		
 				<g id="allegheny-west" >
 		
-					<a xlink:href= "#" id="allegheny-west-conference" transform="translate(-15 15)" onclick="showOne('ANB6','anb_confs');">
+					<a xlink:href= "#" id="allegheny-west-conference" transform="translate(-15 15)" onclick="showOne('ANB6');">
 						<path id="west-virginia2" fill="#FBB040" d="M109.224,64.57l2.85,1.6l-0.13,3.52l-0.45,1.92l-1.55,2.601
 							l-0.58,1.52l-3.14,2.431l-0.45,2.029l-3.47,0.311l-0.36,3.64l-0.97,4.9h-1.78l-0.96-0.59l-1.75-2.961l-2.89,0.32l-0.34,4.94
 							l-2.04,6.42l-5.17,11.17l0.88,1.439l-0.16,2.15l-1.59,1.45l-1.46-0.29l-3.14,2.35l-2.91-1.12l-1.93,5.021
@@ -247,7 +250,7 @@
 				</g>
 			
 				<g id="allegheny-east" transform="translate(5 -5)">
-					<a xlink:href= "#" id="allegheny-east-conference" onclick="showOne('ANB4','anb_confs');">
+					<a xlink:href= "#" id="allegheny-east-conference" onclick="showOne('ANB4');">
 						<polygon id="delaware-area2" fill="#FBB040" points="171.129,74.011 165.9,75.04 161.57,75.22 160.122,69.531 
 							158.019,59.831 155.7,54.041 154.359,50.281 155.48,49.161 157.32,47.761 157.64,47.781 157.64,48.181 157.079,50.141 
 							156.268,52.471 158.668,56.581 160.947,57.571 162.687,60.861 164.568,65.781 168.738,68.561 169.338,68.261"/>
@@ -383,8 +386,8 @@
 						l0.049-0.04l0.73,0.02l0.281-0.52l0.029-0.271l1.29-0.359l1,0.77l2.23,1.13L122.434,65.01z"/>
 				</g>
 			
-			<g id="columbia-union" class="conference" transform="translate(8 17) scale(1.05)">
-				<a xlink:href= "#" id="oh-link" onclick="showOne('ANBF','anb_confs');">	
+			<g id="columbia-union" class="conference" transform="translate(10 20)">
+				<a xlink:href= "#" id="oh-link" onclick="showOne('OH');">	
 					<polygon id="ohio-area" fill="#92278F" transform="translate(1 1)" points="69.729,44.49 
 						68.46,46.39 69.64,49.72 69.64,54.21 69.14,59.26 68.949,64.47 66.779,68.14 63.79,71.42 61.84,72.781 59.62,72.25 57.97,74.17 
 						55.689,77.531 54.54,79.031 54.54,82 55.189,82.649 55.42,84.031 54.819,83.13 52.689,81.86 50.62,83.79 49.56,87.899 49.35,92.75 
@@ -395,7 +398,7 @@
 					<text id="ohio-title" transform="matrix(1 0 0 1 19.5874 52.7224)"  font-size="6">Ohio</text>			
 				</a>
 				
-				<a xlink:href= "#" id="nj-link" onclick="showOne('ANBB','anb_confs');">	
+				<a xlink:href= "#" id="nj-link" onclick="showOne('NJ');">	
 					<polygon id="new-jersey-area" transform="translate(-1 1)" fill="#92278F" points="180.9,40.81 
 						179.872,45.95 176.838,52.32 174.081,56.41 173.279,61.16 171.741,62.93 171.57,61.42 172.379,60.41 172.06,58.031 167.609,57.36 
 						163.008,55.16 160,52.43 159.081,50.6 159.629,48.21 159.769,47.36 163.14,45.44 164.709,42.62 166.258,40.38 169.64,37.11 
@@ -409,7 +412,7 @@
 					</g>
 				</a>
 				
-				<a xlink:href= "#" id="pa-link" onclick="showOne('ANBI','anb_confs');">	
+				<a xlink:href= "#" id="pa-link" onclick="showOne('PA');">	
 					<polygon id="pennsylvania-area" transform="translate(0 1)" fill="#92278F" points="166.543,36.789 166.543,36.869 
 						163.573,39.749 161.833,42.219 160.493,44.639 158.503,45.159 157.273,45.809 155.163,46.809 152.973,48.469 152.803,48.579 
 						129.743,52.949 120.843,54.76 116.533,55.639 91.903,60.65 79.963,62.15 77.393,62.619 73.923,43.999 73.723,43.219 73.533,42.49 
@@ -424,13 +427,13 @@
                 
                     
 		
-                    <a xlink:href= "#" id="de-link" onclick="showOne('ANB8','anb_confs');">
+                    <a xlink:href= "#" id="de-link" onclick="showOne('DE');">
                         <path id="delaware-state" fill="#b975b7" d="M158.02,59.831l2.104,9.7l1.447,5.688l4.33-0.18l5.229-1.029l-1.791-5.75l-0.601,0.302
                             l-4.17-2.78l-1.881-4.92l-1.739-3.29l-2.279-0.99l-2.399-4.108l0.812-2.33l0.562-1.96v-0.4l-0.32-0.021l-1.84,1.4l-1.121,1.12
                             l1.342,3.76L158.02,59.831z"/>               
                     </a>
 
-                    <a xlink:href= "#"  id="wv-link" onclick="showOne('ANB9','anb_confs');">
+                    <a xlink:href= "#"  id="wv-link" onclick="showOne('WV');">
                         <path id="west-virginia-state" fill="#b975b7" d="M109.224,64.57l2.85,1.6l-0.13,3.521l-0.45,1.92l-1.55,2.601l-0.58,1.521
                             l-3.14,2.431l-0.45,2.029l-3.47,0.311l-0.36,3.641l-0.97,4.899h-1.78l-0.96-0.59l-1.75-2.961l-2.89,0.32l-0.34,4.939l-2.04,6.42
                             l-5.17,11.17l0.88,1.439l-0.16,2.15l-1.59,1.449l-1.46-0.29l-3.14,2.351l-2.91-1.12l-1.93,5.021c-0.93,0.21-3.25,0.721-3.99,0.91
@@ -454,7 +457,7 @@
 							l5.28-0.92l10.14-0.939l0.95,4.211l1.29,8.13l4.6-3.45l2.29-3.03l2.44-0.59l1.65-1.65l1.52-2.17l0.81,0.41l2.41-0.25
 							L109.224,64.57z"/>
                     </a>
-                    <a xlink:href= "#" id="md-link" onclick="showOne('ANB8','anb_confs');">						
+                    <a xlink:href= "#" id="md-link" onclick="showOne('MD');">						
                         <path id="maryland-state" fill="#D3D3D3" d="M116.293,57.96l-0.009,0.021l-0.591,0.16
                             l-1.64,0.46l-1.17,0.89h-0.009l-2.291,0.42l0.47,0.8l-0.23,0.38v0.011l-1.329,1.067l-2.471,0.25l-1.69-0.777l-2.12,3.067l-1.299,1.3
                             l-2.431,0.61l-3.819,4.33l-0.741-4.22l-0.929-4.263l21.739-4.397L116.293,57.96z M157.068,84.77l-0.319,0.061l0.791,1.88
@@ -490,7 +493,7 @@
 							112.883,59.491 112.874,59.491 110.583,59.911 111.053,60.711 110.823,61.091 110.823,61.1 109.494,62.169 107.023,62.419 
 							105.333,61.64 103.213,64.709 101.914,66.009 99.483,66.619 95.664,70.949 94.923,66.729 93.994,62.468 115.733,58.069"/>     
 					</a>	
-                    <a xlink:href= "#" id="va-link" onclick="showOne('ANBM','anb_confs');">
+                    <a xlink:href= "#" id="va-link" onclick="showOne('VA');">
                         <path id="virginia-state" fill="#b975b7" transform="translate(-1 -1)" d="M169.2,87.66l0.409-1.649
                             l-4.639,1.779l0.069,1.46l-0.75,3.511l-1.561,4.09l-0.38,5.149l1.101,3.39l1.2-1.039l1.67-4.641l-0.479-3.3l0.42-4.899L169.2,87.66
                             z M76.84,120.64h0.01l0.11-0.279L76.84,120.64z M123.758,70.62l0.052,0.02v-0.09C123.792,70.58,123.779,70.601,123.758,70.62z
@@ -532,19 +535,4 @@
 	</svg>
 	
 	</div>
-	<div class='column2'>
-<?php
-
-$arr=sws_entity_personnel("ANB"); 
-
-foreach ($arr as $arrTmp) { echo sws_show_entity($arrTmp); }
-
-$tmp=sws_fromBig("ANB",$unionArr); 
-
-foreach ($tmp as $arr) { $myID=$arr[0]; //echo $myID."<br />";
-	$newArr=sws_entity_personnel($myID); 
-	foreach ($newArr as $arrTmp2) { echo sws_show_entity($arrTmp2,'anb_confs hideClass'); }
-}
-
-?></div>
-</div>
+	
