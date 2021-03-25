@@ -2,6 +2,9 @@
 //session_start();
 
 echo getcwd();
+
+die();
+
 // require_once("../inc/dir/assets/Db.php");
 //require_once plugin_dir_path(__FILE__).'inc/dir/assets/Db.php';
 //require_once("../../functions/Db.php");
