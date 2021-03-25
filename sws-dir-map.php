@@ -176,7 +176,6 @@ function sws_interactive_map_func($atts) {
 	
 	ob_start(); 
 	
-	echo plugin_dir_path(__FILE__);
 	include(plugin_dir_path(__FILE__)."/sws-map/directory.php");
 
 	return ob_get_clean();

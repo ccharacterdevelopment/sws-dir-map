@@ -1,14 +1,11 @@
 <?php
 //session_start();
 
-echo "TEST THE SHORTCODE!";
 
-echo getcwd();
-die();
-
-require_once("../../functions/Db.php");
-require_once("../../functions/functions_sew.php");
-require_once("../../dbi/min_functions.php");
+require_once plugin_dir_path(__FILE__).'inc/dir/assets/Db.php';
+//require_once("../../functions/Db.php");
+//require_once("../../functions/functions_sew.php");
+//require_once("../../dbi/min_functions.php");
 
 
 $_SESSION['sew']['which']="cm";
