@@ -1,11 +1,15 @@
 <?php
 session_start();
 
+
+echo $wpdb->prefix;
+die();
+
+
 require_once("../../functions/Db.php");
 require_once("../../functions/functions_sew.php");
 require_once("../../dbi/min_functions.php");
 
-echo $wpdb->prefix;
 
 $_SESSION['sew']['which']="cm";
 $db = new Db();
