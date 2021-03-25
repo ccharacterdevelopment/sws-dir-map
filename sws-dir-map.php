@@ -147,5 +147,46 @@ iframe {
 add_shortcode('sws_dir_photo', 'ejj_photo_dir');
 
 
+
+// SHORTCODE FOR pics directories  
+function sws_interactive_map_func($atts) {
+	
+	$vars=array();
+	
+	$vars['themedir']=get_template_directory_uri();
+	$vars['themedir2']=get_stylesheet_directory_uri();
+
+	$a=shortcode_atts(array(
+	  'group' => 'conf_asam',
+	  'group2' => 'X',
+	  'all_conf'=> 'Y',
+	  'group_by_conf'=>'Y',
+	  'min_title' => 'ASAM',
+	  'show_prefixes' => "Y"
+	), $atts);
+	
+	foreach ($a as $key=>$value) { 
+		$vars[$key]=$value;
+	} // NOTE TO SELF: SHORTCODE_ATTS DOESN'T LIKE UPPERCASE!!!!
+	
+	//error_log(print_r($vars,true),0);
+	// construct the string being passed to the initial page
+	$getVar=urlencode(base64_encode(json_encode($vars)));
+	//error_log($getVar);
+	
+	ob_start(); 
+
+	include("/sws-map/directory.php");
+
+	return ob_get_clean();
+}
+
+// register shortcode
+add_shortcode('sws_dir_interactive_map', 'sws_interactive_map_func');
+
+
+
+
+
 ?>
 

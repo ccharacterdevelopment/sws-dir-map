@@ -1,10 +1,10 @@
 <?php
-session_start();
+//session_start();
 
-global $wpdb;
-echo $wpdb->prefix;
+echo "TEST THE SHORTCODE!";
+
+echo getcwd();
 die();
-
 
 require_once("../../functions/Db.php");
 require_once("../../functions/functions_sew.php");
@@ -14,12 +14,6 @@ require_once("../../dbi/min_functions.php");
 $_SESSION['sew']['which']="cm";
 $db = new Db();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Interactive Directory</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	var count = 0;
 	var depth = 8;
@@ -31,28 +25,15 @@ $db = new Db();
 	});
 	
 </script>
-<!-- Latest compiled and minified CSS -->
+<!--
+PUT THESE BACK LATER
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 <link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 <link href='assets/dir_styles.css' rel='stylesheet' type='text/css'>
-
-   <script src="//min-db1.nadadventist.org/javascript/sew_spamspan.js"></script>
-</head>
-
-<body style="font-family: 'Questrial', sans-serif;">
+<script src="//min-db1.nadadventist.org/javascript/sew_spamspan.js"></script>
+-->
 <script type="text/javascript">
 function showOne(id) {
     $('.details').not(id).addClass('hideClass');
@@ -149,6 +130,3 @@ Canada
 <?php include ("AN6.php"); ?>
 <?php include ("USA.php"); ?>	
 	</div>
-</body>
-
-</html>
