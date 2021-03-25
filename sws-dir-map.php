@@ -145,8 +145,7 @@ iframe {
 
 // register shortcode
 add_shortcode('sws_dir_photo', 'ejj_photo_dir');
-// register shortcode
-add_shortcode('ejj_search_listing', 'ejj_photo_dir');
+
 
 ?>
 
