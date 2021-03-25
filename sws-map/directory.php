@@ -1,8 +1,9 @@
 <?php
 //session_start();
 
-
-require_once plugin_dir_path().'inc/dir/assets/Db.php';
+echo getcwd();
+require_once("../inc/dir/assets/Db.php");
+//require_once plugin_dir_path(__FILE__).'inc/dir/assets/Db.php';
 //require_once("../../functions/Db.php");
 //require_once("../../functions/functions_sew.php");
 //require_once("../../dbi/min_functions.php");
