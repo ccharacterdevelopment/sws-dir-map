@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+global $wpdb;
 echo $wpdb->prefix;
 die();
 
