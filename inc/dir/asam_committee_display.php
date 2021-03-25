@@ -4,7 +4,7 @@ include "../custom/functions/Db.php";
 include "../custom/functions/functions_sew.php";
 
 
-$db = new Db();
+$db = new DB_map();
 
 include "assets/style_links.php";
 ?>

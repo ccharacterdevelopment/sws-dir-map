@@ -15,7 +15,7 @@ die();
 
 
 $_SESSION['sew']['which']="cm";
-$db = new Db();
+$db = new DB_map();
 ?>
 <script>
 	var count = 0;

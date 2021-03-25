@@ -4,7 +4,7 @@
 
 function sws_get_group_id($group_name="staff",$which="group_id") {
 
-	$db = new Db();
+	$db = new DB_map();
 	$myVal=$db->query("select `id` as mytemp from dbi_group_names where `descr`='$group_name'")->fetch_object()->mytemp; 
 	if (!$myVal) { $myVal=5; }
 	$_SESSION['sws'][$which]=$myVal;
@@ -200,7 +200,7 @@ function sws_list_unions($title="Men's Ministries") {
 	<div style='margin-left:75px; width:100%'>
 		<ul class='dirlist_unions'>";	
 
-	$db = new Db();
+	$db = new DB_map();
 	$union_array = $db -> select("select * from COMMON_temp_union order by full_text"); 
 	
 	foreach ($union_array as $key=>$value) {
@@ -216,7 +216,7 @@ function sws_list_unions($title="Men's Ministries") {
 
 function sew_list_dir_by_union($union,$min='fam') {
 
-	$db = new Db();
+	$db = new DB_map();
 	$union= $db->query("select full_text from COMMON_temp_union where id='$union' ")->fetch_object()->full_text;  
 
 	switch ($min) {
@@ -292,7 +292,7 @@ function sew_dir_names($row, $ministry="Family", $prefix="Y", $index="X") {
 	$name="";
 	if (is_null($index)) { return $name; } else {
 		if (!($index=="X")) { 
-			$db = new Db(); 
+			$db = new DB_map(); 
 			$query = $db->select("select * from master where `index`='$index'");
 			foreach ($query as $key=>$value) { 	$row=$query[$key];	}
 		}
@@ -326,7 +326,7 @@ function sew_dir_titles($row, $ministry="Family", $index="X") {
 
 	if (is_null($index)) { return $title;} else {
 		if (!($index=="X")) { 
-			$db = new Db(); 
+			$db = new DB_map(); 
 			$query = $db->select("select * from master where `index`='$index'");
 			foreach ($query as $key=>$value) { 	$row=$query[$key];	}
 		}
@@ -376,7 +376,7 @@ function sew_state_provs($name="state_prov", $type="select",$us="Y", $can="Y",$t
 	if (!($terr=="Y")) {$cond.=" and not `terr`='Y' ";}
 	if (strlen($cond)>0) {$cond=" where 1=1 ".$cond;}
 
-	$db=new Db();
+	$db=new DB_map();
 	// get array
 	$query = $db -> select("select * from COMMON_states_provinces ".$cond." order by `name`"); 
 
@@ -430,7 +430,7 @@ function sew_clean_post ($arr, $set="N",$tags="N", $date_transform="N") {
 
 
 function sew_rowsource_array($sql) {
-	$db = new Db();
+	$db = new DB_map();
 	$query = $db -> select($sql); 
 
 	$fields=(count($query,1)/count($query,0))-1; //echo $fields;
@@ -460,7 +460,7 @@ function sew_rowsource_array($sql) {
 }
 
 function sew_retrieve_itemname ($fieldname, $tablename, $id, $idcol='id', $st_id=0) {
-	$db = new Db(); $mytext="";
+	$db = new DB_map(); $mytext="";
 	$sql="Select `$fieldname` as mytemp from $tablename where `$idcol`='$id'";
 	$result=$db->query($sql);
 	foreach ($result as $row) {	
@@ -576,7 +576,7 @@ function sew_generate_combobox($var_title = NULL, $sql, $width=200, $default="",
 	// echo "<!-- $sql -->"; 
 
 
-	$db = new Db();	
+	$db = new DB_map();	
 	if (!($tab_order=="")) { $tab_txt=" tabindex=".$tab_order;} else {$tab_txt="";}
 echo "<div  style='margin-left: ".$marLeft."px; margin-top: ".$marTop."px;' $tab_txt>
   <select id=\"CB_$var_title\" name=\"CB_$var_title\" class='combobox' style='width: ".$width."px' $tab_txt >

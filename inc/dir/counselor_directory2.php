@@ -22,7 +22,7 @@ if (strlen($specialties)>0) {$specialties=" AND (".$specialties.")";}
 if ((isset($vars['new_sort']))) {$sort=$vars['new_sort'];} else {$sort="`lastname`, `firstname`";}
 
 
-$db = new Db();
+$db = new DB_map();
 
 /*if (isset($_POST['min'])) {$min=$_POST['min'];} else {$min="fam";}
 

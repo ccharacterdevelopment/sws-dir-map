@@ -7,7 +7,7 @@ require_once("../../dbi/min_functions.php");
 
 if (!(isset($_SESSION['sew']['which']))) { $_SESSION['sew']['which']="cm"; $my_min="cm";} else { 
 	$my_min=$_SESSION['sew']['which'];}
-$db = new Db();
+$db = new DB_map();
 
 // VALIDATE GET VAR
 if (isset($_GET['id'])) {

@@ -34,7 +34,7 @@ function ejj_list_unions($title="Men's Ministries") {
 	<div style='margin-left:75px; width:100%'>
 		<ul class='dirlist_unions'>";	
 
-	$db = new Db();
+	$db = new DB_map();
 	$union_array = $db -> select("select * from COMMON_temp_union order by full_text"); 
 	
 	foreach ($union_array as $key=>$value) {
@@ -57,7 +57,7 @@ function ejj_list_dir_by_union($unionCode) {
 		$groupCond="(groups like '%:$group_id:%' OR groups like '%:".$_SESSION['sws']['group_id2'].":%')"; 
 	} else { $groupCond="groups like '%:$group_id:%'"; }
 	
-	$db = new Db();
+	$db = new DB_map();
 	if (!($unionCode=="ANNG")) {
 		$union= $db->query("select full_text from COMMON_temp_union where id='$unionCode' ")->fetch_object()->full_text;
 	} else {
@@ -140,7 +140,7 @@ function ejj_list_dir_by_union($unionCode) {
 //End Eric's code
 
 function fm_counselor_topics() {
-	$db = new Db(); $retArr=array();
+	$db = new DB_map(); $retArr=array();
 	$sql="SELECT field_options FROM dbi_custom_fields WHERE field_name='Counseling Specialties'";
 	$query= $db ->select($sql); //print_r($query);
 
@@ -181,7 +181,7 @@ function min_validate_page($roles="administrator|office") {
 }
 
 function fm_insert_record($vars, $tableName) {
-	$db = new Db();
+	$db = new DB_map();
 	$sql=""; $fields=""; $vals="";
 	$k=0;
 	$excludeArray=array("submit","submit2", "button", "button2", "filter", "lookup");
@@ -207,7 +207,7 @@ function fm_insert_record($vars, $tableName) {
 
 function fm_remove_record($index, $tableName, $target=1){
 
-	$db = new Db();
+	$db = new DB_map();
 	// does the removed version exist?
 	$rows = $db -> select("SELECT * FROM information_schema.tables WHERE table_schema = 'fm' AND table_name = '".$tableName."_REMOVED' LIMIT 1;");
 	$numrows=count($rows);
@@ -235,7 +235,7 @@ function fm_remove_record($index, $tableName, $target=1){
 
 function fm_update_record ($vars, $POST, $tableName, $lookup) {
 
-	$db = new Db();
+	$db = new DB_map();
 	$sql=""; $update=""; $vals="";
 	$k=0; 
 	$excludeArray=array("submit","submit2", "button", "delete", "button2", "filter", "index", "lookup");
@@ -281,7 +281,7 @@ function fm_field_array() {
 
 
 function fm_get_filter_val($id){ 
-	$db = new Db();
+	$db = new DB_map();
 	$cond = $db->query("SELECT `value` FROM `misc_OLD` where `id`=$id ")->fetch_object()->value;  
 	return $cond;
 }
@@ -289,7 +289,7 @@ function fm_get_filter_val($id){
 /*function fm_dumpquery2($sql, $dir="N", $min="Family") {
 	echo $sql;
 	
-	$db = new Db();
+	$db = new DB_map();
 	$count_dir=0; $min1=""; $min2=""; $min3="";
 
 	if (!(strpos($sql,"dir_fam='-1'")===false)) { // query contains FM dir
@@ -379,7 +379,7 @@ function sws_list_dir_by_union($unionCode) {
 		$groupCond="(groups like '%:$group_id:%' OR groups like '%:".$_SESSION['sws']['group_id2'].":%')"; 
 	} else { $groupCond="groups like '%:$group_id:%'"; }
 
-	$db = new Db();
+	$db = new DB_map();
 	if (!($unionCode=="ANNG")) {
 		$union= $db->query("select full_text from COMMON_temp_union where id='$unionCode' ")->fetch_object()->full_text;
 	} else {
@@ -506,7 +506,7 @@ function sws_dir_listing($row) {
 
 function sew_get_custom($record_id,$field_id,$min="fam") {
 
-		$db = new Db();
+		$db = new DB_map();
 		
 		if ($min=="fam") {$min="fm";}
 		$myVal=false;

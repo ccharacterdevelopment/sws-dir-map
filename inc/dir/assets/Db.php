@@ -1,6 +1,6 @@
 <?php 
 
-class Db {
+class DB_map {
 
 	protected static $connection;
 
