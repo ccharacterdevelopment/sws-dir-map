@@ -3,7 +3,7 @@
 
 echo getcwd();
 
-require_once plugin_dir_path('sws-dir-map.php').'inc/dir/assets/Db.php';
+require_once plugin_dir_path('sws-dir-map').'inc/dir/assets/Db.php';
 
 die();
 
