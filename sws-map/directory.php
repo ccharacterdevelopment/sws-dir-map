@@ -5,8 +5,6 @@ echo getcwd();
 
 require_once plugin_dir_path( __DIR__).'inc/dir/assets/Db.php';
 
-die();
-
 
 //require_once plugin_dir_path(__FILE__).'inc/dir/assets/Db.php';
 //require_once("../../functions/Db.php");
@@ -70,7 +68,7 @@ function showOne(id) {
 
 <?php // LOOP UNIONS
 
-$sql = "select * from common.temp_union order by full_text";  
+$sql = "select * from COMMON_temp_union order by full_text";  
 $result=$db->select($sql);
 $numrows=count($result);
 foreach ($result as $key=>$value) {
@@ -83,7 +81,7 @@ foreach ($result as $key=>$value) {
 	// LOOP CONFERENCES
 
 
-$sql2 = "select * from common.temp_conf where id like '".$code."%' order by full_text";  
+$sql2 = "select * from COMMON_temp_conf where id like '".$code."%' order by full_text";  
 $result2=$db->select($sql2);
 $numrows2=count($result2);
 foreach ($result2 as $key2=>$value2) {
@@ -105,7 +103,7 @@ foreach ($result2 as $key2=>$value2) {
         <ul class="dropdown-menu">   
       <?php // LOOP UNIONS
 
-$sql = "select a.name, b.state_abbr, c.id  from common.states_provinces a, common.state_conf b, common.temp_conf c where a.abbr=b.state_abbr and b.state_conf=c.full_text group by a.name order by a.name";  
+$sql = "select a.name, b.state_abbr, c.id  from COMMON_states_provinces a, COMMON_state_conf b, COMMON_temp_conf c where a.abbr=b.state_abbr and b.state_conf=c.full_text group by a.name order by a.name";  
 $result=$db->select($sql);
 $numrows=count($result);
 foreach ($result as $key=>$value) {
