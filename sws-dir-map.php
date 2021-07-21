@@ -175,8 +175,7 @@ function sws_interactive_map_func($atts) {
 	//error_log($getVar);
 	
 	ob_start(); 
-		echo "Map Shortcode";
-		//include(plugin_dir_path(__FILE__)."/sws-map/directory.php");
+		include(plugin_dir_path(__FILE__)."/sws-map/directory.php");
 
 	return ob_get_clean();
 }
