@@ -174,11 +174,11 @@ function sws_interactive_map_func($atts) {
 	//$getVar=urlencode(base64_encode(json_encode($vars)));
 	//error_log($getVar);
 	
-	//ob_start(); 
+	ob_start(); 
 		echo "Map Shortcode";
 		//include(plugin_dir_path(__FILE__)."/sws-map/directory.php");
 
-	//return ob_get_clean();
+	return ob_get_clean();
 }
 
 // register shortcode
